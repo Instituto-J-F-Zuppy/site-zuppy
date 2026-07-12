@@ -1,0 +1,792 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap');
+
+:root {
+    --cor-branco: #ffffff;
+    --cor-primaria: #FFFA86;
+    --cor-textos: #000000;
+    --cor-fundo: #FFFDF3;
+    --cor-fundo2: #FCFAEE;
+    --cor-cinza: #b8b8b8;
+    --cor-preto-2: #1F1F1F;
+    --cor-verde-sucesso: #00BFA5;
+    --cor-roxo-destaque1: #7C4DFF;
+    --cor-azul-informativo1: #40C4FF;
+    --cor-vermelho-erro1: #FF5252;
+    --cor-primaria2: #FFD600;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 500;
+    background-color: var(--cor-fundo);
+}
+
+header {
+    width: 100%;
+    background-color: var(--cor-primaria);
+    padding: 28px 28px 24px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-weight: 400;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 180px 1fr 180px;
+    align-items: center;
+    gap: 35px;
+    margin-bottom: 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#logo {
+    width: 140px;
+    height: auto;
+    display: block;
+}
+
+.search-box {
+    height: 40px;
+    width: 100%;
+    max-width: 800px;
+    justify-self: center;
+    background-color: var(--cor-branco);
+    border: 2px solid var(--cor-cinza);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    gap: 15px;
+}
+
+#lupa_icon {
+    height: 17.5px;
+    width: 17.5px;
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    color: #333333;
+}
+
+.search-box input::placeholder {
+    color: var(--cor-cinza);
+}
+
+.login {
+    font-size: 13px;
+    color: var(--cor-textos);
+    margin-left: 0;
+}
+
+.header2 {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.cep {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: #111111;
+    white-space: nowrap;
+}
+
+#loc_icon {
+    width: 16.51px;
+    height: 20.17px;
+    margin-left: 5px;
+}
+
+.nav-menu {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 27px;
+}
+
+.login a, .nav-menu a {
+    color: var(--cor-textos);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: 0.2s ease;
+}
+
+.login a:hover, .nav-menu a:hover {
+    font-weight: bold;
+    transform: translateY(-1px);
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
+    justify-self: end;
+    margin-left: 0;
+}
+
+.login a {
+    color: var(--cor-textos);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+#botao-entrar {
+    background-color: var(--cor-primaria);
+    color: var(--cor-textos);
+    border: 2px solid #000000;
+    border-radius: 25px;
+    padding: 9px 24px;      
+    font-size: 15px;         
+    font-family: 'Nunito', Arial, sans-serif;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.2s ease;
+    height: 40px;
+}
+
+#botao-entrar:hover {
+    transform: translateY(-1px);
+    background-color: var(--cor-primaria);
+}
+
+.botao-icones {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+}
+
+.botao-icones img {
+    height: 35px;
+    width: 35px;
+}
+main {
+    padding: 34px 36px;
+    overflow-x: hidden;
+}
+
+.banners {
+    --altura-banners: 300px;
+    --largura-banner-principal: 700px;
+    --largura-card-carrossel: 180px;
+    --espaco-carrossel: 18px;
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: 700px minmax(0, 1fr);
+    align-items: center;
+    gap: 34px;
+}
+
+.promocao1 {
+    width: 700px;
+    height: 450px;
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.promocao1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carrossel-area {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.carrossel-janela {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carrossel-track {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    height: 100%;
+    transition: transform 0.45s ease;
+}
+
+.card-banner {
+    flex: 0 0 180px;
+    height: 100%;
+    overflow: hidden;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.seta-carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 54px;
+    height: 54px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: 0.2s ease;
+}
+
+.seta-carrossel img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
+}
+
+.seta-carrossel:hover {
+    transform: translateY(-50%) scale(1.08);
+}
+
+.seta-esquerda {
+    left: 10px;
+}
+
+.seta-direita {
+    right: 10px;
+}
+
+.beneficios {
+    background-color: var(--cor-fundo2);
+    margin-top: 5px;
+    margin-bottom: -15px;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.beneficios img {
+    width: 95%;
+}
+
+.secao-produtos {
+    width: 100%;
+    margin-top: 45px;
+}
+
+.titulo-produtos h2 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--cor-preto-2);
+    margin-bottom: 18px;
+}
+
+.produtos-carrossel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.produtos-janela {
+    width: 100%;
+    overflow: hidden;
+    padding: 4px 0;
+}
+
+.produtos-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.4s ease;
+}
+
+.produto-card {
+    flex: 0 0 260px;
+    min-height: 390px;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 16px;
+    padding: 18px 18px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s ease;
+}
+
+.produto-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.favorito-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    border: none;
+    background: transparent;
+    color: #b5b5b5;
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.favorito-btn:hover {
+    color: var(--cor-vermelho-erro1);
+    transform: scale(1.1);
+}
+
+.produto-img-area {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.produto-img-area img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.produto-tag {
+    width: fit-content;
+    background-color: var(--cor-roxo-destaque1);
+    color: var(--cor-branco);
+    padding: 6px 18px;
+    border-radius: 8px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.produto-card h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--cor-textos);
+    margin-bottom: 12px;
+}
+
+.produto-preco-antigo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.preco-antigo {
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 19px;
+    color: var(--cor-cinza);
+    text-decoration: line-through;
+}
+
+.desconto {
+    background-color: var(--cor-azul-informativo1);
+    color: var(--cor-textos);
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.preco-atual {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--cor-preto-2);
+    margin-bottom: 14px;
+}
+
+.btn-carrinho {
+    margin-top: auto;
+    width: 100%;
+    height: 52px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cor-verde-sucesso);
+    color: var(--cor-branco);
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: 0.2s ease;
+}
+
+
+
+.btn-carrinho img {
+    height: 23px;
+    width: 23px;
+}
+.btn-carrinho:hover {
+    background-color: var(--cor-verde-sucesso);
+    transform: translateY(-1px);
+}
+
+.seta-produto:hover {
+    background-color: var(--cor-vermelho-erro1);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.seta-produto-esquerda {
+    left: -18px;
+}
+
+.seta-produto-direita {
+    right: -18px;
+}
+
+.nossas-lojas {
+    width: 100%;
+    margin: 90px 0 120px;
+    padding: 0 20px;
+}
+
+.titulo-lojas {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.titulo-lojas h2 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--cor-preto-2);
+}
+
+.titulo-lojas span {
+    display: block;
+    width: 70px;
+    height: 4px;
+    background-color: var(--cor-primaria2);
+    margin: 10px auto 0;
+    border-radius: 10px;
+}
+
+.lojas-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 34px;
+    flex-wrap: wrap;
+}
+
+.loja-card {
+    width: 270px;
+    height: 360px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    background-color: var(--cor-branco);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: 0.45s ease;
+}
+
+.loja-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    transition: 0.55s ease;
+}
+
+.loja-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 0%,
+        rgba(0, 0, 0, 0.00) 38%,
+        rgba(255, 255, 255, 0.20) 58%,
+        rgba(255, 255, 255, 0.88) 86%,
+        rgba(255, 255, 255, 0.98) 100%
+    );
+    z-index: 1;
+    transition: 0.45s ease;
+}
+
+.loja-card h3 {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 28px;
+    z-index: 2;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 0.95;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--cor-textos);
+
+    transition: 0.45s ease;
+}
+
+.loja-card:hover {
+    width: 450px;
+    height: 390px;
+    transform: translateY(-12px);
+    z-index: 5;
+
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+}
+
+.loja-card:hover img {
+    transform: scale(1.08);
+}
+
+.loja-card:hover .loja-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.00) 0%,
+        rgba(0, 0, 0, 0.00) 55%,
+        rgba(255, 255, 255, 0.35) 78%,
+        rgba(255, 255, 255, 0.95) 100%
+    );
+}
+
+.loja-card:hover h3 {
+    bottom: 30px;
+    font-size: 38px;
+}
+
+
+.footer {
+    width: 100%;
+    max-width: 1550px;
+    height: 430px;
+    margin: 70px auto 0;
+    position: relative;
+
+    background-image: url("img/fundo_footer.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% 100%;
+
+    font-family: 'Nunito', Arial, sans-serif;
+    overflow: hidden;
+}
+
+.footer-content {
+    width: 100%;
+    height: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 85px 55px 35px;
+
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 70px;
+    align-items: center;
+    position: relative;
+}
+
+.footer-mascote {
+    width: 280px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+}
+
+.mascote-footer {
+    width: 280px;
+    height: auto;
+    display: block;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 58px;
+    margin-top: 5px;
+}
+
+.footer-coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-coluna h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--cor-textos);
+    margin-bottom: 4px;
+}
+
+.footer-coluna a {
+    color: var(--cor-textos);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.35;
+    transition: 0.2s ease;
+}
+
+.footer-coluna a:hover {
+    transform: translateX(2px);
+    font-weight: 700;
+}
+
+.footer-redes {
+    position: absolute;
+    bottom: 35px;
+    left: 57%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footer-redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-redes img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+    transition: 0.2s ease;
+}
+
+.footer-redes img:hover {
+    transform: scale(1.08);
+}
+
+.footer-extra {
+    width: 100%;
+    background-color: var(--cor-primaria);
+    padding: 28px 40px 36px;
+    font-family: 'Nunito', Arial, sans-serif;
+}
+
+.footer-extra-container {
+    max-width: 1180px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 42px;
+}
+
+.formas-pagamento, .seguranca-site {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.formas-pagamento h3, .seguranca-site h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--cor-preto-2);
+}
+
+.pagamento-icones {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    max-width: 620px;
+}
+
+.pagamento-icones img {
+    height: 34px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: 0.2s ease;
+}
+
+.pagamento-icones img:hover {
+    transform: scale(1.08);
+}
+
+.linha-divisoria {
+    width: 5px;
+    height: 86px;
+    background-color: var(--cor-textos);
+    border-radius: 10px;
+    margin-top: 4px;
+}
+
+.seguranca-icones {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.seguranca-icones img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: 0.2s ease;
+}
+
+.seguranca-icones img:hover {
+    transform: scale(1.08);
+}

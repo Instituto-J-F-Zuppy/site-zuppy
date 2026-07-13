@@ -1,0 +1,143 @@
+.cadastro-main {
+    grid-template-columns: 270px minmax(420px, 500px) 320px;
+}
+
+.cadastro-card {
+    height: 540px;
+    padding: 18px 36px 17px;
+}
+
+.titulo-cadastro h1 {
+    font-size: 33px;
+    white-space: nowrap;
+}
+
+.cadastro-subtitulo {
+    margin-top: 9px;
+    margin-bottom: 7px;
+}
+
+.form-cadastro {
+    width: 100%;
+}
+
+.passo-cadastro {
+    margin-bottom: 8px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--cor-preto-2);
+}
+
+.form-cadastro .campo-grupo {
+    margin-bottom: 5px;
+}
+
+.form-cadastro .campo-grupo label {
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+.form-cadastro .campo-input {
+    height: 46px;
+}
+
+.campo-sem-icone {
+    padding-left: 13px;
+}
+
+.form-cadastro .mensagem-erro {
+    min-height: 11px;
+    margin-top: 1px;
+}
+
+.botao-proximo {
+    height: 57px;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.botao-proximo span {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.separador-cadastro {
+    margin-top: 13px;
+    margin-bottom: 9px;
+}
+
+.cadastro-mascote-area {
+    height: 540px;
+}
+
+.mascote-cadastro {
+    width: 340px;
+    max-height: 400px;
+}
+
+.balao-cadastro {
+    width: 315px;
+    min-height: 145px;
+    padding: 25px 28px;
+    top: 15px;
+    left: -25px;
+    border-color: #dedede;
+}
+
+.balao-cadastro::before {
+    border-top-color: #dedede;
+}
+
+.balao-cadastro p {
+    font-size: 22px;
+    line-height: 1.18;
+}
+
+.cadastro-card-etapa2 {
+    padding-top: 19px;
+    padding-bottom: 18px;
+}
+
+.form-cadastro-etapa2 .campo-grupo {
+    margin-bottom: 4px;
+}
+
+.form-cadastro-etapa2 .campo-input {
+    height: 48px;
+}
+
+.campo-obrigatorio {
+    color: var(--cor-vermelho-erro1);
+    margin-right: 2px;
+}
+
+.requisitos-senha {
+    margin: 1px 0 14px 18px;
+    padding: 0;
+    list-style: disc;
+    color: #aaaaaa;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 1.22;
+}
+
+.requisitos-senha li {
+    transition: color 0.2s ease;
+}
+
+.requisitos-senha li.requisito-valido {
+    color: var(--cor-verde-sucesso);
+}
+
+.requisitos-senha li.requisito-invalido {
+    color: var(--cor-vermelho-erro1);
+}
+
+.botao-cadastrar {
+    margin-top: 2px;
+}

@@ -3,10 +3,12 @@ const formCadastro = document.getElementById("formCadastro");
 const campoNome = document.getElementById("nome");
 const campoEmail = document.getElementById("email");
 const campoTelefone = document.getElementById("telefone");
+const campoCpfCnpj = document.getElementById("cpfCnpj");
 
 const erroNome = document.getElementById("erroNome");
 const erroEmail = document.getElementById("erroEmail");
 const erroTelefone = document.getElementById("erroTelefone");
+const erroCpfCnpj = document.getElementById("erroCpfCnpj");
 
 function mostrarErro(campo, elementoErro, mensagem) {
     campo.closest(".campo-grupo").classList.add("campo-invalido");
@@ -25,6 +27,28 @@ function emailValido(email) {
 function telefoneValido(telefone) {
     const numeros = telefone.replace(/\D/g, "");
     return numeros.length === 10 || numeros.length === 11;
+}
+
+function cpfCnpjValido(valor) {
+    const numeros = valor.replace(/\D/g, "");
+    return numeros.length === 11 || numeros.length === 14;
+}
+
+function formatarCpfCnpj(valor) {
+    const numeros = valor.replace(/\D/g, "").slice(0, 14);
+
+    if (numeros.length <= 11) {
+        return numeros
+            .replace(/(\d{3})(\d)/, "$1.$2")
+            .replace(/(\d{3})(\d)/, "$1.$2")
+            .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    }
+
+    return numeros
+        .replace(/(\d{2})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1/$2")
+        .replace(/(\d{4})(\d{1,2})$/, "$1-$2");
 }
 
 function formatarTelefone(valor) {
@@ -50,6 +74,11 @@ campoTelefone.addEventListener("input", function () {
     removerErro(campoTelefone, erroTelefone);
 });
 
+campoCpfCnpj.addEventListener("input", function () {
+    campoCpfCnpj.value = formatarCpfCnpj(campoCpfCnpj.value);
+    removerErro(campoCpfCnpj, erroCpfCnpj);
+});
+
 campoNome.addEventListener("input", function () {
     removerErro(campoNome, erroNome);
 });
@@ -64,12 +93,14 @@ formCadastro.addEventListener("submit", function (evento) {
     const nome = campoNome.value.trim();
     const email = campoEmail.value.trim();
     const telefone = campoTelefone.value.trim();
+    const cpfCnpj = campoCpfCnpj.value.trim();
 
     let formularioValido = true;
 
     removerErro(campoNome, erroNome);
     removerErro(campoEmail, erroEmail);
     removerErro(campoTelefone, erroTelefone);
+    removerErro(campoCpfCnpj, erroCpfCnpj);
 
     if (nome === "") {
         mostrarErro(
@@ -133,6 +164,24 @@ formCadastro.addEventListener("submit", function (evento) {
         formularioValido = false;
     }
 
+    if (cpfCnpj === "") {
+        mostrarErro(
+            campoCpfCnpj,
+            erroCpfCnpj,
+            "Informe seu CPF ou CNPJ."
+        );
+
+        formularioValido = false;
+    } else if (!cpfCnpjValido(cpfCnpj)) {
+        mostrarErro(
+            campoCpfCnpj,
+            erroCpfCnpj,
+            "Digite um CPF (11 dígitos) ou CNPJ (14 dígitos) válido."
+        );
+
+        formularioValido = false;
+    }
+
     if (!formularioValido) {
         const primeiroCampoInvalido = document.querySelector(
             ".campo-invalido input"
@@ -148,7 +197,8 @@ formCadastro.addEventListener("submit", function (evento) {
         JSON.stringify({
             nome: nome,
             email: email,
-            telefone: telefone
+            telefone: telefone,
+            cpfCnpj: cpfCnpj
         })
     );
 

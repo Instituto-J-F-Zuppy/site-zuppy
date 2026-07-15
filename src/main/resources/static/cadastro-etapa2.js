@@ -189,16 +189,54 @@ formCadastroEtapa2.addEventListener("submit", function (evento) {
         sessionStorage.getItem("cadastroZuppy") || "{}"
     );
 
-    const cadastroCompleto = {
-        ...dadosPrimeiraEtapa,
+    const corpoRequisicao = {
+        nome: dadosPrimeiraEtapa.nome,
+        email: dadosPrimeiraEtapa.email,
+        cpfCnpj: dadosPrimeiraEtapa.cpfCnpj,
         senha: senha
     };
 
-    console.log("Cadastro completo:", cadastroCompleto);
+    const botaoSubmit = formCadastroEtapa2.querySelector("button[type='submit']");
+    const textoOriginalBotao = botaoSubmit ? botaoSubmit.textContent : "";
 
-    sessionStorage.removeItem("cadastroZuppy");
+    if (botaoSubmit) {
+        botaoSubmit.disabled = true;
+        botaoSubmit.textContent = "Enviando...";
+    }
 
-    alert("Cadastro realizado com sucesso!");
+    fetch("/auth/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(corpoRequisicao)
+    })
+        .then(async function (resposta) {
+            const dados = await resposta.json().catch(function () {
+                return null;
+            });
 
-    window.location.href = "login.html";
+            if (!resposta.ok) {
+                const mensagem = dados && dados.erro
+                    ? dados.erro
+                    : "Não foi possível concluir o cadastro. Tente novamente.";
+
+                throw new Error(mensagem);
+            }
+
+            sessionStorage.removeItem("cadastroZuppy");
+
+            alert("Cadastro realizado com sucesso!");
+
+            window.location.href = "login.html";
+        })
+        .catch(function (erro) {
+            mostrarErro(campoSenha, erroSenha, erro.message);
+        })
+        .finally(function () {
+            if (botaoSubmit) {
+                botaoSubmit.disabled = false;
+                botaoSubmit.textContent = textoOriginalBotao;
+            }
+        });
 });

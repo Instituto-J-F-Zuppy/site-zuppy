@@ -59,3 +59,28 @@ btnAvancar.addEventListener("click", avancarCarrossel);
 btnVoltar.addEventListener("click", voltarCarrossel);
 
 setInterval(avancarCarrossel, 3500);
+
+const botoesFavorito = document.querySelectorAll(".favorito-btn");
+
+botoesFavorito.forEach(function (botao) {
+    botao.addEventListener("click", function (evento) {
+        evento.preventDefault();
+        evento.stopPropagation();
+
+        const estaFavoritado = botao.classList.toggle("favoritado");
+
+        botao.textContent = estaFavoritado ? "♥" : "♡";
+
+        botao.setAttribute(
+            "aria-pressed",
+            String(estaFavoritado)
+        );
+
+        botao.setAttribute(
+            "aria-label",
+            estaFavoritado
+                ? "Remover produto dos favoritos"
+                : "Adicionar produto aos favoritos"
+        );
+    });
+});

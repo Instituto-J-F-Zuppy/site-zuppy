@@ -790,3 +790,72 @@ main {
 .seguranca-icones img:hover {
     transform: scale(1.08);
 }
+
+.produto-card-link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.produto-card-link:focus-visible {
+    outline: 3px solid var(--cor-azul-informativo1);
+    outline-offset: 4px;
+    border-radius: 10px;
+}
+
+.produto-card {
+    position: relative;
+}
+
+.produto-card-link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.favorito-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 5;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+
+    color: #b5b5b5;
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.favorito-btn:hover {
+    color: var(--cor-vermelho-erro1);
+    transform: scale(1.1);
+    background-color: var(--cor-branco);
+}
+
+.favorito-btn.favoritado {
+    color: var(--cor-vermelho-erro1);
+}
+
+.favorito-btn:focus-visible {
+    outline: 3px solid var(--cor-azul-informativo1);
+    outline-offset: 3px;
+}

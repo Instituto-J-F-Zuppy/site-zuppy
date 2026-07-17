@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brinquedo | Zuppy!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/produto.css">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo-area">
+                <img src="img/logo_zuppy.png" alt="Logo Zuppy" id="logo">
+            </a>
+
+            <div class="search-box">
+                <img src="img/lupa_icon.png" alt="" id="lupa_icon">
+
+                <input type="text" id="searchInput" placeholder="Encontre seu próximo brinquedo favorito...">
+            </div>
+
+            <div class="login">
+                <a href="cadastro.html">
+                    Cadastrar-se
+                </a>
+
+                <a href="login.html">
+                    <button id="botao-entrar">
+                        Entrar
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div class="header2" id="headerBottom">
+
+            <div class="cep">
+                <img src="img/loc_icon.png" alt="" id="loc_icon">
+
+                <span>
+                    Entregar em:
+                    <strong>00000-000</strong>
+                </span>
+            </div>
+
+            <nav class="nav-menu">
+
+                <a href="#">Todos os produtos</a>
+                <a href="#">Anna</a>
+                <a href="#">Emanuelly</a>
+                <a href="#">Julio</a>
+                <a href="#">Sena</a>
+                <a href="#">Shiniti</a>
+
+            </nav>
+
+            <div class="botao-icones">
+
+                <img src="img/acessibilidade_icon.png" alt="Sobre Acessibilidade">
+
+                <img src="img/whatsapp_icon.png" alt="Fale com a gente pelo WhatsApp">
+
+                <a href="carrinho.html"><img src="img/lilcar.png" alt="Meu Carrinho"></a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="produto-main">
+
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+
+            <a href="index.html">Início</a>
+
+            <span aria-hidden="true">&lt;</span>
+
+            <a href="#">Produtos</a>
+
+            <span aria-hidden="true">&lt;</span>
+
+            <a href="#">Julio</a>
+
+            <span aria-hidden="true">&lt;</span>
+
+            <strong>Julio Craque</strong>
+
+        </nav>
+
+        <section class="produto-detalhes">
+
+            <div class="produto-galeria">
+
+                <div class="produto-miniaturas">
+
+                    <button type="button" class="miniatura-produto miniatura-ativa"
+                        aria-label="Visualizar imagem principal do Julio Craque">
+                        <img src="img/julio_craque_brinquedo.png" alt="">
+                    </button>
+
+                </div>
+
+                <div class="produto-imagem-principal" id="areaZoomProduto">
+                    <img src="img/julio_craque_brinquedo.png"
+                        alt="Boneco personalizado Julio Craque com uniforme de futebol roxo e preto"
+                        id="imagemProdutoPrincipal">
+                </div>
+
+            </div>
+
+            <div class="produto-informacoes">
+
+                <div class="produto-titulo-area">
+
+                    <h1>Julio Craque</h1>
+
+                    <button type="button" class="produto-favorito" id="botaoFavorito"
+                        aria-label="Adicionar Julio Craque aos favoritos" aria-pressed="false">♡
+                    </button>
+
+                </div>
+
+                <div class="produto-etiquetas">
+
+                    <span class="etiqueta-exclusivo">
+                        Só no Zuppy!
+                    </span>
+
+                    <span class="etiqueta-idade">
+                        1 a 46 anos
+                    </span>
+
+                </div>
+
+                <div class="produto-precos">
+
+                    <div class="preco-anterior-area">
+
+                        <span class="preco-anterior">
+                            R$0.000,00
+                        </span>
+
+                        <span class="produto-desconto">
+                            50% OFF
+                        </span>
+
+                    </div>
+
+                    <p class="produto-preco-atual">
+                        R$0.000,00
+                    </p>
+
+                </div>
+
+                <div class="produto-acoes">
+
+                    <button type="button" class="botao-adicionar" id="adicionarCarrinho">
+                        <img src="img/carrinho-icon.png" alt="">
+
+                        <span>
+                            Adicionar ao carrinho
+                        </span>
+                    </button>
+
+                    <button type="button" class="botao-comprar" id="comprarAgora">
+                        Comprar agora
+                    </button>
+
+                </div>
+
+                <p class="mensagem-carrinho" id="mensagemCarrinho" role="status" aria-live="polite"></p>
+
+            </div>
+
+        </section>
+
+        <section class="produto-descricao">
+
+            <h2>Descrição</h2>
+
+            <p>
+                Júlio Craque é o companheiro perfeito para quem vive a paixão
+                pelo futebol! Com uniforme estiloso nas cores roxo e preto,
+                chuteiras prontas para entrar em campo e um sorriso confiante,
+                ele representa a alegria, a amizade e o espírito de equipe.
+                Sua pose de braços abertos demonstra carisma e celebração,
+                como um verdadeiro craque após marcar um golaço. Ideal para
+                colecionar, decorar ou presentear fãs do esporte, o Júlio
+                Craque inspira grandes aventuras dentro e fora dos campos.
+            </p>
+
+        </section>
+
+        <section class="produto-especificacoes">
+
+            <h2>Informações do produto</h2>
+
+            <div class="especificacoes-grid">
+
+                <div class="especificacao-item">
+                    <span>Personagem</span>
+                    <strong>Júlio Craque</strong>
+                </div>
+
+                <div class="especificacao-item">
+                    <span>Categoria</span>
+                    <strong>Boneco personalizado</strong>
+                </div>
+
+                <div class="especificacao-item">
+                    <span>Material</span>
+                    <strong>Resina</strong>
+                </div>
+
+                <div class="especificacao-item">
+                    <span>Indicação</span>
+                    <strong>Decoração e coleção</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="produto.js"></script>
+
+</body>
+
+</html>

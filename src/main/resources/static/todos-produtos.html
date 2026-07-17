@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos os produtos | Zuppy!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/todos-produtos.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo-area">
+                <img src="img/logo_zuppy.png" alt="Logo Zuppy" id="logo">
+            </a>
+
+            <div class="search-box">
+                <img src="img/lupa_icon.png" alt="" id="lupa_icon">
+
+                <input type="text" id="searchInput" placeholder="Encontre seu próximo brinquedo favorito..."
+                    aria-label="Pesquisar produtos">
+            </div>
+
+            <div class="login">
+                <a href="cadastro.html">
+                    Cadastrar-se
+                </a>
+
+                <a href="login.html">
+                    <button id="botao-entrar">
+                        Entrar
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div class="header2" id="headerBottom">
+            <div class="cep">
+                <img src="img/loc_icon.png" alt="" id="loc_icon">
+
+                <span>
+                    Entregar em:
+                    <strong>00000-000</strong>
+                </span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="todos-produtos.html">Todos os produtos</a>
+                <a href="#">Anna</a>
+                <a href="#">Emanuelly</a>
+                <a href="#">Julio</a>
+                <a href="#">Sena</a>
+                <a href="#">Shiniti</a>
+            </nav>
+
+            <div class="botao-icones">
+
+                <img src="img/acessibilidade_icon.png" alt="Sobre acessibilidade">
+
+                <img src="img/whatsapp_icon.png" alt="Fale com a gente pelo WhatsApp">
+
+                <a href="carrinho.html"><img src="img/lilcar.png" alt="Meu Carrinho"></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pagina-produtos">
+        <nav class="breadcrumb-produtos" aria-label="Navegação estrutural">
+            <a href="index.html">
+                Início
+            </a>
+
+            <span aria-hidden="true">&lt;</span>
+            <strong>
+                Todos os produtos
+            </strong>
+        </nav>
+
+        <div class="conteudo-produtos">
+            <aside class="painel-filtros">
+                <h2>Filtrar por</h2>
+
+                <div class="filtro-ordenacao">
+                    <button type="button" class="botao-filtro" id="ordenarMenorPreco">
+                        <img src="img/menor-preco_icon.png" alt="" class="icons_filtro">Menores preços
+                    </button>
+
+                    <button type="button" class="botao-filtro" id="ordenarMaisVendidos">
+                        <img src="img/mais-vendido_icon.png" alt="" class="icons_filtro">Mais vendidos
+                    </button>
+                </div>
+
+                <div class="grupo-filtro">
+
+                    <h3>Faixa de preço</h3>
+
+                    <div class="preco-selecionado" id="precoSelecionado">
+                        R$ 50,00
+                    </div>
+
+                    <input type="range" id="filtroPreco" min="0" max="1000" value="1000" step="10"
+                        aria-label="Preço máximo">
+
+                    <div class="valores-preco">
+                        <span>R$ 3,00</span>
+                        <span>R$ 1.000,00</span>
+                    </div>
+
+                </div>
+
+                <div class="grupo-filtro">
+
+                    <h3>Brinquedos</h3>
+
+                    <div class="busca-filtro">
+
+                        <img src="img/lupa_icon.png" alt="">
+
+                        <input type="text" id="buscaFiltro" placeholder="Buscar brinquedo..."
+                            aria-label="Buscar brinquedo nos filtros">
+
+                    </div>
+
+                    <div class="opcoes-personagens">
+
+                        <label>
+                            <input type="checkbox" value="Adriel" class="filtro-personagem">
+
+                            <span>Adriel</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="Anna" class="filtro-personagem">
+
+                            <span>Anna</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="Emanuelly" class="filtro-personagem">
+
+                            <span>Emanuelly</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="Júlio" class="filtro-personagem">
+
+                            <span>Júlio</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="Sena" class="filtro-personagem">
+
+                            <span>Sena</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="Shiniti" class="filtro-personagem">
+
+                            <span>Shiniti</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="Especiais" class="filtro-personagem">
+
+                            <span>Especiais</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+            <section class="area-listagem">
+
+                <div class="cabecalho-listagem">
+
+                    <h1>Todos os produtos</h1>
+
+                    <p>
+                        Achamos
+                        <strong id="quantidadeProdutos">6</strong>
+                        opções para você
+                    </p>
+
+                </div>
+
+                <div class="grade-produtos" id="gradeProdutos">
+
+                    <article class="card-listagem" data-nome="LabuSena Feminino" data-personagem="Sena" data-preco="149"
+                        data-vendas="90">
+                        <button type="button" class="favorito-listagem" aria-label="" aria-pressed="false">
+                            ♡
+                        </button>
+
+                        <an href="produto.html" class="link-card-listagem">
+                            <div class="imagem-card-listagem">
+                                <img src="" alt="">
+                            </div>
+
+                            <span class="tag-listagem">
+                                Só no Zuppy!
+                            </span>
+
+                            <h2>LabuSena Feminino</h2>
+
+                            <div class="preco-antigo-listagem">
+
+                                <span>
+                                    R$0.000,00
+                                </span>
+
+                                <strong>
+                                    50% OFF
+                                </strong>
+
+                            </div>
+
+                            <p class="preco-atual-listagem">
+                                R$149,00
+                            </p>
+
+                            </a>
+
+                            <button type="button" class="adicionar-listagem">
+                                <img src="img/carrinho-icon.png" alt="">
+
+                                Adicionar ao carrinho
+                            </button>
+
+                    </article>
+
+                    <article class="card-listagem" data-nome="Boneco Anna" data-personagem="Anna" data-preco="189"
+                        data-vendas="70">
+
+                        <button type="button" class="favorito-listagem" aria-label="" aria-pressed="false">
+                            ♡
+                        </button>
+
+                        <a href="produto.html" class="link-card-listagem">
+
+                            <div class="imagem-card-listagem">
+                                <img src="img/labusena.png" alt="">
+                            </div>
+
+                            <span class="tag-listagem">
+                                Só no Zuppy!
+                            </span>
+
+                            <h2>Boneco Anna</h2>
+
+                            <div class="preco-antigo-listagem">
+
+                                <span>
+                                    R$378,00
+                                </span>
+
+                                <strong>
+                                    50% OFF
+                                </strong>
+
+                            </div>
+
+                            <p class="preco-atual-listagem">
+                                R$189,00
+                            </p>
+
+                        </a>
+
+                        <button type="button" class="adicionar-listagem">
+                            <img src="img/carrinho-icon.png" alt="">
+
+                            Adicionar ao carrinho
+                        </button>
+
+                    </article>
+
+                    <article class="card-listagem" data-nome="Emanuelly" data-personagem="Emanuelly" data-preco="219"
+                        data-vendas="80">
+
+                        <button type="button" class="favorito-listagem" aria-pressed="false">♡
+                        </button>
+                        <a href="produto.html" class="link-card-listagem">
+                            <div class="imagem-card-listagem">
+                                <img src="img/labusena.png" alt="">
+                            </div>
+
+                            <span class="tag-listagem">
+                                Só no Zuppy!
+                            </span>
+
+                            <h2>Boneco Emanuelly</h2>
+
+                            <div class="preco-antigo-listagem">
+                                <span>
+                                    R$438,00
+                                </span>
+
+                                <strong>
+                                    50% OFF
+                                </strong>
+                            </div>
+
+                            <p class="preco-atual-listagem">
+                                R$219,00
+                            </p>
+                        </a>
+
+                        <button type="button" class="adicionar-listagem">
+                            <img src="img/carrinho-icon.png" alt="">
+                            Adicionar ao carrinho
+                        </button>
+
+                    </article>
+
+                    <article class="card-listagem" data-nome="Júlio Craque" data-personagem="Júlio" data-preco="249"
+                        data-vendas="100">
+
+                        <button type="button" class="favorito-listagem" aria-label="" aria-pressed="false">
+                            ♡
+                        </button>
+
+                        <a href="produto.html" class="link-card-listagem">
+
+                            <div class="imagem-card-listagem">
+                                <img src="img/julio_craque.png" alt="">
+                            </div>
+
+                            <span class="tag-listagem">
+                                Só no Zuppy!
+                            </span>
+
+                            <h2>Júlio Craque</h2>
+
+                            <div class="preco-antigo-listagem">
+
+                                <span>
+                                    R$498,00
+                                </span>
+
+                                <strong>
+                                    50% OFF
+                                </strong>
+
+                            </div>
+
+                            <p class="preco-atual-listagem">
+                                R$249,00
+                            </p>
+                        </a>
+
+                        <button type="button" class="adicionar-listagem">
+                            <img src="img/carrinho-icon.png" alt="">Adicionar ao carrinho
+                        </button>
+
+                    </article>
+
+                    <article class="card-listagem" data-nome="Boneca Shiniti" data-personagem="Shiniti" data-preco="279"
+                        data-vendas="65">
+
+                        <button type="button" class="favorito-listagem" aria-label="" aria-pressed="false">
+                            ♡
+                        </button>
+
+                        <a href="produto.html" class="link-card-listagem">
+
+                            <div class="imagem-card-listagem">
+                                <img src="img/labusena.png" alt="">
+                            </div>
+
+                            <span class="tag-listagem">
+                                Só no Zuppy!
+                            </span>
+
+                            <h2>Boneca Shiniti</h2>
+
+                            <div class="preco-antigo-listagem">
+
+                                <span>
+                                    R$558,00
+                                </span>
+
+                                <strong>
+                                    50% OFF
+                                </strong>
+
+                            </div>
+
+                            <p class="preco-atual-listagem">
+                                R$279,00
+                            </p>
+
+                        </a>
+
+                        <button type="button" class="adicionar-listagem">
+                            <img src="img/carrinho-icon.png" alt="">Adicionar ao carrinho
+                        </button>
+                    </article>
+
+                    <article class="card-listagem" data-nome="Boneco Adriel" data-personagem="Adriel" data-preco="299"
+                        data-vendas="55">
+
+                        <button type="button" class="favorito-listagem" aria-pressed="false">♡
+                        </button>
+                        <a href="produto.html" class="link-card-listagem">
+
+                            <div class="imagem-card-listagem">
+                                <img src="img/labusena.png" alt="">
+                            </div>
+
+                            <span class="tag-listagem">
+                                Só no Zuppy!
+                            </span>
+
+                            <h2>Boneco Adriel</h2>
+
+                            <div class="preco-antigo-listagem">
+
+                                <span>
+                                    R$598,00
+                                </span>
+
+                                <strong>
+                                    50% OFF
+                                </strong>
+
+                            </div>
+
+                            <p class="preco-atual-listagem">
+                                R$299,00
+                            </p>
+
+                        </a>
+
+                        <button type="button" class="adicionar-listagem">
+                            <img src="img/carrinho-icon.png" alt=""> Adicionar ao carrinho
+                        </button>
+                    </article>
+                </div>
+                <p class="nenhum-produto" id="nenhumProduto" role="status">Nenhum produto encontrado com esses filtros.
+                </p>
+            </section>
+        </div>
+    </main>
+    <script src="todos-produtos.js"></script>
+</body>
+
+</html>

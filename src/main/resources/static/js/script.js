@@ -60,27 +60,33 @@ btnVoltar.addEventListener("click", voltarCarrossel);
 
 setInterval(avancarCarrossel, 3500);
 
-const botoesFavorito = document.querySelectorAll(".favorito-btn");
+function exibirUsuarioLogado() {
+    const token = localStorage.getItem("zuppyToken");
+    const nome = localStorage.getItem("zuppyNome");
 
-botoesFavorito.forEach(function (botao) {
-    botao.addEventListener("click", function (evento) {
-        evento.preventDefault();
-        evento.stopPropagation();
+    const linkCadastrar = document.getElementById("linkCadastrar");
+    const linkEntrar = document.getElementById("linkEntrar");
+    const areaUsuarioLogado = document.getElementById("areaUsuarioLogado");
+    const saudacaoUsuario = document.getElementById("saudacaoUsuario");
+    const botaoSair = document.getElementById("botaoSair");
 
-        const estaFavoritado = botao.classList.toggle("favoritado");
+    if (!token || !nome) {
+        return;
+    }
 
-        botao.textContent = estaFavoritado ? "♥" : "♡";
+    const primeiroNome = nome.trim().split(" ")[0];
 
-        botao.setAttribute(
-            "aria-pressed",
-            String(estaFavoritado)
-        );
+    linkCadastrar.style.display = "none";
+    linkEntrar.style.display = "none";
 
-        botao.setAttribute(
-            "aria-label",
-            estaFavoritado
-                ? "Remover produto dos favoritos"
-                : "Adicionar produto aos favoritos"
-        );
+    areaUsuarioLogado.style.display = "flex";
+    saudacaoUsuario.textContent = `Olá, ${primeiroNome}`;
+
+    botaoSair.addEventListener("click", function () {
+        localStorage.removeItem("zuppyToken");
+        localStorage.removeItem("zuppyNome");
+        window.location.reload();
     });
-});
+}
+
+exibirUsuarioLogado();

@@ -6,10 +6,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Finalizar cadastro | Zuppy!</title>
+    <title>Entrar | Zuppy!</title>
 
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
@@ -35,19 +34,15 @@
 
     </header>
 
-    <main class="login-main cadastro-main">
+    <main class="login-main">
 
         <aside class="beneficios-login">
-
             <img src="img/fundo_roxo_login.png" alt="" class="fundo-beneficios">
 
             <div class="conteudo-beneficios">
-
                 <div class="boneco-area">
-
                     <img src="img/pelucia_enzo-herrera.png" alt="Boneco personalizado Enzo Herrera segurando um coração"
                         class="boneco-enzo">
-
                 </div>
 
                 <h2>
@@ -58,57 +53,41 @@
                 <div class="lista-beneficios">
 
                     <article class="beneficio-card">
-
                         <div class="beneficio-icone frete">
-
                             <img src="img/frete_gratis.png" alt="">
-
                         </div>
 
                         <div class="beneficio-texto">
-
                             <h3>Frete grátis</h3>
 
                             <p>
                                 Em compras acima<br>
                                 de R$199,00
                             </p>
-
                         </div>
 
                     </article>
 
                     <article class="beneficio-card">
-
                         <div class="beneficio-icone seguranca">
-
                             <img src="img/escudo_seguranca.png" alt="">
-
                         </div>
 
                         <div class="beneficio-texto">
-
                             <h3>Compra segura</h3>
 
                             <p>
                                 Seus dados protegidos<br>
                                 com carinho
                             </p>
-
                         </div>
-
                     </article>
-
                 </div>
-
             </div>
-
         </aside>
 
-        <section class="login-card cadastro-card cadastro-card-etapa2">
-
-            <div class="titulo-login titulo-cadastro">
-
+        <section class="login-card">
+            <div class="titulo-login">
                 <span class="detalhe detalhe-esquerdo" aria-hidden="true">
                     <i></i>
                     <i></i>
@@ -116,11 +95,8 @@
                 </span>
 
                 <div>
-
-                    <h1>Vamos começar</h1>
-
+                    <h1>Bem-Vindo!</h1>
                     <span class="linha-titulo"></span>
-
                 </div>
 
                 <span class="detalhe detalhe-direito" aria-hidden="true">
@@ -131,16 +107,29 @@
 
             </div>
 
-            <p class="login-subtitulo cadastro-subtitulo">
-                Crie sua conta e encontre o brinquedo certo<br>
-                para cada momento.
+            <p class="login-subtitulo">
+                Acesse sua conta e encontre o brinquedo<br>
+                certo para cada momento.
             </p>
 
-            <form class="form-login form-cadastro form-cadastro-etapa2" id="formCadastroEtapa2" novalidate>
+            <form class="form-login" id="formLogin">
 
-                <p class="passo-cadastro">
-                    Passo 2 de 2
-                </p>
+                <div class="campo-grupo">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <div class="campo-input">
+                        <img src="img/email_icon.png" alt="" class="campo-icone">
+
+                        <input type="email" id="email" name="email" placeholder="seu@gmail.com" autocomplete="email"
+                            required>
+                    </div>
+
+                    <small class="mensagem-erro" id="erroEmail"></small>
+
+                </div>
 
                 <div class="campo-grupo">
 
@@ -149,69 +138,41 @@
                     </label>
 
                     <div class="campo-input">
-
                         <img src="img/senha_icon.png" alt="" class="campo-icone">
 
                         <input type="password" id="senha" name="senha" placeholder="Digite sua senha"
-                            autocomplete="new-password" required>
+                            autocomplete="current-password">
 
                         <button type="button" class="mostrar-senha" id="mostrarSenha" aria-label="Mostrar senha">
                             <img src="img/olho_senha_icon.png" alt="">
                         </button>
-
                     </div>
-
                     <small class="mensagem-erro" id="erroSenha"></small>
 
                 </div>
 
-                <div class="campo-grupo">
+                <div class="opcoes-login">
+                    <label class="lembrar-area">
+                        <input type="checkbox" id="lembrar" name="lembrar">
+                        <span class="checkbox-personalizado"></span>
 
-                    <label for="confirmarSenha">
-                        <span class="campo-obrigatorio">*</span>Confirmar senha
+                        <span>
+                            Lembrar de mim
+                        </span>
+
                     </label>
 
-                    <div class="campo-input">
-
-                        <img src="img/senha_icon.png" alt="" class="campo-icone">
-
-                        <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Digite sua senha"
-                            autocomplete="new-password" required>
-
-                        <button type="button" class="mostrar-senha" id="mostrarConfirmarSenha"
-                            aria-label="Mostrar confirmação de senha">
-                            <img src="img/olho_senha_icon.png" alt="">
-                        </button>
-
-                    </div>
-
-                    <small class="mensagem-erro" id="erroConfirmarSenha"></small>
+                    <a href="#" class="link-roxo">
+                        Esqueci minha senha
+                    </a>
 
                 </div>
 
-                <ul class="requisitos-senha" id="requisitosSenha" aria-label="Requisitos da senha">
-                    <li id="requisitoTamanho">
-                        Mínimo 8 caracteres
-                    </li>
-
-                    <li id="requisitoLetras">
-                        Pelo menos 1 letra maiúscula e 1 minúscula
-                    </li>
-
-                    <li id="requisitoNumero">
-                        1 número
-                    </li>
-
-                    <li id="requisitoEspecial">
-                        1 caractere especial
-                    </li>
-                </ul>
-
-                <button type="submit" class="botao-entrar-login botao-proximo botao-cadastrar">
-                    Cadastrar
+                <button type="submit" class="botao-entrar-login">
+                    Entrar
                 </button>
 
-                <div class="separador separador-cadastro">
+                <div class="separador">
 
                     <span></span>
 
@@ -222,10 +183,10 @@
                 </div>
 
                 <p class="cadastro-texto">
-                    Já tem conta?
+                    Não tem conta?
 
-                    <a href="login.html" class="link-roxo">
-                        Entre
+                    <a href="cadastro.html" class="link-roxo">
+                        Cadastre-se
                     </a>
                 </p>
 
@@ -233,33 +194,23 @@
 
         </section>
 
-        <section class="mascote-area cadastro-mascote-area">
+        <section class="mascote-area">
 
-            <div class="balao-fala balao-cadastro">
-
+            <div class="balao-fala">
                 <p>
-                    Está pronto para<br>
-                    entrar em um<br>
-                    mundo de aventuras?
+                    Oi! Que bom<br>
+                    te ver por aqui
                     <span aria-hidden="true">💙</span>
                 </p>
-
             </div>
 
-            <img src="img/pipo_oi.png" alt="Mascote azul da Zuppy dando boas-vindas"
-                class="mascote-login mascote-cadastro">
+            <img src="img/pipo_joinha.png" alt="Mascote azul da Zuppy dando boas-vindas" class="mascote-login">
 
         </section>
 
     </main>
 
-    <button type="button" class="atalho-acessibilidade" aria-label="Abrir menu de acessibilidade"
-        title="Acessibilidade">
-        <img src="img/acessibilidade-flutuante.png" alt="">
-    </button>
-
-    <script src="cadastro-etapa2.js"></script>
-
+    <script src="login.js"></script>
 </body>
 
 </html>

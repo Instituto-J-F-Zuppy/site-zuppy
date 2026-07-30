@@ -1,0 +1,138 @@
+.sobre-main {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 34px 36px 90px;
+    overflow: visible;
+}
+
+.breadcrumb-sobre {
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--cor-preto-2);
+}
+
+.breadcrumb-sobre a {
+    color: var(--cor-preto-2);
+    text-decoration: none;
+}
+
+.breadcrumb-sobre a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-sobre strong {
+    font-weight: 800;
+}
+
+.titulo-sobre {
+    margin-bottom: 30px;
+}
+
+.titulo-sobre h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--cor-textos);
+}
+
+.sobre-conteudo {
+    max-width: 1080px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.sobre-secao h2 {
+    margin-bottom: 8px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--cor-preto-2);
+}
+
+.sobre-secao p {
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #333333;
+}
+
+.sobre-secao p + p {
+    margin-top: 10px;
+}
+
+.sobre-lista {
+    margin-top: 10px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: disc;
+}
+
+.sobre-lista li {
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333333;
+}
+
+.sobre-lista strong {
+    color: var(--cor-preto-2);
+    font-weight: 700;
+}
+
+/* Botão flutuante do Zippo */
+.mascote-flutuante {
+    position: fixed;
+    top: 55%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 90px;
+    height: 90px;
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--cor-roxo-destaque1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 40;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.mascote-flutuante:hover {
+    transform: translateY(-50%) scale(1.06);
+    background-color: var(--cor-roxo-escuro, #6427e7);
+}
+
+.mascote-flutuante svg {
+    width: 46px;
+    height: 46px;
+}
+
+.mascote-flutuante:focus-visible {
+    outline: 3px solid var(--cor-azul-informativo1);
+    outline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+    .mascote-flutuante {
+        width: 64px;
+        height: 64px;
+        right: 14px;
+    }
+
+    .mascote-flutuante svg {
+        width: 32px;
+        height: 32px;
+    }
+}

@@ -1,10 +1,23 @@
 .cadastro-main {
     grid-template-columns: 270px minmax(420px, 500px) 320px;
+    height: auto;
+    min-height: 660px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    overflow: visible;
 }
 
 .cadastro-card {
-    height: 540px;
-    padding: 18px 36px 17px;
+    height: 610px;
+    min-height: 610px;
+    padding: 26px 36px 20px;
+    justify-content: flex-start;
+}
+
+.titulo-cadastro {
+    flex: 0 0 auto;
+    width: 100%;
+    margin: 0;
 }
 
 .titulo-cadastro h1 {
@@ -13,6 +26,7 @@
 }
 
 .cadastro-subtitulo {
+    flex: 0 0 auto;
     margin-top: 9px;
     margin-bottom: 7px;
 }
@@ -140,4 +154,34 @@
 
 .botao-cadastrar {
     margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+    .cadastro-main {
+        min-height: 0;
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
+
+    .cadastro-card {
+        width: 100%;
+        height: auto;
+        min-height: 610px;
+    }
+}
+
+@media (max-width: 560px) {
+    .cadastro-card {
+        min-height: 0;
+        padding: 24px 20px;
+    }
+
+    .titulo-cadastro {
+        gap: 8px;
+    }
+
+    .titulo-cadastro h1 {
+        font-size: 28px;
+        white-space: normal;
+    }
 }

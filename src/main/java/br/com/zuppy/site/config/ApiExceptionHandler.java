@@ -13,35 +13,29 @@ import java.time.Instant;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-// Captura os erros lançados pelos controllers e devolve uma resposta JSON padronizada
 @RestControllerAdvice
 public class ApiExceptionHandler {
 
-    // erro de regra de negócio (ex: "Email ja cadastrado")
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String, Object>> regraNegocio(IllegalArgumentException exception) {
         return erro(HttpStatus.BAD_REQUEST, exception.getMessage());
     }
 
-    // email ou senha errados no login
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<Map<String, Object>> credenciaisInvalidas(BadCredentialsException exception) {
         return erro(HttpStatus.UNAUTHORIZED, exception.getMessage());
     }
 
-    // algo no banco não está no estado esperado (ex: papel CLIENTE não existe)
     @ExceptionHandler(IllegalStateException.class)
     public ResponseEntity<Map<String, Object>> estadoInvalido(IllegalStateException exception) {
         return erro(HttpStatus.CONFLICT, exception.getMessage());
     }
 
-    // violou alguma restrição do banco (ex: email duplicado passou pela validação e caiu no banco)
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<Map<String, Object>> conflitoBanco(DataIntegrityViolationException exception) {
         return erro(HttpStatus.CONFLICT, "Registro ja existe ou viola uma restricao do banco.");
     }
 
-    // campos do @Valid que não passaram na validação (ex: @NotBlank, @Email)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> validacao(MethodArgumentNotValidException exception) {
         String mensagem = exception.getBindingResult().getFieldErrors().stream()
@@ -58,7 +52,6 @@ public class ApiExceptionHandler {
         return erro(HttpStatus.BAD_REQUEST, mensagem);
     }
 
-    // monta o corpo padrão de erro: timestamp, status e mensagem
     private ResponseEntity<Map<String, Object>> erro(HttpStatus status, String mensagem) {
         return ResponseEntity.status(status).body(Map.of(
                 "timestamp", Instant.now(),

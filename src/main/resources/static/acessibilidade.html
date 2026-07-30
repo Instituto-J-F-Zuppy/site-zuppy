@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Acessibilidade | Zuppy</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/pagina-acessibilidade.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/acessibilidade.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/rodape-acessivel.css"
+    >
+</head>
+
+<body>
+
+<header>
+    <div class="header">
+        <a
+            href="index.html"
+            class="logo-area"
+        >
+            <img
+                src="img/logo_zuppy.png"
+                alt="Página inicial da Zuppy"
+                id="logo"
+            >
+        </a>
+
+        <div
+            class="search-box"
+            role="search"
+        >
+            <img
+                src="img/lupa_icon.png"
+                alt=""
+                id="lupa_icon"
+            >
+
+            <input
+                type="search"
+                id="searchInput"
+                aria-label="Pesquisar brinquedos"
+                placeholder="Encontre seu próximo brinquedo favorito..."
+            >
+        </div>
+
+        <div class="login">
+            <a href="cadastro.html">
+                Cadastrar-se
+            </a>
+
+            <a
+                href="login.html"
+                id="linkEntrar"
+            >
+                <span id="botao-entrar">
+                    Entrar
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <div class="header2">
+        <div class="cep">
+            <img
+                src="img/loc_icon.png"
+                alt=""
+                id="loc_icon"
+            >
+
+            <span>
+                Entregar em:
+                <strong>00000-000</strong>
+            </span>
+        </div>
+
+        <nav
+            class="nav-menu"
+            aria-label="Menu principal"
+        >
+            <a href="todos-produtos.html">
+                Todos os produtos
+            </a>
+
+            <a href="todos-produtos.html?personagem=Anna">
+                Anna
+            </a>
+
+            <a href="todos-produtos.html?personagem=Emanuelly">
+                Emanuelly
+            </a>
+
+            <a href="todos-produtos.html?personagem=Julio">
+                Julio
+            </a>
+
+            <a href="todos-produtos.html?personagem=Sena">
+                Sena
+            </a>
+
+            <a href="todos-produtos.html?personagem=Shiniti">
+                Shiniti
+            </a>
+        </nav>
+
+        <div class="botao-icones">
+            <a
+                class="botao-icone-cabecalho"
+                href="acessibilidade.html"
+                aria-label="Página de acessibilidade"
+            >
+                <img
+                    src="img/acessibilidade_icon.png"
+                    alt=""
+                >
+            </a>
+
+            <a
+                class="botao-icone-cabecalho"
+                href="#"
+                aria-label="Fale com a Zuppy pelo WhatsApp"
+            >
+                <img
+                    src="img/whatsapp_icon.png"
+                    alt=""
+                >
+            </a>
+
+            <a
+                class="botao-icone-cabecalho"
+                href="carrinho.html"
+                aria-label="Abrir carrinho"
+            >
+                <img
+                    src="img/lilcar.png"
+                    alt=""
+                >
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="pagina-acessibilidade">
+    <nav
+        class="trilha-navegacao"
+        aria-label="Navegação estrutural"
+    >
+        <a href="index.html">
+            Início
+        </a>
+
+        <span aria-hidden="true">
+            ›
+        </span>
+
+        <span>
+            Acessibilidade
+        </span>
+    </nav>
+
+    <section
+        class="apresentacao-acessibilidade"
+        aria-labelledby="tituloAcessibilidade"
+    >
+        <div>
+            <h1 id="tituloAcessibilidade">
+                Acessibilidade para brincar sem barreiras
+            </h1>
+
+            <p>
+                A Zuppy oferece recursos assistivos para tornar a navegação mais confortável, perceptível e controlável. As preferências escolhidas no menu ficam salvas neste navegador e podem ser restauradas a qualquer momento.
+            </p>
+        </div>
+
+        <img
+            src="img/pipo_oi.png"
+            alt="Pipo, mascote da Zuppy, acenando"
+        >
+    </section>
+
+    <section
+        class="secao-pagina-acessibilidade"
+        aria-labelledby="tituloCompromisso"
+    >
+        <div class="cabecalho-secao-acessibilidade">
+            <h2 id="tituloCompromisso">
+                Nosso compromisso
+            </h2>
+
+            <p>
+                Os recursos foram organizados para apoiar diferentes formas de perceber, compreender e operar o site, sem retirar o controle de quem está navegando.
+            </p>
+        </div>
+
+        <div class="grade-principios">
+            <article class="cartao-principio">
+                <span aria-hidden="true">
+                    ⌨
+                </span>
+
+                <h3>Operação por teclado</h3>
+
+                <p>
+                    Links, botões, campos e recursos assistivos podem ser percorridos pelo teclado com um indicador de foco personalizado.
+                </p>
+            </article>
+
+            <article class="cartao-principio">
+                <span aria-hidden="true">
+                    Aa
+                </span>
+
+                <h3>Leitura personalizável</h3>
+
+                <p>
+                    Tamanho, tipo de fonte, espaçamentos, destaque de letras, guia, máscara e modo leitura podem ser ajustados.
+                </p>
+            </article>
+
+            <article class="cartao-principio">
+                <span aria-hidden="true">
+                    ◐
+                </span>
+
+                <h3>Percepção visual</h3>
+
+                <p>
+                    Contraste, saturação, modos para daltonismo, controle de imagens e animações ajudam a reduzir barreiras.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section
+        class="secao-pagina-acessibilidade"
+        aria-labelledby="tituloAtalhos"
+    >
+        <div class="cabecalho-secao-acessibilidade">
+            <h2 id="tituloAtalhos">
+                Navegação por teclado e atalhos
+            </h2>
+
+            <p>
+                Os atalhos personalizados funcionam quando o foco não está dentro de um campo de digitação. O contorno azul com o Pipo mostra claramente qual elemento está selecionado.
+            </p>
+        </div>
+
+        <div class="caixa-atalhos">
+            <ul class="lista-atalhos">
+                <li class="item-atalho">
+                    <p>
+                        Abrir ou fechar o menu de recursos assistivos
+                    </p>
+
+                    <div class="teclas-atalho">
+                        <kbd class="tecla">Shift</kbd>
+                        <span>+</span>
+                        <kbd class="tecla">A</kbd>
+                    </div>
+                </li>
+
+                <li class="item-atalho">
+                    <p>
+                        Abrir ou fechar o tradutor de Libras
+                    </p>
+
+                    <div class="teclas-atalho">
+                        <kbd class="tecla">Shift</kbd>
+                        <span>+</span>
+                        <kbd class="tecla">L</kbd>
+                    </div>
+                </li>
+
+                <li class="item-atalho">
+                    <p>
+                        Selecionar o campo de pesquisa do cabeçalho
+                    </p>
+
+                    <div class="teclas-atalho">
+                        <kbd class="tecla">Shift</kbd>
+                        <span>+</span>
+                        <kbd class="tecla">P</kbd>
+                    </div>
+                </li>
+
+                <li class="item-atalho">
+                    <p>
+                        Avançar para o próximo elemento interativo
+                    </p>
+
+                    <div class="teclas-atalho">
+                        <kbd class="tecla">Tab</kbd>
+                    </div>
+                </li>
+
+                <li class="item-atalho">
+                    <p>
+                        Voltar para o elemento interativo anterior
+                    </p>
+
+                    <div class="teclas-atalho">
+                        <kbd class="tecla">Shift</kbd>
+                        <span>+</span>
+                        <kbd class="tecla">Tab</kbd>
+                    </div>
+                </li>
+
+                <li class="item-atalho">
+                    <p>
+                        Ativar links, botões e opções selecionadas
+                    </p>
+
+                    <div class="teclas-atalho">
+                        <kbd class="tecla">Enter</kbd>
+                        <span>ou</span>
+                        <kbd class="tecla">Espaço</kbd>
+                    </div>
+                </li>
+
+                <li class="item-atalho">
+                    <p>
+                        Fechar o painel ou uma janela aberta
+                    </p>
+
+                    <div class="teclas-atalho">
+                        <kbd class="tecla">Esc</kbd>
+                    </div>
+                </li>
+
+                <li class="item-atalho">
+                    <p>
+                        Mover a guia ou a máscara de leitura
+                    </p>
+
+                    <div class="teclas-atalho">
+                        <kbd class="tecla">↑</kbd>
+                        <kbd class="tecla">↓</kbd>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section
+        class="secao-pagina-acessibilidade"
+        aria-labelledby="tituloRecursos"
+    >
+        <div class="cabecalho-secao-acessibilidade">
+            <h2 id="tituloRecursos">
+                Recursos disponíveis
+            </h2>
+
+            <p>
+                A tabela explica como cada função atua e quais públicos podem se beneficiar. Uma mesma pessoa pode utilizar vários recursos ao mesmo tempo.
+            </p>
+        </div>
+
+        <div class="tabela-recursos-container">
+            <table class="tabela-recursos">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Recurso
+                        </th>
+
+                        <th scope="col">
+                            Como funciona
+                        </th>
+
+                        <th scope="col">
+                            Pessoas beneficiadas
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Tamanho da fonte</td>
+
+                        <td>
+                            Aumenta os textos em três níveis e retorna ao tamanho original no quarto clique.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Baixa visão
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Idosos
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Estilo de texto</td>
+
+                        <td>
+                            Alterna entre Arial, Verdana, Georgia e a fonte original do site.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Dislexia
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Baixa visão
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Letras destacadas</td>
+
+                        <td>
+                            Aplica destaque em todas as letras dos textos para aumentar a percepção e a legibilidade.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Dislexia
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Dificuldade de leitura
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Espaço entre linhas</td>
+
+                        <td>
+                            Aumenta a distância vertical entre linhas em três níveis.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Baixa visão
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Dislexia
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Espaço entre letras</td>
+
+                        <td>
+                            Aumenta o espaçamento entre letras e palavras em três níveis.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Baixa visão
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Dislexia
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Leitor de sites</td>
+
+                        <td>
+                            Lê em voz alta o conteúdo principal da página e permite interromper a leitura.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Baixa visão
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Dificuldade de leitura
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Modo leitura</td>
+
+                        <td>
+                            Reduz distrações e centraliza o conteúdo principal em uma área de leitura limpa.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    TDAH
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Baixa visão
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Dificuldade cognitiva
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Máscara de leitura</td>
+
+                        <td>
+                            Escurece a tela e mantém uma faixa transparente acompanhando o ponteiro ou as setas.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    TDAH
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Dislexia
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Guia de leitura</td>
+
+                        <td>
+                            Exibe uma linha horizontal que acompanha a leitura pelo ponteiro ou pelas setas.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    TDAH
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Dislexia
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Destacar links</td>
+
+                        <td>
+                            Aplica sublinhado, fundo amarelo e contorno aos links da página.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Baixa visão
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Dificuldade de navegação
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Lupa de conteúdo</td>
+
+                        <td>
+                            Mostra o texto apontado ou selecionado em um balão ampliado com alto contraste.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Baixa visão
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Dificuldade de leitura
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Destacar cabeçalhos</td>
+
+                        <td>
+                            Realça títulos com fundo amarelo e contorno de alto contraste.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Dificuldade de leitura
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Dificuldade de navegação
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Esconder imagens</td>
+
+                        <td>
+                            Remove as imagens e elementos visuais da página. Nos banners da página inicial, mantém apenas as mensagens das ofertas em cartões de texto.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    TDAH
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Sensibilidade visual
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Pausar animações</td>
+
+                        <td>
+                            Interrompe animações, transições e vídeos em reprodução.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Autismo
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    TDAH
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Sensibilidade vestibular
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Contraste de cor</td>
+
+                        <td>
+                            Aplica fundo preto, texto branco e links amarelos.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Baixa visão
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Sensibilidade ao contraste
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Saturação</td>
+
+                        <td>
+                            Alterna entre cores reduzidas, intensas, escala de cinza e aparência original.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Sensibilidade visual
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Baixa visão
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Modo daltônico</td>
+
+                        <td>
+                            Oferece simulações para protanopia, deuteranopia e tritanopia.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Daltonismo
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Tradutor de Libras</td>
+
+                        <td>
+                            Abre o VLibras para tradução automática de conteúdos em português para Libras.
+                        </td>
+
+                        <td>
+                            <div class="etiquetas-publico">
+                                <span class="etiqueta-publico">
+                                    Pessoas surdas
+                                </span>
+
+                                <span class="etiqueta-publico">
+                                    Usuários de Libras
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section
+        class="secao-pagina-acessibilidade bloco-vlibras"
+        aria-labelledby="tituloVlibras"
+    >
+        <div>
+            <h2 id="tituloVlibras">
+                Acessível em Libras
+            </h2>
+
+            <p>
+                O site integra o VLibras, uma ferramenta pública que traduz conteúdos digitais em português para a Língua Brasileira de Sinais por meio de um avatar. O botão personalizado na lateral e o atalho Shift + L abrem ou fecham o tradutor.
+            </p>
+        </div>
+
+        <img
+            src="img/icone_libras.png"
+            alt="Símbolo de tradução em Libras"
+        >
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-mascote">
+            <img
+                src="img/img_footer.png"
+                alt="Mascote Zuppy"
+                class="mascote-footer"
+            >
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-coluna">
+                <h3>Institucional</h3>
+
+                <a href="index.html">
+                    Sobre a Zuppy
+                </a>
+
+                <a href="#">
+                    Pipo
+                </a>
+
+                <a href="acessibilidade.html">
+                    Acessibilidade
+                </a>
+            </div>
+
+            <div class="footer-coluna">
+                <h3>Produtos</h3>
+
+                <a href="todos-produtos.html?personagem=Adriel">Adriel</a>
+                <a href="todos-produtos.html?personagem=Anna">Anna</a>
+                <a href="todos-produtos.html?personagem=Emanuelly">Emanuelly</a>
+                <a href="todos-produtos.html?personagem=Julio">Julio</a>
+                <a href="todos-produtos.html?personagem=Sena">Sena</a>
+                <a href="todos-produtos.html?personagem=Shiniti">Shiniti</a>
+            </div>
+
+            <div class="footer-coluna">
+                <h3>Atendimento</h3>
+
+                <a href="#">
+                    Central de atendimento
+                </a>
+
+                <a href="#">
+                    Política de Privacidade
+                </a>
+
+                <a href="#">
+                    Política de Frete
+                </a>
+
+                <a href="#">
+                    Política de Trocas e Devoluções
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-redes">
+            <a
+                href="#"
+                aria-label="Facebook da Zuppy"
+            >
+                <img
+                    src="img/facebook_icon.png"
+                    alt=""
+                >
+            </a>
+
+            <a
+                href="#"
+                aria-label="Instagram da Zuppy"
+            >
+                <img
+                    src="img/instagram_icon.png"
+                    alt=""
+                >
+            </a>
+
+            <a
+                href="#"
+                aria-label="YouTube da Zuppy"
+            >
+                <img
+                    src="img/youtube_icon.png"
+                    alt=""
+                >
+            </a>
+        </div>
+
+        <nav
+            class="footer-redes-texto"
+            aria-label="Redes sociais da Zuppy"
+        >
+            <a href="#">
+                Facebook
+            </a>
+
+            <span aria-hidden="true">
+                |
+            </span>
+
+            <a href="#">
+                Instagram
+            </a>
+
+            <span aria-hidden="true">
+                |
+            </span>
+
+            <a href="#">
+                YouTube
+            </a>
+        </nav>
+    </div>
+</footer>
+
+<section
+    class="footer-extra"
+    aria-label="Pagamentos e segurança"
+>
+    <div class="footer-extra-container">
+        <div class="formas-pagamento">
+            <h3>Formas de pagamento</h3>
+
+            <div class="pagamento-icones">
+                <img
+                    src="img/picpay.png"
+                    alt="PicPay"
+                >
+
+                <img
+                    src="img/picpay_vermelha.png"
+                    alt="Cartão PicPay vermelho"
+                >
+
+                <img
+                    src="img/picpay_azul.png"
+                    alt="Cartão PicPay azul"
+                >
+
+                <img
+                    src="img/picpay_roxa.png"
+                    alt="Cartão PicPay roxo"
+                >
+            </div>
+
+            <p class="mensagem-rodape mensagem-pagamento">
+                Só aceitamos PicPay
+            </p>
+        </div>
+
+        <div
+            class="linha-divisoria"
+            aria-hidden="true"
+        ></div>
+
+        <div class="seguranca-site">
+            <h3>Segurança</h3>
+
+            <div class="seguranca-icones">
+                <a
+                    href="reclame-aqui/reclameaqui.html"
+                    aria-label="Abrir a página do Reclame Aqui"
+                >
+                    <img
+                        src="img/reclameaqui.avif"
+                        alt="Reclame Aqui"
+                    >
+                </a>
+            </div>
+
+            <a
+                class="mensagem-rodape mensagem-seguranca"
+                href="reclame-aqui/reclameaqui.html"
+            >
+                Acessar Reclame Aqui
+            </a>
+        </div>
+    </div>
+</section>
+
+<script src="js/acessibilidade.js"></script>
+
+</body>
+</html>

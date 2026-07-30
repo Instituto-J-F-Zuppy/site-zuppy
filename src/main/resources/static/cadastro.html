@@ -1,269 +1,311 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
     <title>Cadastre-se | Zuppy!</title>
 
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/cadastro.css">
+    <link href="css/login.css" rel="stylesheet"/>
+    <link href="css/cadastro.css" rel="stylesheet"/>
+    <link href="css/acessibilidade.css" rel="stylesheet"/>
+    <link href="css/balao-pipo.css" rel="stylesheet"/>
 </head>
 
 <body>
-
     <header class="login-header">
-
-        <a href="index.html" class="logo-area">
-            <img src="img/logo_zuppy.png" alt="Página inicial da Zuppy" class="logo-zuppy">
+        <a class="logo-area" href="index.html">
+            <img
+                alt="Página inicial da Zuppy"
+                class="logo-zuppy"
+                src="img/logo_zuppy.png"
+            />
         </a>
 
         <div class="header-acoes">
-
-            <button type="button" class="botao-header" aria-label="Abrir opções de acessibilidade"
-                title="Acessibilidade">
-                <img src="img/acessibilidade_icon.png" alt="">
+            <button
+                aria-label="Abrir opções de acessibilidade"
+                class="botao-header"
+                data-abrir-acessibilidade="true"
+                title="Acessibilidade"
+                type="button"
+            >
+                <img alt="" src="img/acessibilidade_icon.png"/>
             </button>
 
-            <a href="#" class="botao-header" aria-label="Falar com a Zuppy pelo WhatsApp" title="WhatsApp">
-                <img src="img/whatsapp_icon.png" alt="">
+            <a
+                aria-label="Falar com a Zuppy pelo WhatsApp"
+                class="botao-header"
+                href="#"
+                title="WhatsApp"
+            >
+                <img alt="" src="img/whatsapp_icon.png"/>
             </a>
-
         </div>
-
     </header>
 
     <main class="login-main cadastro-main">
-
         <aside class="beneficios-login">
-
-            <img src="img/fundo_roxo_login.png" alt="" class="fundo-beneficios">
+            <img
+                alt=""
+                class="fundo-beneficios"
+                src="img/fundo_roxo_login.png"
+            />
 
             <div class="conteudo-beneficios">
-
                 <div class="boneco-area">
-
-                    <img src="img/pelucia_enzo-herrera.png" alt="Boneco personalizado Enzo Herrera segurando um coração"
-                        class="boneco-enzo">
-
+                    <img
+                        alt="Boneco personalizado Enzo Herrera segurando um coração"
+                        class="boneco-enzo"
+                        src="img/pelucia_enzo-herrera.png"
+                    />
                 </div>
 
                 <h2>
-                    Vantagens de<br>
+                    Vantagens de<br/>
                     ser Zuppy!
                 </h2>
 
                 <div class="lista-beneficios">
-
                     <article class="beneficio-card">
-
                         <div class="beneficio-icone frete">
-
-                            <img src="img/frete_gratis.png" alt="">
-
+                            <img alt="" src="img/frete_gratis.png"/>
                         </div>
 
                         <div class="beneficio-texto">
-
                             <h3>Frete grátis</h3>
 
                             <p>
-                                Em compras acima<br>
+                                Em compras acima<br/>
                                 de R$199,00
                             </p>
-
                         </div>
-
                     </article>
 
                     <article class="beneficio-card">
-
                         <div class="beneficio-icone seguranca">
-
-                            <img src="img/escudo_seguranca.png" alt="">
-
+                            <img alt="" src="img/escudo_seguranca.png"/>
                         </div>
 
                         <div class="beneficio-texto">
-
                             <h3>Compra segura</h3>
 
                             <p>
-                                Seus dados protegidos<br>
+                                Seus dados protegidos<br/>
                                 com carinho
                             </p>
-
                         </div>
-
                     </article>
-
                 </div>
-
             </div>
-
         </aside>
 
         <section class="login-card cadastro-card">
-
             <div class="titulo-login titulo-cadastro">
-
-                <span class="detalhe detalhe-esquerdo" aria-hidden="true">
+                <span
+                    aria-hidden="true"
+                    class="detalhe detalhe-esquerdo"
+                >
                     <i></i>
                     <i></i>
                     <i></i>
                 </span>
 
                 <div>
-
                     <h1>Vamos começar</h1>
-
                     <span class="linha-titulo"></span>
-
                 </div>
 
-                <span class="detalhe detalhe-direito" aria-hidden="true">
+                <span
+                    aria-hidden="true"
+                    class="detalhe detalhe-direito"
+                >
                     <i></i>
                     <i></i>
                     <i></i>
                 </span>
-
             </div>
 
             <p class="login-subtitulo cadastro-subtitulo">
-                Crie sua conta e encontre o brinquedo certo<br>
+                Crie sua conta e encontre o brinquedo certo<br/>
                 para cada momento.
             </p>
 
-            <form class="form-login form-cadastro" id="formCadastro" novalidate>
-
+            <form
+                class="form-login form-cadastro"
+                id="formCadastro"
+                novalidate=""
+            >
                 <p class="passo-cadastro">
                     Passo 1 de 2
                 </p>
 
                 <div class="campo-grupo">
-
                     <label for="nome">
                         Nome completo
                     </label>
 
                     <div class="campo-input campo-sem-icone">
-
-                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" autocomplete="name"
-                            maxlength="100" required>
-
+                        <input
+                            autocomplete="name"
+                            id="nome"
+                            maxlength="100"
+                            name="nome"
+                            placeholder="Digite seu nome"
+                            required=""
+                            type="text"
+                        />
                     </div>
 
-                    <small class="mensagem-erro" id="erroNome"></small>
-
+                    <small
+                        class="mensagem-erro"
+                        id="erroNome"
+                    ></small>
                 </div>
 
                 <div class="campo-grupo">
-
                     <label for="email">
                         E-mail
                     </label>
 
                     <div class="campo-input">
+                        <img
+                            alt=""
+                            class="campo-icone"
+                            src="img/email_icon.png"
+                        />
 
-                        <img src="img/email_icon.png" alt="" class="campo-icone">
-
-                        <input type="email" id="email" name="email" placeholder="seu@gmail.com" autocomplete="email"
-                            maxlength="120" required>
-
+                        <input
+                            autocomplete="email"
+                            id="email"
+                            maxlength="120"
+                            name="email"
+                            placeholder="seu@gmail.com"
+                            required=""
+                            type="email"
+                        />
                     </div>
 
-                    <small class="mensagem-erro" id="erroEmail"></small>
-
+                    <small
+                        class="mensagem-erro"
+                        id="erroEmail"
+                    ></small>
                 </div>
 
                 <div class="campo-grupo">
-
                     <label for="telefone">
                         Telefone
                     </label>
 
                     <div class="campo-input">
+                        <img
+                            alt=""
+                            class="campo-icone"
+                            src="img/telefone_icon.png"
+                        />
 
-                        <img src="img/telefone_icon.png" alt="" class="campo-icone">
-
-                        <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone"
-                            autocomplete="tel" inputmode="numeric" maxlength="15" required>
-
+                        <input
+                            autocomplete="tel"
+                            id="telefone"
+                            inputmode="numeric"
+                            maxlength="15"
+                            name="telefone"
+                            placeholder="Digite seu telefone"
+                            required=""
+                            type="tel"
+                        />
                     </div>
 
-                    <small class="mensagem-erro" id="erroTelefone"></small>
-
+                    <small
+                        class="mensagem-erro"
+                        id="erroTelefone"
+                    ></small>
                 </div>
 
                 <div class="campo-grupo">
-
                     <label for="cpfCnpj">
                         CPF ou CNPJ
                     </label>
 
                     <div class="campo-input">
-
                         <img
-                            src="img/telefone_icon.png"
                             alt=""
                             class="campo-icone"
-                        >
+                            src="img/telefone_icon.png"
+                        />
 
                         <input
-                            type="text"
-                            id="cpfCnpj"
-                            name="cpfCnpj"
-                            placeholder="Digite seu CPF ou CNPJ"
                             autocomplete="off"
+                            id="cpfCnpj"
                             inputmode="numeric"
                             maxlength="18"
-                            required
-                        >
-
+                            name="cpfCnpj"
+                            placeholder="Digite seu CPF ou CNPJ"
+                            required=""
+                            type="text"
+                        />
                     </div>
 
                     <small
                         class="mensagem-erro"
                         id="erroCpfCnpj"
                     ></small>
-
                 </div>
 
-                <button type="submit" class="botao-entrar-login botao-proximo"> Próximo ></button>
+                <button
+                    class="botao-entrar-login botao-proximo"
+                    type="submit"
+                >
+                    Próximo &gt;
+                </button>
 
                 <div class="separador separador-cadastro">
-
                     <span></span>
-
                     <p>ou</p>
-
                     <span></span>
                 </div>
 
                 <p class="cadastro-texto">
-                    Já tem conta?<a href="login.html" class="link-roxo"> Entre</a>
+                    Já tem conta?
+
+                    <a
+                        class="link-roxo"
+                        href="login.html"
+                    >
+                        Entre
+                    </a>
                 </p>
             </form>
         </section>
 
-        <section class="mascote-area cadastro-mascote-area">
+        <section class="mascote-area cadastro-mascote-area balao-mascote-preservado">
+            <div class="balao-fala balao-cadastro balao-fala-pipo">
+                <p class="texto-balao-pipo">
+                    Está pronto para entrar em um mundo de aventuras?
 
-            <div class="balao-fala balao-cadastro">
-                <p>
-                    Está pronto para<br>
-                    entrar em um<br>
-                    mundo de aventuras?
-                    <span aria-hidden="true">💙</span>
+                    <span
+                        aria-hidden="true"
+                        class="coracao-pipo"
+                    >
+                        💙
+                    </span>
+                </p>
+
+                <p class="zuppy-assinatura-pipo">
+                    — Pipo, mascote Zuppy
                 </p>
             </div>
 
-            <img src="img/pipo_oi.png" alt="Mascote azul da Zuppy dando boas-vindas"
-                class="mascote-login mascote-cadastro">
+            <img
+                alt="Mascote azul da Zuppy dando boas-vindas"
+                class="mascote-login mascote-cadastro"
+                src="img/pipo_oi.png"
+            />
         </section>
     </main>
-    <script src="js/cadastro.js"></script>
-</body>
 
+    <script src="js/cadastro.js"></script>
+    <script src="js/acessibilidade.js"></script>
+</body>
 </html>

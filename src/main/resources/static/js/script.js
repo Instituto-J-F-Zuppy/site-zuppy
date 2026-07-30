@@ -89,35 +89,4 @@ function exibirUsuarioLogado() {
     });
 }
 
-const searchInput = document.getElementById("searchInput");
-if (searchInput) {
-    searchInput.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-            const termo = searchInput.value.trim();
-            if(termo){
-                window.location.href =
-                    "todos-produtos.html?q=" + encodeURIComponent(termo);
-            }
-        }
-    });
-}
-
 exibirUsuarioLogado();
-
-document.querySelectorAll(".btn-carrinho").forEach(function (botao) {
-    botao.addEventListener("click", function () {
-        const card = botao.closest(".produto-card");
-
-        CarrinhoStore.adicionar({
-            id: Number(card.dataset.id),
-            nome: card.dataset.nome,
-            preco: Number(card.dataset.preco),
-            imagem: card.dataset.imagem
-        });
-        const textoOriginal = botao.querySelector("p").textContent;
-        botao.querySelector("p").textContent = "Adicionado ao carrinho!";
-        window.setTimeout(function () {
-            botao.querySelector("p").textContent = textoOriginal;
-        }, 1800);
-    });
-});

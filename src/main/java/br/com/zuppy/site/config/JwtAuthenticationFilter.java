@@ -14,7 +14,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.List;
 
-// Roda em toda requisição: lê o token do cabeçalho e "loga" o usuário na sessão
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
@@ -32,20 +31,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     ) throws ServletException, IOException {
         String header = request.getHeader("Authorization");
 
-        // sem token no cabeçalho, segue sem autenticar
         if (header == null || !header.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
         try {
-            // remove o "Bearer " e valida o token
             Claims claims = jwtService.validar(header.substring(7));
             List<SimpleGrantedAuthority> autorizacoes = papeis(claims).stream()
                     .map(papel -> new SimpleGrantedAuthority("ROLE_" + papel))
                     .toList();
 
-            // marca o usuário como autenticado pro resto da requisição
             UsernamePasswordAuthenticationToken autenticacao = new UsernamePasswordAuthenticationToken(
                     claims.getSubject(),
                     null,
@@ -53,14 +49,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             );
             SecurityContextHolder.getContext().setAuthentication(autenticacao);
         } catch (RuntimeException exception) {
-            // token inválido/expirado, segue sem autenticar
             SecurityContextHolder.clearContext();
         }
 
         filterChain.doFilter(request, response);
     }
 
-    // extrai a lista de papéis (ex: "CLIENTE") de dentro do token
     @SuppressWarnings("unchecked")
     private List<String> papeis(Claims claims) {
         Object papeis = claims.get("papeis");

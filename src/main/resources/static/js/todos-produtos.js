@@ -243,10 +243,16 @@ document
     .querySelectorAll(".adicionar-listagem")
     .forEach(function (botao) {
         botao.addEventListener("click", function () {
-            const textoOriginal = botao.innerHTML;
+            const card = botao.closest(".card-listagem");
 
-            botao.textContent =
-                "Produto adicionado!";
+            CarrinhoStore.adicionar({
+                id: Number(card.dataset.id),
+                nome: card.dataset.nome,
+                preco: Number(card.dataset.preco),
+                imagem: card.dataset.imagem
+            });
+
+            botao.textContent = "Produto adicionado!";
 
             botao.disabled = true;
 
@@ -256,6 +262,13 @@ document
             }, 1800);
         });
     });
+
+    const parametroUrl = new URLSearchParams(window.location.search);
+    const termoBuscarUrl = parametroUrl.get("q");
+
+    if(termoBuscarUrl){
+        buscaPrincipal.value = termoBuscarUrl;
+    }
 
 atualizarPrecoSelecionado();
 atualizarProdutos();

@@ -5,9 +5,9 @@ spring:
   config:
     import: optional:file:.env[.properties]
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/zuppy}
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:postgres}
+    url: ${ECOCIENTE_DSN:jdbc:postgresql://localhost:5432/zuppy}
+    username: ${ECOCIENTE_DB_USER:postgres}
+    password: ${ECOCIENTE_DB_PASSWORD:postgres}
   jpa:
     hibernate:
       ddl-auto: validate

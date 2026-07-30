@@ -62,7 +62,7 @@
 
                 <img src="img/whatsapp_icon.png" alt="Fale com a gente pelo WhatsApp">
 
-                <a href="carrinho.html"><img src="img/lilcar.png" alt="Meu Carrinho"></a>
+                <a href="carrinho.html" class="link-carrinho-header"><img src="img/lilcar.png" alt="Meu Carrinho"><span class="carrinho-badge"></span></a>
             </div>
         </div>
     </header>
@@ -196,7 +196,7 @@
                             ♡
                         </button>
 
-                        <an href="produto.html" class="link-card-listagem">
+                        <a href="produto.html" class="link-card-listagem">
                             <div class="imagem-card-listagem">
                                 <img src="" alt="">
                             </div>
@@ -210,7 +210,7 @@
                             <div class="preco-antigo-listagem">
 
                                 <span>
-                                    R$0.000,00
+                                    R$298,00
                                 </span>
 
                                 <strong>
@@ -358,8 +358,7 @@
 
                     </article>
 
-                    <article class="card-listagem" data-nome="Boneca Shiniti" data-personagem="Shiniti" data-preco="279"
-                        data-vendas="65">
+                    <article class="card-listagem" data-id="5" data-nome="Boneca Shiniti" data-personagem="Shiniti" data-preco="279" data-vendas="65" data-imagem="img/pelucia_enzo-herrera.png">
 
                         <button type="button" class="favorito-listagem" aria-label="" aria-pressed="false">
                             ♡
@@ -445,7 +444,9 @@
             </section>
         </div>
     </main>
-    <script src="todos-produtos.js"></script>
+
+    <script src="js/carrinho-store.js"></script>
+    <script src="js/todos-produtos.js"></script>
 </body>
 
 </html>

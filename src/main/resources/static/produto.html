@@ -48,7 +48,7 @@
 
             <nav class="nav-menu">
 
-                <a href="#">Todos os produtos</a>
+                <a href="todos-produtos.html">Todos os produtos</a>
                 <a href="#">Anna</a>
                 <a href="#">Emanuelly</a>
                 <a href="#">Julio</a>
@@ -63,7 +63,7 @@
 
                 <img src="img/whatsapp_icon.png" alt="Fale com a gente pelo WhatsApp">
 
-                <a href="carrinho.html"><img src="img/lilcar.png" alt="Meu Carrinho"></a>
+                <a href="carrinho.html" class="link-carrinho-header"><img src="img/lilcar.png" alt="Meu Carrinho"><span class="carrinho-badge"></span></a>
 
             </div>
 
@@ -141,7 +141,7 @@
                     <div class="preco-anterior-area">
 
                         <span class="preco-anterior">
-                            R$0.000,00
+                            R$498,00
                         </span>
 
                         <span class="produto-desconto">
@@ -151,14 +151,15 @@
                     </div>
 
                     <p class="produto-preco-atual">
-                        R$0.000,00
+                        R$249,00
                     </p>
 
                 </div>
 
                 <div class="produto-acoes">
 
-                    <button type="button" class="botao-adicionar" id="adicionarCarrinho">
+                    <button type="button" class="botao-adicionar" id="adicionarCarrinho" 
+                        data-id="4" data-nome="Julio Craque" data-preco="249" data-imagem="img/julio_craque_brinquedo.png">
                         <img src="img/carrinho-icon.png" alt="">
 
                         <span>
@@ -227,7 +228,8 @@
 
     </main>
 
-    <script src="produto.js"></script>
+    <script src="js/carrinho-store.js"></script>
+    <script src="js/produto.js"></script>
 
 </body>
 

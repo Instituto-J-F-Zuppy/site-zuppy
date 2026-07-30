@@ -26,8 +26,8 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/",
                                 "/*.html",
-                                "/*.css",
-                                "/*.js",
+                                "/css/**",
+                                "/js/**",
                                 "/img/**",
                                 "/reclame-aqui/**"
                         ).permitAll() // front-end estático liberado

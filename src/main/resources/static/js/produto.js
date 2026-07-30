@@ -2,15 +2,26 @@ const botaoFavorito = document.getElementById("botaoFavorito");
 const botaoAdicionar = document.getElementById("adicionarCarrinho");
 const botaoComprar = document.getElementById("comprarAgora");
 const mensagemCarrinho = document.getElementById("mensagemCarrinho");
+const notificacaoCarrinho = document.querySelector(".carrinho-notificacao");
 
 let produtoFavoritado = false;
+let quantidadeCarrinho = 1;
 
 botaoFavorito.addEventListener("click", function () {
     produtoFavoritado = !produtoFavoritado;
 
-    botaoFavorito.classList.toggle("favoritado", produtoFavoritado);
+    botaoFavorito.classList.toggle(
+        "favoritado",
+        produtoFavoritado
+    );
+
     botaoFavorito.textContent = produtoFavoritado ? "♥" : "♡";
-    botaoFavorito.setAttribute("aria-pressed", String(produtoFavoritado));
+
+    botaoFavorito.setAttribute(
+        "aria-pressed",
+        String(produtoFavoritado)
+    );
+
     botaoFavorito.setAttribute(
         "aria-label",
         produtoFavoritado
@@ -19,18 +30,13 @@ botaoFavorito.addEventListener("click", function () {
     );
 });
 
-function obterDadosProduto() {
-    return{
-        id: Number(botaoAdicionar.dataset.id),
-        nome: botaoAdicionar.dataset.nome,
-        preco: Number(botaoAdicionar.dataset.preco),
-        imagem: botaoAdicionar.dataset.imagem
-    }
-}
-
 botaoAdicionar.addEventListener("click", function () {
-    CarrinhoStore.adicionar(obterDadosProduto());
-    mensagemCarrinho.textContent = "Júlio Craque foi adicionado ao carrinho!";
+    quantidadeCarrinho++;
+
+    notificacaoCarrinho.textContent = quantidadeCarrinho;
+
+    mensagemCarrinho.textContent =
+        "Júlio Craque foi adicionado ao carrinho!";
 
     window.setTimeout(function () {
         mensagemCarrinho.textContent = "";
@@ -38,7 +44,6 @@ botaoAdicionar.addEventListener("click", function () {
 });
 
 botaoComprar.addEventListener("click", function () {
-    CarrinhoStore.adicionar(obterDadosProduto());
     window.location.href = "carrinho.html";
 });
 
@@ -64,5 +69,6 @@ areaZoomProduto.addEventListener("mousemove", function (evento) {
 
 areaZoomProduto.addEventListener("mouseleave", function () {
     areaZoomProduto.classList.remove("zoom-ativo");
+
     imagemProdutoPrincipal.style.transformOrigin = "center";
 });

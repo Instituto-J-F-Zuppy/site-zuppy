@@ -1,385 +1,669 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
     <title>Zuppy</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/acessibilidade.css" rel="stylesheet"/>
+    <link href="css/rodape-acessivel.css" rel="stylesheet"/>
 </head>
 
 <body>
 
 <header>
-
     <div class="header">
-        <a href="index.jsp" class="logo-area"><img src="img/logo_zuppy.png" alt="Logo Zuppy" id="logo"></a>
+        <a class="logo-area" href="index.html">
+            <img
+                alt="Logo Zuppy"
+                id="logo"
+                src="img/logo_zuppy.png"
+            />
+        </a>
 
         <div class="search-box">
-            <img src="img/lupa_icon.png" alt="" id="lupa_icon">
+            <img
+                alt=""
+                id="lupa_icon"
+                src="img/lupa_icon.png"
+            />
 
-            <input type="text" id="searchInput" placeholder="Encontre seu próximo brinquedo favorito...">
+            <input
+                id="searchInput"
+                placeholder="Encontre seu próximo brinquedo favorito..."
+                type="text"
+            />
         </div>
 
         <div class="login" id="areaLogin">
-            <a href="cadastro.html" id="linkCadastrar">Cadastrar-se</a>
+            <a href="cadastro.html" id="linkCadastrar">
+                Cadastrar-se
+            </a>
 
-            <a href="login.html" id="linkEntrar"><button id="botao-entrar">Entrar</button></a>
+            <a href="login.html" id="linkEntrar">
+                <button id="botao-entrar">
+                    Entrar
+                </button>
+            </a>
 
-            <div id="areaUsuarioLogado" style="display: none; align-items: center; gap: 14px;">
+            <div
+                id="areaUsuarioLogado"
+                style="display: none; align-items: center; gap: 14px;"
+            >
                 <span id="saudacaoUsuario"></span>
-                <button id="botaoSair" type="button">Sair</button>
+
+                <button id="botaoSair" type="button">
+                    Sair
+                </button>
             </div>
         </div>
     </div>
 
     <div class="header2" id="headerBottom">
-
         <div class="cep">
-            <img src="img/loc_icon.png" alt="" id="loc_icon">
-            <span>Entregar em: <strong>00000-000</strong></span>
+            <img
+                alt=""
+                id="loc_icon"
+                src="img/loc_icon.png"
+            />
+
+            <span>
+                Entregar em:
+                <strong>00000-000</strong>
+            </span>
         </div>
 
         <nav class="nav-menu">
             <a href="todos-produtos.html">Todos os produtos</a>
-            <a href="#">Anna</a>
-            <a href="#">Emanuelly</a>
-            <a href="#">Julio</a>
-            <a href="#">Sena</a>
-            <a href="#">Shiniti</a>
+            <a href="todos-produtos.html?personagem=Anna">Anna</a>
+            <a href="todos-produtos.html?personagem=Emanuelly">Emanuelly</a>
+            <a href="todos-produtos.html?personagem=Julio">Julio</a>
+            <a href="todos-produtos.html?personagem=Sena">Sena</a>
+            <a href="todos-produtos.html?personagem=Shiniti">Shiniti</a>
         </nav>
 
         <div class="botao-icones">
-
-            <img src="img/acessibilidade_icon.png" alt="Sobre Acessibilidade">
-
-            <img src="img/whatsapp_icon.png" alt="Fale com a gente pelo WhatsApp">
-
-            <a href="carrinho.html" class="link-carrinho-header">
-                <img src="img/lilcar.png" alt="Carrinho de compras">
-                <span class="carrinho-badge"></span>
+            <a
+                aria-label="Página de acessibilidade"
+                class="botao-icone-cabecalho"
+                href="acessibilidade.html"
+            >
+                <img
+                    alt=""
+                    src="img/acessibilidade_icon.png"
+                />
             </a>
 
+            <img
+                alt="Fale com a gente pelo WhatsApp"
+                src="img/whatsapp_icon.png"
+            />
+
+            <img
+                alt="Meu Carrinho"
+                src="img/lilcar.png"
+            />
         </div>
-
     </div>
-
 </header>
 
 <main>
-
     <section class="banners">
-
         <div class="promocao1">
-            <img src="img/promocao1.png" alt="Ofertas imperdíveis Zuppy">
+            <img
+                alt="Ofertas imperdíveis Zuppy"
+                src="img/promocao1.png"
+            />
         </div>
 
         <div class="carrossel-area">
-
-            <button class="seta-carrossel seta-esquerda" id="btnVoltar">
-                <img src="img/esquerda.png" alt="">
+            <button
+                class="seta-carrossel seta-esquerda"
+                id="btnVoltar"
+            >
+                <img
+                    alt=""
+                    src="img/esquerda.png"
+                />
             </button>
 
             <div class="carrossel-janela">
                 <div class="carrossel-track" id="carrosselTrack">
-
                     <div class="card-banner">
-                        <img src="img/banner1.jpg" alt="Banner brinquedo história">
+                        <img
+                            alt="brinquedo história | aproveite os bonecos exclusivos do filme"
+                            src="img/banner1.jpg"
+                        />
                     </div>
 
                     <div class="card-banner">
-                        <img src="img/banner2.jpg" alt="Banner diversão">
+                        <img
+                            alt="diversão! | venha se divertir com até 50% off"
+                            src="img/banner2.jpg"
+                        />
                     </div>
 
                     <div class="card-banner">
-                        <img src="img/banner3.jpg" alt="Banner blocos de montar">
+                        <img
+                            alt="blocos de montar | construa o mundo que você quiser com os blocos de montar com até 50% off"
+                            src="img/banner3.jpg"
+                        />
                     </div>
 
                     <div class="card-banner">
-                        <img src="img/banner4.jpg" alt="Banner torcida da diversão">
+                        <img
+                            alt="torcida da diversão | venha torcer com a gente com até 30% off"
+                            src="img/banner4.jpg"
+                        />
                     </div>
 
                     <div class="card-banner">
-                        <img src="img/banner5.png" alt="Banner mundo encantado">
+                        <img
+                            alt="mundo encantado | venha se encantar com os brinquedos mágicos com até 40% off"
+                            src="img/banner5.png"
+                        />
                     </div>
-
                 </div>
             </div>
 
-            <button class="seta-carrossel seta-direita" id="btnAvancar">
-                <img src="img/direita.png" alt="">
+            <button
+                class="seta-carrossel seta-direita"
+                id="btnAvancar"
+            >
+                <img
+                    alt=""
+                    src="img/direita.png"
+                />
             </button>
-
         </div>
-
     </section>
 
     <section class="beneficios">
-        <img src="img/beneficios.webp" alt="" class="beneficios-img">
+        <img
+            alt="Benefícios Zuppy | Relâmpago Zuppy - Envio Rápido | Frete Grátis Acima de R$199 para todo o Brasil | Compre online e retire na loja física em 90 minutos | troque em vontade, até 30 dias para trocar ou devolver | Parcele tudo em até 10 vezes sem juros | Ganhe 10% off na primeira compra"
+            class="beneficios-img"
+            data-imagem-clara="img/beneficios.webp"
+            data-imagem-escura="img/beneficios_escuro.png"
+            src="img/beneficios.webp"
+        />
     </section>
 
     <section class="secao-produtos">
-
         <div class="titulo-produtos">
             <h2>Novidades</h2>
         </div>
-    
+
         <div class="produtos-carrossel">
-    
-            <button class="seta-carrossel seta-esquerda" data-direction="left">
-                <img src="img/esquerda.png" alt="">
+            <button
+                class="seta-carrossel seta-esquerda"
+                data-direction="left"
+            >
+                <img
+                    alt=""
+                    src="img/esquerda.png"
+                />
             </button>
-    
+
             <div class="produtos-janela">
                 <div class="produtos-track">
-    
-                    <div class="produto-card" data-id="1" data-nome="LabuSena Feminino" data-preco="149" data-imagem="img/pelucia_enzo-herrera.png">
-                        <button class="favorito-btn">♡</button>
+                    <div class="produto-card">
+                        <button class="favorito-btn">
+                            ♡
+                        </button>
 
                         <div class="produto-img-area">
-                            <img src="img/pelucia_enzo-herrera.png" alt="LabuSena Feminino">
+                            <img
+                                alt="LabuSena Feminino"
+                                src="img/pelucia_enzo-herrera.png"
+                            />
                         </div>
 
-                        <span class="produto-tag">Só no Zuppy!</span>
-    
+                        <span class="produto-tag">
+                            Só no Zuppy!
+                        </span>
+
                         <h3>LabuSena Feminino</h3>
-    
+
                         <div class="produto-preco-antigo-area">
-                            <span class="preco-antigo">R$298,00</span>
-                            <span class="desconto">50% OFF</span>
+                            <span class="preco-antigo">
+                                R$0.000,00
+                            </span>
+
+                            <span class="desconto">
+                                50% OFF
+                            </span>
                         </div>
 
-                        <p class="preco-atual">R$149,00</p>
-    
+                        <p class="preco-atual">
+                            R$0.000,00
+                        </p>
+
                         <button class="btn-carrinho">
-                            <img src="img/carrinho-icon.png" alt="">
+                            <img
+                                alt=""
+                                src="img/carrinho-icon.png"
+                            />
+
                             <p>Adicionar ao carrinho</p>
                         </button>
                     </div>
                 </div>
             </div>
-    
-            <button class="seta-carrossel seta-direita" data-direction="right">
-                <img src="img/direita.png" alt="">
+
+            <button
+                class="seta-carrossel seta-direita"
+                data-direction="right"
+            >
+                <img
+                    alt=""
+                    src="img/direita.png"
+                />
             </button>
-    
         </div>
 
         <div class="titulo-produtos">
             <h2>Mais Vendidos</h2>
         </div>
-    
+
         <div class="produtos-carrossel">
-    
-            <button class="seta-carrossel seta-esquerda" data-direction="left">
-                <img src="img/esquerda.png" alt="">
+            <button
+                class="seta-carrossel seta-esquerda"
+                data-direction="left"
+            >
+                <img
+                    alt=""
+                    src="img/esquerda.png"
+                />
             </button>
-    
+
             <div class="produtos-janela">
                 <div class="produtos-track">
-    
-                    <div class="produto-card" data-id="1" data-nome="LabuSena Feminino" data-preco="149" data-imagem="img/pelucia_enzo-herrera.png">
-                        <button class="favorito-btn">♡</button>
-    
+                    <div class="produto-card">
+                        <button class="favorito-btn">
+                            ♡
+                        </button>
+
                         <div class="produto-img-area">
-                            <img src="img/pelucia_enzo-herrera.png" alt="LabuSena Feminino">
+                            <img
+                                alt="LabuSena Feminino"
+                                src="img/pelucia_enzo-herrera.png"
+                            />
                         </div>
-    
-                        <span class="produto-tag">Só no Zuppy!</span>
-    
+
+                        <span class="produto-tag">
+                            Só no Zuppy!
+                        </span>
+
                         <h3>LabuSena Feminino</h3>
-    
+
                         <div class="produto-preco-antigo-area">
-                            <span class="preco-antigo">R$298,00</span>
-                            <span class="desconto">50% OFF</span>
+                            <span class="preco-antigo">
+                                R$0.000,00
+                            </span>
+
+                            <span class="desconto">
+                                50% OFF
+                            </span>
                         </div>
-    
-                        <p class="preco-atual">R$149,00</p>
-    
+
+                        <p class="preco-atual">
+                            R$0.000,00
+                        </p>
+
                         <button class="btn-carrinho">
-                            <img src="img/carrinho-icon.png" alt="">
+                            <img
+                                alt=""
+                                src="img/carrinho-icon.png"
+                            />
+
                             <p>Adicionar ao carrinho</p>
                         </button>
                     </div>
-    
-                
-    
                 </div>
             </div>
-    
-            <button class="seta-carrossel seta-direita" data-direction="right">
-                <img src="img/direita.png" alt="">
+
+            <button
+                class="seta-carrossel seta-direita"
+                data-direction="right"
+            >
+                <img
+                    alt=""
+                    src="img/direita.png"
+                />
             </button>
-    
         </div>
 
         <div class="titulo-produtos">
             <h2>Melhores Ofertas</h2>
         </div>
-    
+
         <div class="produtos-carrossel">
-    
-            <button class="seta-carrossel seta-esquerda" data-direction="left">
-                <img src="img/esquerda.png" alt="">
+            <button
+                class="seta-carrossel seta-esquerda"
+                data-direction="left"
+            >
+                <img
+                    alt=""
+                    src="img/esquerda.png"
+                />
             </button>
-    
+
             <div class="produtos-janela">
                 <div class="produtos-track">
-    
-                    <div class="produto-card" data-id="1" data-nome="LabuSena Feminino" data-preco="149" data-imagem="img/pelucia_enzo-herrera.png">
-                        <button class="favorito-btn">♡</button>
-    
+                    <div class="produto-card">
+                        <button class="favorito-btn">
+                            ♡
+                        </button>
+
                         <div class="produto-img-area">
-                            <img src="img/pelucia_enzo-herrera.png" alt="LabuSena Feminino">
+                            <img
+                                alt="LabuSena Feminino"
+                                src="img/pelucia_enzo-herrera.png"
+                            />
                         </div>
-    
-                        <span class="produto-tag">Só no Zuppy!</span>
-    
+
+                        <span class="produto-tag">
+                            Só no Zuppy!
+                        </span>
+
                         <h3>LabuSena Feminino</h3>
-    
+
                         <div class="produto-preco-antigo-area">
-                            <span class="preco-antigo">R$298,00</span>
-                            <span class="desconto">50% OFF</span>
+                            <span class="preco-antigo">
+                                R$0.000,00
+                            </span>
+
+                            <span class="desconto">
+                                50% OFF
+                            </span>
                         </div>
-    
-                        <p class="preco-atual">R$149,00</p>
-    
+
+                        <p class="preco-atual">
+                            R$0.000,00
+                        </p>
+
                         <button class="btn-carrinho">
-                            <img src="img/carrinho-icon.png" alt="">
+                            <img
+                                alt=""
+                                src="img/carrinho-icon.png"
+                            />
+
                             <p>Adicionar ao carrinho</p>
                         </button>
                     </div>
                 </div>
             </div>
-    
-            <button class="seta-carrossel seta-direita" data-direction="right">
-                <img src="img/direita.png" alt="">
+
+            <button
+                class="seta-carrossel seta-direita"
+                data-direction="right"
+            >
+                <img
+                    alt=""
+                    src="img/direita.png"
+                />
             </button>
-    
         </div>
-    
     </section>
 
     <section class="nossas-lojas">
-
         <div class="titulo-lojas">
             <h2>Nossas Lojas</h2>
             <span></span>
         </div>
-    
+
         <div class="lojas-container">
-    
-            <a href="img/loja_barueri.jpg" target="_blank" class="loja-card">
-                <img src="img/loja_barueri.jpg" alt="Loja Zuppy Barueri">
+            <a
+                class="loja-card"
+                href="img/loja_barueri.jpg"
+                target="_blank"
+            >
+                <img
+                    alt="Loja Zuppy Barueri"
+                    src="img/loja_barueri.jpg"
+                />
+
                 <div class="loja-overlay"></div>
+
                 <h3>Barueri</h3>
             </a>
-    
-            <a href="img/loja_caieras.jpg" target="_blank" class="loja-card">
-                <img src="img/loja_caieras.jpg" alt="Loja Zuppy Caieiras">
+
+            <a
+                class="loja-card"
+                href="img/loja_caieras.jpg"
+                target="_blank"
+            >
+                <img
+                    alt="Loja Zuppy Caieiras"
+                    src="img/loja_caieras.jpg"
+                />
+
                 <div class="loja-overlay"></div>
+
                 <h3>Caieiras</h3>
             </a>
-    
-            <a href="img/loja_Sol-nascente.jpg" target="_blank" class="loja-card">
-                <img src="img/loja_Sol-nascente.jpg" alt="Loja Zuppy Sol Nascente">
+
+            <a
+                class="loja-card"
+                href="img/loja_Sol-nascente.jpg"
+                target="_blank"
+            >
+                <img
+                    alt="Loja Zuppy Sol Nascente"
+                    src="img/loja_Sol-nascente.jpg"
+                />
+
                 <div class="loja-overlay"></div>
+
                 <h3>Sol Nascente</h3>
             </a>
-    
-            <a href="img/loja_paris.jpg" target="_blank" class="loja-card">
-                <img src="img/loja_paris.jpg" alt="Loja Zuppy Paris">
+
+            <a
+                class="loja-card"
+                href="img/loja_paris.jpg"
+                target="_blank"
+            >
+                <img
+                    alt="Loja Zuppy Paris"
+                    src="img/loja_paris.jpg"
+                />
+
                 <div class="loja-overlay"></div>
+
                 <h3>Paris</h3>
             </a>
         </div>
     </section>
-
-    
 </main>
 
 <footer class="footer">
-
     <div class="footer-content">
-
         <div class="footer-mascote">
-            <img src="img/img_footer.png" alt="Mascote Zuppy" class="mascote-footer">
+            <img
+                src="img/img_footer.png"
+                alt="Mascote Zuppy"
+                class="mascote-footer"
+            >
         </div>
 
         <div class="footer-links">
-
             <div class="footer-coluna">
                 <h3>Institucional</h3>
-                <a href="#">Sobre o Zuppy!</a>
-                <a href="#">Zippo</a>
-                <a href="#">Acessibilidade</a>
+
+                <a href="index.html">
+                    Sobre a Zuppy
+                </a>
+
+                <a href="#">
+                    Pipo
+                </a>
+
+                <a href="acessibilidade.html">
+                    Acessibilidade
+                </a>
             </div>
 
             <div class="footer-coluna">
                 <h3>Produtos</h3>
-                <a href="#">Adriel</a>
-                <a href="#">Anna</a>
-                <a href="#">Emanuelly</a>
-                <a href="#">Júlio</a>
-                <a href="#">Sena</a>
-                <a href="#">Shiniti</a>
+
+                <a href="todos-produtos.html?personagem=Adriel">Adriel</a>
+                <a href="todos-produtos.html?personagem=Anna">Anna</a>
+                <a href="todos-produtos.html?personagem=Emanuelly">Emanuelly</a>
+                <a href="todos-produtos.html?personagem=Julio">Julio</a>
+                <a href="todos-produtos.html?personagem=Sena">Sena</a>
+                <a href="todos-produtos.html?personagem=Shiniti">Shiniti</a>
             </div>
 
             <div class="footer-coluna">
                 <h3>Atendimento</h3>
-                <a href="#">Central de atendimento</a>
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Política de Frete</a>
-                <a href="#">Política de Trocas e Devoluções</a>
-            </div>
 
+                <a href="#">
+                    Central de atendimento
+                </a>
+
+                <a href="#">
+                    Política de Privacidade
+                </a>
+
+                <a href="#">
+                    Política de Frete
+                </a>
+
+                <a href="#">
+                    Política de Trocas e Devoluções
+                </a>
+            </div>
         </div>
 
         <div class="footer-redes">
-            <a href="#">
-                <img src="img/facebook_icon.png" alt="Facebook">
+            <a
+                href="#"
+                aria-label="Facebook da Zuppy"
+            >
+                <img
+                    src="img/facebook_icon.png"
+                    alt=""
+                >
             </a>
 
-            <a href="#">
-                <img src="img/instagram_icon.png" alt="Instagram">
+            <a
+                href="#"
+                aria-label="Instagram da Zuppy"
+            >
+                <img
+                    src="img/instagram_icon.png"
+                    alt=""
+                >
             </a>
 
-            <a href="#">
-                <img src="img/youtube_icon.png" alt="YouTube">
+            <a
+                href="#"
+                aria-label="YouTube da Zuppy"
+            >
+                <img
+                    src="img/youtube_icon.png"
+                    alt=""
+                >
             </a>
         </div>
 
+        <nav
+            class="footer-redes-texto"
+            aria-label="Redes sociais da Zuppy"
+        >
+            <a href="#">
+                Facebook
+            </a>
+
+            <span aria-hidden="true">
+                |
+            </span>
+
+            <a href="#">
+                Instagram
+            </a>
+
+            <span aria-hidden="true">
+                |
+            </span>
+
+            <a href="#">
+                YouTube
+            </a>
+        </nav>
     </div>
 </footer>
 
-<section class="footer-extra">
-
+<section
+    class="footer-extra"
+    aria-label="Pagamentos e segurança"
+>
     <div class="footer-extra-container">
-
         <div class="formas-pagamento">
             <h3>Formas de pagamento</h3>
 
             <div class="pagamento-icones">
-                <img src="img/picpay.png" alt="PicPay">
-                <img src="img/picpay_vermelha.png" alt="PicPay">
-                <img src="img/picpay_azul.png" alt="PicPay">
-                <img src="img/picpay_roxa.png" alt="PicPay">
+                <img
+                    src="img/picpay.png"
+                    alt="PicPay"
+                >
+
+                <img
+                    src="img/picpay_vermelha.png"
+                    alt="Cartão PicPay vermelho"
+                >
+
+                <img
+                    src="img/picpay_azul.png"
+                    alt="Cartão PicPay azul"
+                >
+
+                <img
+                    src="img/picpay_roxa.png"
+                    alt="Cartão PicPay roxo"
+                >
             </div>
+
+            <p class="mensagem-rodape mensagem-pagamento">
+                Só aceitamos PicPay
+            </p>
         </div>
 
-        <div class="linha-divisoria"></div>
+        <div
+            class="linha-divisoria"
+            aria-hidden="true"
+        ></div>
 
         <div class="seguranca-site">
             <h3>Segurança</h3>
 
             <div class="seguranca-icones">
-                <a href="reclame-aqui/reclameaqui.html"><img src="img/reclameaqui.avif" alt="Reclame Aqui"></a>
+                <a
+                    href="reclame-aqui/reclameaqui.html"
+                    aria-label="Abrir a página do Reclame Aqui"
+                >
+                    <img
+                        src="img/reclameaqui.avif"
+                        alt="Reclame Aqui"
+                    >
+                </a>
             </div>
+
+            <a
+                class="mensagem-rodape mensagem-seguranca"
+                href="reclame-aqui/reclameaqui.html"
+            >
+                Acessar Reclame Aqui
+            </a>
         </div>
-
     </div>
-
 </section>
 
-<script src="js/carrinho-store.js"></script>
 <script src="js/script.js"></script>
+<script src="js/acessibilidade.js"></script>
+
 </body>
 </html>

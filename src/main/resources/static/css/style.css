@@ -194,38 +194,6 @@ header {
     height: 35px;
     width: 35px;
 }
-
-.link-carrinho-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.carrinho-badge{
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    min-width: 20px;
-    height: 20px;
-    padding: 0 5px;
-    border-radius: 50%;
-    background-color: var(--cor-vermelho-erro1);
-    color: var(--cor-branco);
-    font-family: 'Nunito', Arial, sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    line-height: 20px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carrinho-badge:empty {
-    display: none;
-}
 main {
     padding: 34px 36px;
     overflow-x: hidden;
@@ -649,16 +617,12 @@ main {
 
 .footer {
     width: 100%;
-    max-width: 1550px;
     height: 430px;
     margin: 70px auto 0;
     position: relative;
-
-    background-image: url("img/fundo_footer.png");
-    background-repeat: no-repeat;
+    background-image: url("../img/fundo_footer.png");
     background-position: top center;
     background-size: 100% 100%;
-
     font-family: 'Nunito', Arial, sans-serif;
     overflow: hidden;
 }

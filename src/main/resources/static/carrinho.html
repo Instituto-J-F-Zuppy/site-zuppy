@@ -1,220 +1,324 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Carrinho | Zuppy!</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/carrinho.css">
-</head>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Carrinho | Zuppy!</title>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/carrinho.css" rel="stylesheet"/>
+<link href="css/acessibilidade.css" rel="stylesheet"/></head>
 <body>
-
-    <header>
-
-        <div class="header">
-
-            <a href="index.html" class="logo-area">
-                <img src="img/logo_zuppy.png" alt="Logo Zuppy" id="logo">
-            </a>
-
-            <div class="search-box">
-
-                <img src="img/lupa_icon.png" alt="" id="lupa_icon">
-
-                <input type="text" id="searchInput" placeholder="Encontre seu próximo brinquedo favorito...">
-
-            </div>
-
-            <div class="login">
-
-                <a href="cadastro.html">
+<header>
+<div class="header">
+<a class="logo-area" href="index.html">
+<img alt="Logo Zuppy" id="logo" src="img/logo_zuppy.png"/>
+</a>
+<div class="search-box">
+<img alt="" id="lupa_icon" src="img/lupa_icon.png"/>
+<input id="searchInput" placeholder="Encontre seu próximo brinquedo favorito..." type="text"/>
+</div>
+<div class="login">
+<a href="cadastro.html">
                     Cadastrar-se
                 </a>
-
-                <a href="login.html">
-                    <button id="botao-entrar">
+<a href="login.html">
+<button id="botao-entrar">
                         Entrar
                     </button>
-                </a>
-
-            </div>
-
-        </div>
-
-        <div class="header2" id="headerBottom">
-
-            <div class="cep">
-
-                <img src="img/loc_icon.png" alt="" id="loc_icon">
-
-                <span>
+</a>
+</div>
+</div>
+<div class="header2" id="headerBottom">
+<div class="cep">
+<img alt="" id="loc_icon" src="img/loc_icon.png"/>
+<span>
                     Entregar em:
                     <strong>00000-000</strong>
-                </span>
-
-            </div>
-
-            <nav class="nav-menu">
-
-                <a href="todos-produtos.html">Todos os produtos</a>
-                <a href="#">Anna</a>
-                <a href="#">Emanuelly</a>
-                <a href="#">Julio</a>
-                <a href="#">Sena</a>
-                <a href="#">Shiniti</a>
-
-            </nav>
-
-            <div class="botao-icones">
-
-                <img src="img/acessibilidade_icon.png" alt="Sobre Acessibilidade">
-
-                <img src="img/whatsapp_icon.png" alt="Fale com a gente pelo WhatsApp">
-
-                <a href="carrinho.html" class="link-carrinho-header">
-                    <img src="img/lilcar.png" alt="Meu Carrinho">
-                    <span class="carrinho-badge"></span>
-                </a>
-
-            </div>
-
-        </div>
-
-    </header>
-
-    <main class="pagina-carrinho">
-
-        <nav class="breadcrumb-carrinho" aria-label="Navegação estrutural">
-
-            <a href="index.html">
+</span>
+</div>
+<nav class="nav-menu">
+<a href="todos-produtos.html">Todos os produtos</a>
+<a href="todos-produtos.html?personagem=Anna">Anna</a>
+<a href="todos-produtos.html?personagem=Emanuelly">Emanuelly</a>
+<a href="todos-produtos.html?personagem=Julio">Julio</a>
+<a href="todos-produtos.html?personagem=Sena">Sena</a>
+<a href="todos-produtos.html?personagem=Shiniti">Shiniti</a>
+</nav>
+<div class="botao-icones">
+<a aria-label="Página de acessibilidade" class="botao-icone-cabecalho" href="acessibilidade.html"><img alt="" src="img/acessibilidade_icon.png"/></a>
+<img alt="Fale com a gente pelo WhatsApp" src="img/whatsapp_icon.png"/>
+<a class="link-carrinho-header" href="carrinho.html">
+<img alt="Meu Carrinho" src="img/lilcar.png"/>
+</a>
+</div>
+</div>
+</header>
+<main class="pagina-carrinho">
+<nav aria-label="Navegação estrutural" class="breadcrumb-carrinho">
+<a href="index.html">
                 Início
             </a>
-
-            <span aria-hidden="true">&lt;</span>
-
-            <strong>
+<span aria-hidden="true">&lt;</span>
+<strong>
                 Carrinho
             </strong>
-
-        </nav>
-
-        <div class="titulo-carrinho">
-
-            <h1>Carrinho</h1>
-
-            <span id="quantidadeItensTitulo">
-                0 itens
+</nav>
+<div class="titulo-carrinho">
+<h1>Carrinho</h1>
+<span id="quantidadeItensTitulo">
+                8 itens
             </span>
-
-        </div>
-
-        <div class="conteudo-carrinho">
-
-            <section class="lista-carrinho">
-                <div class="selecionar-todos">
-                    <label>
-
-                        <input type="checkbox" id="selecionarTodos">
-
-                        <span class="checkbox-carrinho"></span>
-
-                        <span>
+</div>
+<div class="conteudo-carrinho">
+<section class="lista-carrinho">
+<div class="selecionar-todos">
+<label>
+<input id="selecionarTodos" type="checkbox"/>
+<span class="checkbox-carrinho"></span>
+<span>
                             Selecionar tudo
                         </span>
-
-                    </label>
-
-                </div>
-
-                <div id="itensCarrinho">
-                </div>
-
-                <div class="carrinho-vazio" id="carrinhoVazio">
-
-                    <h2>Seu carrinho está vazio</h2>
-
-                    <p>
+</label>
+</div>
+<div id="itensCarrinho">
+<article class="item-carrinho" data-preco="55">
+<label class="selecao-item">
+<input checked="" class="checkbox-item" type="checkbox"/>
+<span class="checkbox-carrinho"></span>
+</label>
+<a class="imagem-item-carrinho" href="produto.html">
+<img alt="LabuSena Feminino" src="img/pelucia_enzo-herrera.png"/>
+</a>
+<div class="info-item-carrinho">
+<a href="produto.html">
+                                LabuSena Feminino
+                            </a>
+<span class="tag-item-carrinho">
+                                Só no Zuppy!
+                            </span>
+</div>
+<div class="acoes-item-carrinho">
+<div class="quantidade-item">
+<button aria-label="Diminuir quantidade" class="diminuir-quantidade" type="button">
+                                    −
+                                </button>
+<span class="numero-quantidade">
+                                    1
+                                </span>
+<button aria-label="Aumentar quantidade" class="aumentar-quantidade" type="button">
+                                    +
+                                </button>
+</div>
+<button class="remover-item" type="button">
+                                Remover
+                            </button>
+</div>
+<div class="preco-item-carrinho">
+<div class="preco-antigo-carrinho">
+<span>
+                                    R$0.000,00
+                                </span>
+<strong>
+                                    50% OFF
+                                </strong>
+</div>
+<p>
+                                R$55,00
+                            </p>
+</div>
+</article>
+<article class="item-carrinho" data-preco="65">
+<label class="selecao-item">
+<input checked="" class="checkbox-item" type="checkbox"/>
+<span class="checkbox-carrinho"></span>
+</label>
+<a class="imagem-item-carrinho" href="produto.html">
+<img alt="LabuSena Feminino" src="img/pelucia_enzo-herrera.png"/>
+</a>
+<div class="info-item-carrinho">
+<a href="produto.html">
+                                LabuSena Feminino
+                            </a>
+<span class="tag-item-carrinho">
+                                Só no Zuppy!
+                            </span>
+</div>
+<div class="acoes-item-carrinho">
+<div class="quantidade-item">
+<button aria-label="Diminuir quantidade" class="diminuir-quantidade" type="button">
+                                    −
+                                </button>
+<span class="numero-quantidade">
+                                    1
+                                </span>
+<button aria-label="Aumentar quantidade" class="aumentar-quantidade" type="button">
+                                    +
+                                </button>
+</div>
+<button class="remover-item" type="button">
+                                Remover
+                            </button>
+</div>
+<div class="preco-item-carrinho">
+<div class="preco-antigo-carrinho">
+<span>
+                                    R$0.000,00
+                                </span>
+<strong>
+                                    50% OFF
+                                </strong>
+</div>
+<p>
+                                R$65,00
+                            </p>
+</div>
+</article>
+<article class="item-carrinho" data-preco="80">
+<label class="selecao-item">
+<input checked="" class="checkbox-item" type="checkbox"/>
+<span class="checkbox-carrinho"></span>
+</label>
+<a class="imagem-item-carrinho" href="produto.html">
+<img alt="LabuSena Feminino" src="img/pelucia_enzo-herrera.png"/>
+</a>
+<div class="info-item-carrinho">
+<a href="produto.html">
+                                LabuSena Feminino
+                            </a>
+<span class="tag-item-carrinho">
+                                Só no Zuppy!
+                            </span>
+</div>
+<div class="acoes-item-carrinho">
+<div class="quantidade-item">
+<button aria-label="Diminuir quantidade" class="diminuir-quantidade" type="button">
+                                    −
+                                </button>
+<span class="numero-quantidade">
+                                    1
+                                </span>
+<button aria-label="Aumentar quantidade" class="aumentar-quantidade" type="button">
+                                    +
+                                </button>
+</div>
+<button class="remover-item" type="button">
+                                Remover
+                            </button>
+</div>
+<div class="preco-item-carrinho">
+<div class="preco-antigo-carrinho">
+<span>
+                                    R$0.000,00
+                                </span>
+<strong>
+                                    50% OFF
+                                </strong>
+</div>
+<p>
+                                R$80,00
+                            </p>
+</div>
+</article>
+<article class="item-carrinho" data-preco="130">
+<label class="selecao-item">
+<input checked="" class="checkbox-item" type="checkbox"/>
+<span class="checkbox-carrinho"></span>
+</label>
+<a class="imagem-item-carrinho" href="produto.html">
+<img alt="LabuSena Feminino" src="img/pelucia_enzo-herrera.png"/>
+</a>
+<div class="info-item-carrinho">
+<a href="produto.html">
+                                LabuSena Feminino
+                            </a>
+<span class="tag-item-carrinho">
+                                Só no Zuppy!
+                            </span>
+</div>
+<div class="acoes-item-carrinho">
+<div class="quantidade-item">
+<button aria-label="Diminuir quantidade" class="diminuir-quantidade" type="button">
+                                    −
+                                </button>
+<span class="numero-quantidade">
+                                    1
+                                </span>
+<button aria-label="Aumentar quantidade" class="aumentar-quantidade" type="button">
+                                    +
+                                </button>
+</div>
+<button class="remover-item" type="button">
+                                Remover
+                            </button>
+</div>
+<div class="preco-item-carrinho">
+<div class="preco-antigo-carrinho">
+<span>
+                                    R$0.000,00
+                                </span>
+<strong>
+                                    50% OFF
+                                </strong>
+</div>
+<p>
+                                R$130,00
+                            </p>
+</div>
+</article>
+</div>
+<div class="carrinho-vazio" id="carrinhoVazio">
+<h2>Seu carrinho está vazio</h2>
+<p>
                         Adicione brinquedos para continuar sua aventura.
                     </p>
-
-                    <a href="todos-produtos.html">
+<a href="todos-produtos.html">
                         Ver produtos
                     </a>
-
-                </div>
-
-            </section>
-
-            <aside class="resumo-carrinho">
-                <div class="resumo-card">
-                    <div class="linha-resumo">
-
-                        <span id="textoProdutos">
+</div>
+</section>
+<aside class="resumo-carrinho">
+<div class="resumo-card">
+<div class="linha-resumo">
+<span id="textoProdutos">
                             Produtos (8)
                         </span>
-
-                        <div class="valores-produtos">
-
-                            <del id="valorAntigoResumo">
+<div class="valores-produtos">
+<del id="valorAntigoResumo">
                                 R$376,40
                             </del>
-
-                            <strong id="valorProdutos">
+<strong id="valorProdutos">
                                 R$330,00
                             </strong>
-
-                        </div>
-
-                    </div>
-
-                    <div class="linha-resumo envio-resumo">
-
-                        <span>Envio</span>
-
-                        <strong>Grátis</strong>
-
-                    </div>
-
-                    <div class="area-cupom">
-
-                        <button type="button" id="abrirCupom">
+</div>
+</div>
+<div class="linha-resumo envio-resumo">
+<span>Envio</span>
+<strong>Grátis</strong>
+</div>
+<div class="area-cupom">
+<button id="abrirCupom" type="button">
                             Cupom de desconto
                         </button>
-
-                        <div class="campo-cupom" id="campoCupom">
-
-                            <input type="text" id="codigoCupom" placeholder="Digite seu cupom">
-
-                            <button type="button" id="aplicarCupom">
+<div class="campo-cupom" id="campoCupom">
+<input id="codigoCupom" placeholder="Digite seu cupom" type="text"/>
+<button id="aplicarCupom" type="button">
                                 Aplicar
                             </button>
-
-                        </div>
-
-                        <p class="mensagem-cupom" id="mensagemCupom" role="status"></p>
-
-                    </div>
-                    <div class="linha-resumo total-resumo">
-
-                        <span>Total</span>
-
-                        <strong id="valorTotal">
-                            R$0,00
+</div>
+<p class="mensagem-cupom" id="mensagemCupom" role="status"></p>
+</div>
+<div class="linha-resumo total-resumo">
+<span>Total</span>
+<strong id="valorTotal">
+                            R$330,00
                         </strong>
-                    </div>
-                </div>
-                <button type="button" class="botao-proximo-carrinho" id="botaoProximo">Próximo ></button>
-            </aside>
-        </div>
-
-    </main>
-    <script src="js/carrinho-store.js"></script>
-    <script src="js/carrinho.js"></script>
-</body>
-
+</div>
+</div>
+<button class="botao-proximo-carrinho" id="botaoProximo" type="button">Próximo &gt;</button>
+</aside>
+</div>
+</main>
+<script src="js/carrinho.js"></script>
+<script src="js/acessibilidade.js"></script></body>
 </html>

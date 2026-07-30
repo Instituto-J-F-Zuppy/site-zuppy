@@ -11,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-// Define as regras de segurança: quem pode acessar o quê, e como
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -19,10 +18,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthenticationFilter) throws Exception {
         return http
-                .csrf(AbstractHttpConfigurer::disable) // API não usa formulário/sessão, não precisa de CSRF
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // sem sessão, só token
+                .csrf(AbstractHttpConfigurer::disable)
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**").permitAll() // login/cadastro liberados
+                        .requestMatchers("/auth/**").permitAll()
                         .requestMatchers(
                                 "/",
                                 "/*.html",
@@ -30,14 +29,13 @@ public class SecurityConfig {
                                 "/js/**",
                                 "/img/**",
                                 "/reclame-aqui/**"
-                        ).permitAll() // front-end estático liberado
-                        .anyRequest().authenticated() // resto exige token válido
+                        ).permitAll()
+                        .anyRequest().authenticated()
                 )
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class) // confere o token antes do resto
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
-    // gera o hash da senha (bcrypt) usado no cadastro e no login
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

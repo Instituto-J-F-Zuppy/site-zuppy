@@ -52,6 +52,21 @@ function normalizarTexto(texto) {
         .replace(/[\u0300-\u036f]/g, "");
 }
 
+
+function aplicarFiltroPersonagemDaUrl() {
+    const parametros = new URLSearchParams(window.location.search);
+    const personagem = parametros.get("personagem");
+    if (!personagem) return;
+    const personagemNormalizado = normalizarTexto(personagem);
+    const filtroCorrespondente = Array.from(filtrosPersonagem).find(function (filtro) {
+        return normalizarTexto(filtro.value) === personagemNormalizado;
+    });
+    if (!filtroCorrespondente) return;
+    filtroCorrespondente.checked = true;
+    const titulo = document.querySelector(".cabecalho-listagem h1");
+    if (titulo) titulo.textContent = `Produtos de ${filtroCorrespondente.value}`;
+}
+
 function obterPersonagensSelecionados() {
     return Array.from(filtrosPersonagem)
         .filter(function (checkbox) {
@@ -243,16 +258,10 @@ document
     .querySelectorAll(".adicionar-listagem")
     .forEach(function (botao) {
         botao.addEventListener("click", function () {
-            const card = botao.closest(".card-listagem");
+            const textoOriginal = botao.innerHTML;
 
-            CarrinhoStore.adicionar({
-                id: Number(card.dataset.id),
-                nome: card.dataset.nome,
-                preco: Number(card.dataset.preco),
-                imagem: card.dataset.imagem
-            });
-
-            botao.textContent = "Produto adicionado!";
+            botao.textContent =
+                "Produto adicionado!";
 
             botao.disabled = true;
 
@@ -263,12 +272,6 @@ document
         });
     });
 
-    const parametroUrl = new URLSearchParams(window.location.search);
-    const termoBuscarUrl = parametroUrl.get("q");
-
-    if(termoBuscarUrl){
-        buscaPrincipal.value = termoBuscarUrl;
-    }
-
+aplicarFiltroPersonagemDaUrl();
 atualizarPrecoSelecionado();
 atualizarProdutos();

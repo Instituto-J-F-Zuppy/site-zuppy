@@ -14,6 +14,7 @@ const mensagemCupom = document.getElementById("mensagemCupom");
 const botaoProximo = document.getElementById("botaoProximo");
 
 let descontoCupom = 0;
+const itensSelecionados = new Set();
 
 function formatarMoeda(valor) {
     return valor.toLocaleString("pt-BR", {
@@ -22,31 +23,169 @@ function formatarMoeda(valor) {
     });
 }
 
-function obterItens() {
-    return Array.from(
-        document.querySelectorAll(".item-carrinho")
-    );
+function obterProdutoInfo(id) {
+    return PRODUTOS.find(function (produto) {
+        return produto.id === id;
+    });
 }
 
-function atualizarCarrinho() {
-    const itens = obterItens();
+function criarItemCarrinho(item) {
+    const info = obterProdutoInfo(item.id);
+
+    const artigo = document.createElement("article");
+    artigo.className = "item-carrinho";
+    artigo.dataset.id = item.id;
+    artigo.dataset.preco = String(item.preco);
+
+    const label = document.createElement("label");
+    label.className = "selecao-item";
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.className = "checkbox-item";
+    checkbox.checked = itensSelecionados.has(item.id);
+    label.appendChild(checkbox);
+    const checkboxVisual = document.createElement("span");
+    checkboxVisual.className = "checkbox-carrinho";
+    label.appendChild(checkboxVisual);
+    artigo.appendChild(label);
+
+    const linkImagem = document.createElement("a");
+    linkImagem.className = "imagem-item-carrinho";
+    linkImagem.href = `produto.html?id=${encodeURIComponent(item.id)}`;
+    const imagem = document.createElement("img");
+    imagem.src = item.imagem;
+    imagem.alt = item.nome;
+    linkImagem.appendChild(imagem);
+    artigo.appendChild(linkImagem);
+
+    const infoItem = document.createElement("div");
+    infoItem.className = "info-item-carrinho";
+    const linkNome = document.createElement("a");
+    linkNome.href = `produto.html?id=${encodeURIComponent(item.id)}`;
+    linkNome.textContent = item.nome;
+    infoItem.appendChild(linkNome);
+    const tag = document.createElement("span");
+    tag.className = "tag-item-carrinho";
+    tag.textContent = "Só no Zuppy!";
+    infoItem.appendChild(tag);
+    artigo.appendChild(infoItem);
+
+    const acoesItem = document.createElement("div");
+    acoesItem.className = "acoes-item-carrinho";
+
+    const quantidadeItem = document.createElement("div");
+    quantidadeItem.className = "quantidade-item";
+
+    const diminuir = document.createElement("button");
+    diminuir.type = "button";
+    diminuir.className = "diminuir-quantidade";
+    diminuir.setAttribute("aria-label", "Diminuir quantidade");
+    diminuir.textContent = "−";
+    diminuir.addEventListener("click", function () {
+        CarrinhoStore.diminuir(item.id);
+    });
+    quantidadeItem.appendChild(diminuir);
+
+    const numeroQuantidade = document.createElement("span");
+    numeroQuantidade.className = "numero-quantidade";
+    numeroQuantidade.textContent = String(item.quantidade);
+    quantidadeItem.appendChild(numeroQuantidade);
+
+    const aumentar = document.createElement("button");
+    aumentar.type = "button";
+    aumentar.className = "aumentar-quantidade";
+    aumentar.setAttribute("aria-label", "Aumentar quantidade");
+    aumentar.textContent = "+";
+    aumentar.addEventListener("click", function () {
+        CarrinhoStore.aumentar(item.id);
+    });
+    quantidadeItem.appendChild(aumentar);
+
+    acoesItem.appendChild(quantidadeItem);
+
+    const remover = document.createElement("button");
+    remover.type = "button";
+    remover.className = "remover-item";
+    remover.textContent = "Remover";
+    remover.addEventListener("click", function () {
+        itensSelecionados.delete(item.id);
+        CarrinhoStore.remover(item.id);
+    });
+    acoesItem.appendChild(remover);
+
+    artigo.appendChild(acoesItem);
+
+    const precoItem = document.createElement("div");
+    precoItem.className = "preco-item-carrinho";
+
+    if (info) {
+        const precoAntigoArea = document.createElement("div");
+        precoAntigoArea.className = "preco-antigo-carrinho";
+        const precoAntigoSpan = document.createElement("span");
+        precoAntigoSpan.textContent = info.precoAntigoTexto;
+        const descontoStrong = document.createElement("strong");
+        descontoStrong.textContent = info.descontoTexto;
+        precoAntigoArea.appendChild(precoAntigoSpan);
+        precoAntigoArea.appendChild(descontoStrong);
+        precoItem.appendChild(precoAntigoArea);
+    }
+
+    const precoTexto = document.createElement("p");
+    precoTexto.textContent = formatarMoeda(item.preco * item.quantidade);
+    precoItem.appendChild(precoTexto);
+
+    artigo.appendChild(precoItem);
+
+    checkbox.addEventListener("change", function () {
+        if (checkbox.checked) {
+            itensSelecionados.add(item.id);
+        } else {
+            itensSelecionados.delete(item.id);
+        }
+        atualizarResumo();
+    });
+
+    return artigo;
+}
+
+function renderizarItens() {
+    const itens = CarrinhoStore.listar();
+    const idsAtuais = new Set(itens.map(function (item) { return item.id; }));
+
+    itensSelecionados.forEach(function (id) {
+        if (!idsAtuais.has(id)) {
+            itensSelecionados.delete(id);
+        }
+    });
+
+    itens.forEach(function (item) {
+        if (!itensSelecionados.has(item.id)) {
+            itensSelecionados.add(item.id);
+        }
+    });
+
+    itensCarrinhoContainer.innerHTML = "";
+
+    const fragmento = document.createDocumentFragment();
+    itens.forEach(function (item) {
+        fragmento.appendChild(criarItemCarrinho(item));
+    });
+    itensCarrinhoContainer.appendChild(fragmento);
+}
+
+function atualizarResumo() {
+    const itens = CarrinhoStore.listar();
 
     let quantidadeTotal = 0;
     let quantidadeSelecionada = 0;
     let subtotal = 0;
 
     itens.forEach(function (item) {
-        const checkbox = item.querySelector(".checkbox-item");
-        const quantidade = Number(
-            item.querySelector(".numero-quantidade").textContent
-        );
-        const preco = Number(item.dataset.preco);
+        quantidadeTotal += item.quantidade;
 
-        quantidadeTotal += quantidade;
-
-        if (checkbox.checked) {
-            quantidadeSelecionada += quantidade;
-            subtotal += preco * quantidade;
+        if (itensSelecionados.has(item.id)) {
+            quantidadeSelecionada += item.quantidade;
+            subtotal += item.preco * item.quantidade;
         }
     });
 
@@ -73,7 +212,7 @@ function atualizarCarrinho() {
     selecionarTodos.checked =
         itens.length > 0 &&
         itens.every(function (item) {
-            return item.querySelector(".checkbox-item").checked;
+            return itensSelecionados.has(item.id);
         });
 
     carrinhoVazio.classList.toggle(
@@ -91,41 +230,21 @@ function atualizarCarrinho() {
         botaoProximo.disabled ? "0.5" : "1";
 }
 
-function configurarItem(item) {
-    const diminuir = item.querySelector(".diminuir-quantidade");
-    const aumentar = item.querySelector(".aumentar-quantidade");
-    const numeroQuantidade = item.querySelector(".numero-quantidade");
-    const remover = item.querySelector(".remover-item");
-    const checkbox = item.querySelector(".checkbox-item");
-
-    diminuir.addEventListener("click", function () {
-        let quantidade = Number(numeroQuantidade.textContent);
-
-        if (quantidade > 1) {
-            quantidade--;
-            numeroQuantidade.textContent = quantidade;
-            atualizarCarrinho();
-        }
-    });
-
-    aumentar.addEventListener("click", function () {
-        let quantidade = Number(numeroQuantidade.textContent);
-
-        quantidade++;
-        numeroQuantidade.textContent = quantidade;
-
-        atualizarCarrinho();
-    });
-    checkbox.addEventListener("change", atualizarCarrinho);
+function atualizarCarrinho() {
+    renderizarItens();
+    atualizarResumo();
 }
 
-obterItens().forEach(configurarItem);
-
 selecionarTodos.addEventListener("change", function () {
-    obterItens().forEach(function (item) {
-        item.querySelector(".checkbox-item").checked =
-            selecionarTodos.checked;
-    });
+    const itens = CarrinhoStore.listar();
+
+    if (selecionarTodos.checked) {
+        itens.forEach(function (item) {
+            itensSelecionados.add(item.id);
+        });
+    } else {
+        itensSelecionados.clear();
+    }
 
     atualizarCarrinho();
 });
@@ -155,7 +274,7 @@ aplicarCupom.addEventListener("click", function () {
             "var(--cor-vermelho-erro1)";
     }
 
-    atualizarCarrinho();
+    atualizarResumo();
 });
 
 botaoProximo.addEventListener("click", function () {
@@ -165,5 +284,7 @@ botaoProximo.addEventListener("click", function () {
 
     window.location.href = "checkout.html";
 });
+
+window.addEventListener("carrinho-atualizado", atualizarCarrinho);
 
 atualizarCarrinho();

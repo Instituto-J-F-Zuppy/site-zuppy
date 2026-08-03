@@ -18,15 +18,19 @@
 <img alt="" id="lupa_icon" src="img/lupa_icon.png"/>
 <input id="searchInput" placeholder="Encontre seu próximo brinquedo favorito..." type="text"/>
 </div>
-<div class="login">
-<a href="cadastro.html">
+<div class="login" id="areaLogin">
+<a href="cadastro.html" id="linkCadastrar">
                     Cadastrar-se
                 </a>
-<a href="login.html">
+<a href="login.html" id="linkEntrar">
 <button id="botao-entrar">
                         Entrar
                     </button>
 </a>
+<div id="areaUsuarioLogado" style="display: none; align-items: center; gap: 14px;">
+<span id="saudacaoUsuario"></span>
+<button id="botaoSair" type="button">Sair</button>
+</div>
 </div>
 </div>
 <div class="header2" id="headerBottom">
@@ -48,7 +52,7 @@
 <div class="botao-icones">
 <a aria-label="Página de acessibilidade" class="botao-icone-cabecalho" href="acessibilidade.html"><img alt="" src="img/acessibilidade_icon.png"/></a>
 <img alt="Fale com a gente pelo WhatsApp" src="img/whatsapp_icon.png"/>
-<a href="carrinho.html"><img alt="Meu Carrinho" src="img/lilcar.png"/></a>
+<a class="link-carrinho-header" href="carrinho.html"><img alt="Meu Carrinho" src="img/lilcar.png"/><span class="carrinho-badge"></span></a>
 </div>
 </div>
 </header>
@@ -56,27 +60,30 @@
 <nav aria-label="Navegação estrutural" class="breadcrumb">
 <a href="index.html">Início</a>
 <span aria-hidden="true">&lt;</span>
-<a href="#">Produtos</a>
+<a href="todos-produtos.html">Produtos</a>
 <span aria-hidden="true">&lt;</span>
-<a href="todos-produtos.html?personagem=Julio">Julio</a>
+<a href="todos-produtos.html" id="breadcrumbPersonagem"></a>
 <span aria-hidden="true">&lt;</span>
-<strong>Julio Craque</strong>
+<strong id="breadcrumbNome"></strong>
 </nav>
-<section class="produto-detalhes">
+<p aria-live="polite" class="mensagem-carrinho" id="produtoNaoEncontrado" role="status" style="display: none;">
+                Produto não encontrado. <a href="todos-produtos.html">Voltar para todos os produtos</a>.
+            </p>
+<section class="produto-detalhes" id="produtoDetalhes">
 <div class="produto-galeria">
 <div class="produto-miniaturas">
-<button aria-label="Visualizar imagem principal do Julio Craque" class="miniatura-produto miniatura-ativa" type="button">
-<img alt="" src="img/julio_craque_brinquedo.png"/>
+<button aria-label="Visualizar imagem principal do produto" class="miniatura-produto miniatura-ativa" type="button">
+<img alt="" id="imagemProdutoMiniatura" src=""/>
 </button>
 </div>
 <div class="produto-imagem-principal" id="areaZoomProduto">
-<img alt="Boneco personalizado Julio Craque com uniforme de futebol roxo e preto" id="imagemProdutoPrincipal" src="img/julio_craque_brinquedo.png"/>
+<img alt="" id="imagemProdutoPrincipal" src=""/>
 </div>
 </div>
 <div class="produto-informacoes">
 <div class="produto-titulo-area">
-<h1>Julio Craque</h1>
-<button aria-label="Adicionar Julio Craque aos favoritos" aria-pressed="false" class="produto-favorito" id="botaoFavorito" type="button">♡
+<h1 id="produtoNome"></h1>
+<button aria-label="Adicionar aos favoritos" aria-pressed="false" class="produto-favorito" id="botaoFavorito" type="button">♡
                     </button>
 </div>
 <div class="produto-etiquetas">
@@ -89,16 +96,10 @@
 </div>
 <div class="produto-precos">
 <div class="preco-anterior-area">
-<span class="preco-anterior">
-                            R$0.000,00
-                        </span>
-<span class="produto-desconto">
-                            50% OFF
-                        </span>
+<span class="preco-anterior" id="produtoPrecoAntigo"></span>
+<span class="produto-desconto" id="produtoDesconto"></span>
 </div>
-<p class="produto-preco-atual">
-                        R$0.000,00
-                    </p>
+<p class="produto-preco-atual" id="produtoPrecoAtual"></p>
 </div>
 <div class="produto-acoes">
 <button class="botao-adicionar" id="adicionarCarrinho" type="button">
@@ -114,33 +115,24 @@
 <p aria-live="polite" class="mensagem-carrinho" id="mensagemCarrinho" role="status"></p>
 </div>
 </section>
-<section class="produto-descricao">
+<section class="produto-descricao" id="produtoDescricaoSecao">
 <h2>Descrição</h2>
-<p>
-                Júlio Craque é o companheiro perfeito para quem vive a paixão
-                pelo futebol! Com uniforme estiloso nas cores roxo e preto,
-                chuteiras prontas para entrar em campo e um sorriso confiante,
-                ele representa a alegria, a amizade e o espírito de equipe.
-                Sua pose de braços abertos demonstra carisma e celebração,
-                como um verdadeiro craque após marcar um golaço. Ideal para
-                colecionar, decorar ou presentear fãs do esporte, o Júlio
-                Craque inspira grandes aventuras dentro e fora dos campos.
-            </p>
+<p id="produtoDescricao"></p>
 </section>
-<section class="produto-especificacoes">
+<section class="produto-especificacoes" id="produtoEspecificacoesSecao">
 <h2>Informações do produto</h2>
 <div class="especificacoes-grid">
 <div class="especificacao-item">
 <span>Personagem</span>
-<strong>Júlio Craque</strong>
+<strong id="produtoEspecPersonagem"></strong>
 </div>
 <div class="especificacao-item">
 <span>Categoria</span>
-<strong>Boneco personalizado</strong>
+<strong>Boneco colecionável</strong>
 </div>
 <div class="especificacao-item">
-<span>Material</span>
-<strong>Resina</strong>
+<span>Vendidos</span>
+<strong id="produtoEspecVendas"></strong>
 </div>
 <div class="especificacao-item">
 <span>Indicação</span>
@@ -149,6 +141,10 @@
 </div>
 </section>
 </main>
+<script src="js/produtos-data.js"></script>
+<script src="js/favoritos-store.js"></script>
+<script src="js/carrinho-store.js"></script>
+<script src="js/sessao.js"></script>
 <script src="js/produto.js"></script>
 <script src="js/acessibilidade.js"></script></body>
 </html>

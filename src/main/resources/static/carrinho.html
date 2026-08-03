@@ -18,15 +18,19 @@
 <img alt="" id="lupa_icon" src="img/lupa_icon.png"/>
 <input id="searchInput" placeholder="Encontre seu próximo brinquedo favorito..." type="text"/>
 </div>
-<div class="login">
-<a href="cadastro.html">
+<div class="login" id="areaLogin">
+<a href="cadastro.html" id="linkCadastrar">
                     Cadastrar-se
                 </a>
-<a href="login.html">
+<a href="login.html" id="linkEntrar">
 <button id="botao-entrar">
                         Entrar
                     </button>
 </a>
+<div id="areaUsuarioLogado" style="display: none; align-items: center; gap: 14px;">
+<span id="saudacaoUsuario"></span>
+<button id="botaoSair" type="button">Sair</button>
+</div>
 </div>
 </div>
 <div class="header2" id="headerBottom">
@@ -82,190 +86,6 @@
 </label>
 </div>
 <div id="itensCarrinho">
-<article class="item-carrinho" data-preco="55">
-<label class="selecao-item">
-<input checked="" class="checkbox-item" type="checkbox"/>
-<span class="checkbox-carrinho"></span>
-</label>
-<a class="imagem-item-carrinho" href="produto.html">
-<img alt="LabuSena Feminino" src="img/pelucia_enzo-herrera.png"/>
-</a>
-<div class="info-item-carrinho">
-<a href="produto.html">
-                                LabuSena Feminino
-                            </a>
-<span class="tag-item-carrinho">
-                                Só no Zuppy!
-                            </span>
-</div>
-<div class="acoes-item-carrinho">
-<div class="quantidade-item">
-<button aria-label="Diminuir quantidade" class="diminuir-quantidade" type="button">
-                                    −
-                                </button>
-<span class="numero-quantidade">
-                                    1
-                                </span>
-<button aria-label="Aumentar quantidade" class="aumentar-quantidade" type="button">
-                                    +
-                                </button>
-</div>
-<button class="remover-item" type="button">
-                                Remover
-                            </button>
-</div>
-<div class="preco-item-carrinho">
-<div class="preco-antigo-carrinho">
-<span>
-                                    R$0.000,00
-                                </span>
-<strong>
-                                    50% OFF
-                                </strong>
-</div>
-<p>
-                                R$55,00
-                            </p>
-</div>
-</article>
-<article class="item-carrinho" data-preco="65">
-<label class="selecao-item">
-<input checked="" class="checkbox-item" type="checkbox"/>
-<span class="checkbox-carrinho"></span>
-</label>
-<a class="imagem-item-carrinho" href="produto.html">
-<img alt="LabuSena Feminino" src="img/pelucia_enzo-herrera.png"/>
-</a>
-<div class="info-item-carrinho">
-<a href="produto.html">
-                                LabuSena Feminino
-                            </a>
-<span class="tag-item-carrinho">
-                                Só no Zuppy!
-                            </span>
-</div>
-<div class="acoes-item-carrinho">
-<div class="quantidade-item">
-<button aria-label="Diminuir quantidade" class="diminuir-quantidade" type="button">
-                                    −
-                                </button>
-<span class="numero-quantidade">
-                                    1
-                                </span>
-<button aria-label="Aumentar quantidade" class="aumentar-quantidade" type="button">
-                                    +
-                                </button>
-</div>
-<button class="remover-item" type="button">
-                                Remover
-                            </button>
-</div>
-<div class="preco-item-carrinho">
-<div class="preco-antigo-carrinho">
-<span>
-                                    R$0.000,00
-                                </span>
-<strong>
-                                    50% OFF
-                                </strong>
-</div>
-<p>
-                                R$65,00
-                            </p>
-</div>
-</article>
-<article class="item-carrinho" data-preco="80">
-<label class="selecao-item">
-<input checked="" class="checkbox-item" type="checkbox"/>
-<span class="checkbox-carrinho"></span>
-</label>
-<a class="imagem-item-carrinho" href="produto.html">
-<img alt="LabuSena Feminino" src="img/pelucia_enzo-herrera.png"/>
-</a>
-<div class="info-item-carrinho">
-<a href="produto.html">
-                                LabuSena Feminino
-                            </a>
-<span class="tag-item-carrinho">
-                                Só no Zuppy!
-                            </span>
-</div>
-<div class="acoes-item-carrinho">
-<div class="quantidade-item">
-<button aria-label="Diminuir quantidade" class="diminuir-quantidade" type="button">
-                                    −
-                                </button>
-<span class="numero-quantidade">
-                                    1
-                                </span>
-<button aria-label="Aumentar quantidade" class="aumentar-quantidade" type="button">
-                                    +
-                                </button>
-</div>
-<button class="remover-item" type="button">
-                                Remover
-                            </button>
-</div>
-<div class="preco-item-carrinho">
-<div class="preco-antigo-carrinho">
-<span>
-                                    R$0.000,00
-                                </span>
-<strong>
-                                    50% OFF
-                                </strong>
-</div>
-<p>
-                                R$80,00
-                            </p>
-</div>
-</article>
-<article class="item-carrinho" data-preco="130">
-<label class="selecao-item">
-<input checked="" class="checkbox-item" type="checkbox"/>
-<span class="checkbox-carrinho"></span>
-</label>
-<a class="imagem-item-carrinho" href="produto.html">
-<img alt="LabuSena Feminino" src="img/pelucia_enzo-herrera.png"/>
-</a>
-<div class="info-item-carrinho">
-<a href="produto.html">
-                                LabuSena Feminino
-                            </a>
-<span class="tag-item-carrinho">
-                                Só no Zuppy!
-                            </span>
-</div>
-<div class="acoes-item-carrinho">
-<div class="quantidade-item">
-<button aria-label="Diminuir quantidade" class="diminuir-quantidade" type="button">
-                                    −
-                                </button>
-<span class="numero-quantidade">
-                                    1
-                                </span>
-<button aria-label="Aumentar quantidade" class="aumentar-quantidade" type="button">
-                                    +
-                                </button>
-</div>
-<button class="remover-item" type="button">
-                                Remover
-                            </button>
-</div>
-<div class="preco-item-carrinho">
-<div class="preco-antigo-carrinho">
-<span>
-                                    R$0.000,00
-                                </span>
-<strong>
-                                    50% OFF
-                                </strong>
-</div>
-<p>
-                                R$130,00
-                            </p>
-</div>
-</article>
 </div>
 <div class="carrinho-vazio" id="carrinhoVazio">
 <h2>Seu carrinho está vazio</h2>
@@ -319,6 +139,9 @@
 </aside>
 </div>
 </main>
+<script src="js/produtos-data.js"></script>
+<script src="js/carrinho-store.js"></script>
+<script src="js/sessao.js"></script>
 <script src="js/carrinho.js"></script>
 <script src="js/acessibilidade.js"></script></body>
 </html>

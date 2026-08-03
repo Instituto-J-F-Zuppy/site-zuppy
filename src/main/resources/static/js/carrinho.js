@@ -282,6 +282,11 @@ botaoProximo.addEventListener("click", function () {
         return;
     }
 
+    sessionStorage.setItem(
+        "zuppyCheckoutSelecionados",
+        JSON.stringify(Array.from(itensSelecionados))
+    );
+
     window.location.href = "checkout.html";
 });
 

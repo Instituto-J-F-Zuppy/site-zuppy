@@ -102,10 +102,16 @@
                 src="img/whatsapp_icon.png"
             />
 
-            <img
-                alt="Meu Carrinho"
-                src="img/lilcar.png"
-            />
+            <a
+                class="link-carrinho-header"
+                href="carrinho.html"
+            >
+                <img
+                    alt="Meu Carrinho"
+                    src="img/lilcar.png"
+                />
+                <span class="carrinho-badge"></span>
+            </a>
         </div>
     </div>
 </header>
@@ -196,7 +202,7 @@
             <h2>Novidades</h2>
         </div>
 
-        <div class="produtos-carrossel">
+        <div class="produtos-carrossel" data-carrossel-produtos="novidades">
             <button
                 class="seta-carrossel seta-esquerda"
                 data-direction="left"
@@ -208,49 +214,7 @@
             </button>
 
             <div class="produtos-janela">
-                <div class="produtos-track">
-                    <div class="produto-card">
-                        <button class="favorito-btn">
-                            ♡
-                        </button>
-
-                        <div class="produto-img-area">
-                            <img
-                                alt="LabuSena Feminino"
-                                src="img/pelucia_enzo-herrera.png"
-                            />
-                        </div>
-
-                        <span class="produto-tag">
-                            Só no Zuppy!
-                        </span>
-
-                        <h3>LabuSena Feminino</h3>
-
-                        <div class="produto-preco-antigo-area">
-                            <span class="preco-antigo">
-                                R$0.000,00
-                            </span>
-
-                            <span class="desconto">
-                                50% OFF
-                            </span>
-                        </div>
-
-                        <p class="preco-atual">
-                            R$0.000,00
-                        </p>
-
-                        <button class="btn-carrinho">
-                            <img
-                                alt=""
-                                src="img/carrinho-icon.png"
-                            />
-
-                            <p>Adicionar ao carrinho</p>
-                        </button>
-                    </div>
-                </div>
+                <div class="produtos-track" id="trackNovidades"></div>
             </div>
 
             <button
@@ -268,7 +232,7 @@
             <h2>Mais Vendidos</h2>
         </div>
 
-        <div class="produtos-carrossel">
+        <div class="produtos-carrossel" data-carrossel-produtos="mais-vendidos">
             <button
                 class="seta-carrossel seta-esquerda"
                 data-direction="left"
@@ -280,49 +244,7 @@
             </button>
 
             <div class="produtos-janela">
-                <div class="produtos-track">
-                    <div class="produto-card">
-                        <button class="favorito-btn">
-                            ♡
-                        </button>
-
-                        <div class="produto-img-area">
-                            <img
-                                alt="LabuSena Feminino"
-                                src="img/pelucia_enzo-herrera.png"
-                            />
-                        </div>
-
-                        <span class="produto-tag">
-                            Só no Zuppy!
-                        </span>
-
-                        <h3>LabuSena Feminino</h3>
-
-                        <div class="produto-preco-antigo-area">
-                            <span class="preco-antigo">
-                                R$0.000,00
-                            </span>
-
-                            <span class="desconto">
-                                50% OFF
-                            </span>
-                        </div>
-
-                        <p class="preco-atual">
-                            R$0.000,00
-                        </p>
-
-                        <button class="btn-carrinho">
-                            <img
-                                alt=""
-                                src="img/carrinho-icon.png"
-                            />
-
-                            <p>Adicionar ao carrinho</p>
-                        </button>
-                    </div>
-                </div>
+                <div class="produtos-track" id="trackMaisVendidos"></div>
             </div>
 
             <button
@@ -340,7 +262,7 @@
             <h2>Melhores Ofertas</h2>
         </div>
 
-        <div class="produtos-carrossel">
+        <div class="produtos-carrossel" data-carrossel-produtos="melhores-ofertas">
             <button
                 class="seta-carrossel seta-esquerda"
                 data-direction="left"
@@ -352,49 +274,7 @@
             </button>
 
             <div class="produtos-janela">
-                <div class="produtos-track">
-                    <div class="produto-card">
-                        <button class="favorito-btn">
-                            ♡
-                        </button>
-
-                        <div class="produto-img-area">
-                            <img
-                                alt="LabuSena Feminino"
-                                src="img/pelucia_enzo-herrera.png"
-                            />
-                        </div>
-
-                        <span class="produto-tag">
-                            Só no Zuppy!
-                        </span>
-
-                        <h3>LabuSena Feminino</h3>
-
-                        <div class="produto-preco-antigo-area">
-                            <span class="preco-antigo">
-                                R$0.000,00
-                            </span>
-
-                            <span class="desconto">
-                                50% OFF
-                            </span>
-                        </div>
-
-                        <p class="preco-atual">
-                            R$0.000,00
-                        </p>
-
-                        <button class="btn-carrinho">
-                            <img
-                                alt=""
-                                src="img/carrinho-icon.png"
-                            />
-
-                            <p>Adicionar ao carrinho</p>
-                        </button>
-                    </div>
-                </div>
+                <div class="produtos-track" id="trackMelhoresOfertas"></div>
             </div>
 
             <button
@@ -663,6 +543,11 @@
 </section>
 
 <script src="js/script.js"></script>
+<script src="js/produtos-data.js"></script>
+<script src="js/favoritos-store.js"></script>
+<script src="js/carrinho-store.js"></script>
+<script src="js/sessao.js"></script>
+<script src="js/index-produtos.js"></script>
 <script src="js/acessibilidade.js"></script>
 
 </body>

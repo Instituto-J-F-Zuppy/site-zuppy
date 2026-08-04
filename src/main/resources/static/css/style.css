@@ -194,6 +194,32 @@ header {
     height: 35px;
     width: 35px;
 }
+
+.link-carrinho-header,
+.botao-icone-cabecalho {
+    position: relative;
+}
+
+.carrinho-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 999px;
+    background-color: var(--cor-vermelho-erro1);
+    color: var(--cor-branco);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrinho-badge:empty {
+    display: none;
+}
 main {
     padding: 34px 36px;
     overflow-x: hidden;

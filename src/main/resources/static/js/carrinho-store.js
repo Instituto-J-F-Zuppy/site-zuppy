@@ -79,11 +79,11 @@ const CarrinhoStore = {
 };
 
 function atualizarBadgeCarrinho() {
-  const badge = document.getElementById(".carrinho-badge");
+  const badge = document.querySelector(".carrinho-badge");
   if(!badge) return;
   const quantidade = CarrinhoStore.contarProdutos();
   badge.textContent = quantidade > 0 ? String(quantidade) : "";
 }
 
 atualizarBadgeCarrinho();
-window.addEventListener("carrinhoAtualizado", atualizarBadgeCarrinho);
+window.addEventListener("carrinho-atualizado", atualizarBadgeCarrinho);

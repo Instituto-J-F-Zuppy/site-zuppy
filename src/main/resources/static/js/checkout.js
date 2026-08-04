@@ -30,13 +30,19 @@ function obterItensCheckout() {
 
 const conteudoCheckout = document.getElementById("conteudoCheckout");
 const checkoutCarrinhoVazio = document.getElementById("checkoutCarrinhoVazio");
+const checkoutRequerLogin = document.getElementById("checkoutRequerLogin");
+const checkoutErro = document.getElementById("checkoutErro");
 const itensResumoCheckout = document.getElementById("itensResumoCheckout");
 const subtotalCheckout = document.getElementById("subtotalCheckout");
 const totalCheckout = document.getElementById("totalCheckout");
 
 const itensCheckout = obterItensCheckout();
+const tokenUsuario = localStorage.getItem("zuppyToken");
 
-if (itensCheckout.length === 0) {
+if (!tokenUsuario) {
+    conteudoCheckout.style.display = "none";
+    checkoutRequerLogin.style.display = "block";
+} else if (itensCheckout.length === 0) {
     conteudoCheckout.style.display = "none";
     checkoutCarrinhoVazio.style.display = "block";
 } else {
@@ -192,22 +198,68 @@ if (itensCheckout.length === 0) {
         const textoOriginal = botaoConfirmar.textContent;
         botaoConfirmar.disabled = true;
         botaoConfirmar.textContent = "Confirmando...";
+        checkoutErro.style.display = "none";
+        checkoutErro.textContent = "";
 
-        window.setTimeout(function () {
-            const numero = `#ZP${Date.now().toString().slice(-8)}`;
+        const corpoPedido = {
+            cep: document.getElementById("cep").value.trim(),
+            numero: document.getElementById("numero").value.trim(),
+            endereco: document.getElementById("endereco").value.trim(),
+            complemento: document.getElementById("complemento").value.trim(),
+            bairro: document.getElementById("bairro").value.trim(),
+            cidade: document.getElementById("cidade").value.trim(),
+            uf: document.getElementById("uf").value.trim(),
+            formaPagamento: formaSelecionada,
+            itens: itensCheckout.map(function (item) {
+                const produto = PRODUTOS.find(function (produto) {
+                    return produto.id === item.id;
+                });
 
-            itensCheckout.forEach(function (item) {
-                CarrinhoStore.remover(item.id);
+                return {
+                    brinquedoId: produto ? produto.brinquedoId : null,
+                    quantidade: item.quantidade
+                };
+            })
+        };
+
+        fetch("/pedidos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${tokenUsuario}`
+            },
+            body: JSON.stringify(corpoPedido)
+        })
+            .then(async function (resposta) {
+                const dados = await resposta.json().catch(function () {
+                    return null;
+                });
+
+                if (!resposta.ok) {
+                    const mensagem = dados && dados.erro
+                        ? dados.erro
+                        : "Não foi possível confirmar o pedido. Tente novamente.";
+
+                    throw new Error(mensagem);
+                }
+
+                itensCheckout.forEach(function (item) {
+                    CarrinhoStore.remover(item.id);
+                });
+                sessionStorage.removeItem(CHAVE_CHECKOUT_SELECIONADOS);
+
+                conteudoCheckout.style.display = "none";
+                numeroPedido.textContent = dados.numero;
+                confirmacaoPedido.style.display = "block";
+                confirmacaoPedido.focus?.();
+            })
+            .catch(function (erro) {
+                checkoutErro.textContent = erro.message;
+                checkoutErro.style.display = "block";
+            })
+            .finally(function () {
+                botaoConfirmar.disabled = false;
+                botaoConfirmar.textContent = textoOriginal;
             });
-            sessionStorage.removeItem(CHAVE_CHECKOUT_SELECIONADOS);
-
-            conteudoCheckout.style.display = "none";
-            numeroPedido.textContent = numero;
-            confirmacaoPedido.style.display = "block";
-            confirmacaoPedido.focus?.();
-
-            botaoConfirmar.disabled = false;
-            botaoConfirmar.textContent = textoOriginal;
-        }, 600);
     });
 }

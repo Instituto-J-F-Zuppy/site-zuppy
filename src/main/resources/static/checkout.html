@@ -75,6 +75,13 @@
                 Seu carrinho está vazio. <a href="todos-produtos.html">Ver produtos</a>.
             </p>
 
+<p aria-live="polite" class="mensagem-carrinho" id="checkoutRequerLogin" role="status" style="display: none;">
+                Você precisa estar logado para finalizar a compra. <a href="login.html">Entrar</a> ou
+                <a href="cadastro.html">criar uma conta</a>.
+            </p>
+
+<p aria-live="assertive" class="mensagem-carrinho" id="checkoutErro" role="alert" style="display: none;"></p>
+
 <div class="conteudo-checkout" id="conteudoCheckout">
 <form class="form-checkout" id="formCheckout" novalidate="">
 <section class="secao-checkout">
@@ -273,6 +280,9 @@
                 </p>
 <a class="botao-confirmar-pedido" href="todos-produtos.html">
                     Continuar comprando
+                </a>
+<a class="link-ver-pedidos" href="meus-pedidos.html">
+                    Ver meus pedidos
                 </a>
 </section>
 </main>

@@ -58,4 +58,4 @@ O projeto possui um menu de recursos assistivos disponível em todas as páginas
 
 ## Declaração de uso de IA
 
-Em conformidade com o item 10.1 do documento da atividade: partes deste projeto foram desenvolvidas com apoio de IA (Claude, Anthropic), incluindo trechos de front-end (catálogo, carrinho, checkout, favoritos, histórico de pedidos), o backend de pedidos (entidades, endpoints) e esta documentação. Todo o código gerado foi revisado e testado manualmente antes de ser commitado, e qualquer integrante do grupo deve ser capaz de explicar essas partes na arguição técnica, independentemente de quem as commitou.
+Em conformidade com o item 10.1 do documento da atividade: partes deste projeto foram desenvolvidas com apoio de IA (Claude, Anthropic), incluindo trechos de front-end , análise de backend e esta documentação. Todo o código gerado foi revisado e testado manualmente antes de ser commitado, e qualquer integrante do grupo deve ser capaz de explicar essas partes na arguição técnica, independentemente de quem as commitou.

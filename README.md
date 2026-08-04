@@ -58,12 +58,4 @@ O projeto possui um menu de recursos assistivos disponível em todas as páginas
 
 ## Declaração de uso de IA
 
-Em conformidade com o item 10.1 do documento da atividade, este projeto usou apoio de IA (Claude, Anthropic) em partes do desenvolvimento. Abaixo, o que foi apoiado por IA **nesta sessão de trabalho**, para transparência — cada integrante deve revisar e complementar esta seção com o que apoiou seu próprio trabalho em etapas anteriores:
-
-- Diagnóstico e correção de bugs de front-end (exibição de sessão logada, badge do carrinho, conexão do carrinho entre páginas).
-- Reescrita do catálogo de produtos e da home para renderização dinâmica via JavaScript (`produtos-data.js`, `todos-produtos.js`, `produto.js`, `index-produtos.js`).
-- Implementação da página de checkout (`checkout.html`, `checkout.js`, `checkout.css`).
-- Persistência de favoritos (`favoritos-store.js`).
-- Redação deste README.
-
-Todo o código gerado com apoio de IA foi revisado, testado manualmente no navegador (incluindo os fluxos de carrinho, favoritos e checkout) e ajustado antes de ser commitado. Qualquer integrante do grupo deve ser capaz de explicar essas partes na arguição técnica, independentemente de quem as commitou.
+Em conformidade com o item 10.1 do documento da atividade: partes deste projeto foram desenvolvidas com apoio de IA (Claude, Anthropic), incluindo trechos de front-end (catálogo, carrinho, checkout e favoritos) e esta documentação. Todo o código gerado foi revisado e testado manualmente antes de ser commitado, e qualquer integrante do grupo deve ser capaz de explicar essas partes na arguição técnica, independentemente de quem as commitou.

@@ -10,7 +10,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OrderColumn;
 import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
@@ -30,52 +29,31 @@ public class Pedido {
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
-    @Column(name = "nome_completo", nullable = false, length = 150)
-    private String nomeCompleto;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "endereco_entrega_id", nullable = false)
+    private Endereco enderecoEntrega;
 
-    @Column(name = "cep", nullable = false, length = 9)
-    private String cep;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "endereco_faturamento_id", nullable = false)
+    private Endereco enderecoFaturamento;
 
-    @Column(name = "numero", nullable = false, length = 20)
-    private String numero;
+    @Column(name = "valor_total", nullable = false)
+    private BigDecimal valorTotal;
 
-    @Column(name = "endereco", nullable = false, length = 200)
-    private String endereco;
-
-    @Column(name = "complemento", length = 100)
-    private String complemento;
-
-    @Column(name = "bairro", nullable = false, length = 100)
-    private String bairro;
-
-    @Column(name = "cidade", nullable = false, length = 100)
-    private String cidade;
-
-    @Column(name = "uf", nullable = false, length = 2)
-    private String uf;
-
-    @Column(name = "forma_pagamento", nullable = false, length = 20)
-    private String formaPagamento;
-
-    @Column(name = "total", nullable = false)
-    private BigDecimal total;
-
-    @Column(name = "status", nullable = false, length = 20)
-    private String status = "CONFIRMADO";
+    @Column(name = "valor_frete", nullable = false)
+    private BigDecimal valorFrete = BigDecimal.ZERO;
 
     @Column(name = "criado_em", nullable = false, insertable = false, updatable = false)
     private LocalDateTime criadoEm;
 
+    @Column(name = "atualizado_em", nullable = false, insertable = false, updatable = false)
+    private LocalDateTime atualizadoEm;
+
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @OrderColumn(name = "ordem_item")
     private List<ItemPedido> itens = new ArrayList<>();
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Usuario getUsuario() {
@@ -86,92 +64,36 @@ public class Pedido {
         this.usuario = usuario;
     }
 
-    public String getNomeCompleto() {
-        return nomeCompleto;
+    public Endereco getEnderecoEntrega() {
+        return enderecoEntrega;
     }
 
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
+    public void setEnderecoEntrega(Endereco enderecoEntrega) {
+        this.enderecoEntrega = enderecoEntrega;
     }
 
-    public String getCep() {
-        return cep;
+    public Endereco getEnderecoFaturamento() {
+        return enderecoFaturamento;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setEnderecoFaturamento(Endereco enderecoFaturamento) {
+        this.enderecoFaturamento = enderecoFaturamento;
     }
 
-    public String getNumero() {
-        return numero;
+    public BigDecimal getValorTotal() {
+        return valorTotal;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public BigDecimal getValorFrete() {
+        return valorFrete;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
-    public String getFormaPagamento() {
-        return formaPagamento;
-    }
-
-    public void setFormaPagamento(String formaPagamento) {
-        this.formaPagamento = formaPagamento;
-    }
-
-    public BigDecimal getTotal() {
-        return total;
-    }
-
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setValorFrete(BigDecimal valorFrete) {
+        this.valorFrete = valorFrete;
     }
 
     public LocalDateTime getCriadoEm() {

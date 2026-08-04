@@ -19,7 +19,11 @@ function formatarDataPedido(valorIso) {
 }
 
 const STATUS_LEGIVEL = {
-    CONFIRMADO: "Confirmado"
+    AGUARDANDO_PAGAMENTO: "Aguardando pagamento",
+    PAGO: "Pago",
+    ENVIADO: "Enviado",
+    ENTREGUE: "Entregue",
+    CANCELADO: "Cancelado"
 };
 
 function criarCardPedido(pedido) {
@@ -54,10 +58,10 @@ function criarCardPedido(pedido) {
         linha.className = "card-pedido-item";
 
         const nome = document.createElement("span");
-        nome.textContent = `${item.quantidade}x ${item.nomeProduto}`;
+        nome.textContent = `${item.quantidade}x ${item.nomeBrinquedo}`;
 
         const preco = document.createElement("span");
-        preco.textContent = formatarMoedaPedido(item.preco * item.quantidade);
+        preco.textContent = formatarMoedaPedido(item.subtotal);
 
         linha.appendChild(nome);
         linha.appendChild(preco);
@@ -74,7 +78,7 @@ function criarCardPedido(pedido) {
 
     const total = document.createElement("span");
     total.className = "card-pedido-total";
-    total.textContent = formatarMoedaPedido(pedido.total);
+    total.textContent = formatarMoedaPedido(pedido.valorTotal);
 
     rodape.appendChild(endereco);
     rodape.appendChild(total);

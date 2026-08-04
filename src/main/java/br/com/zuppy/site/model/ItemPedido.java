@@ -2,6 +2,7 @@ package br.com.zuppy.site.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,7 +13,7 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "itens_pedido")
+@Table(name = "pedido_itens")
 public class ItemPedido {
 
     @Id
@@ -23,24 +24,21 @@ public class ItemPedido {
     @JoinColumn(name = "pedido_id", nullable = false)
     private Pedido pedido;
 
-    @Column(name = "produto_id", nullable = false, length = 100)
-    private String produtoId;
-
-    @Column(name = "nome_produto", nullable = false, length = 200)
-    private String nomeProduto;
-
-    @Column(name = "preco", nullable = false)
-    private BigDecimal preco;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "brinquedo_id", nullable = false)
+    private Brinquedo brinquedo;
 
     @Column(name = "quantidade", nullable = false)
     private Integer quantidade;
 
+    @Column(name = "preco_unitario", nullable = false)
+    private BigDecimal precoUnitario;
+
+    @Column(name = "subtotal", nullable = false)
+    private BigDecimal subtotal;
+
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Pedido getPedido() {
@@ -51,28 +49,12 @@ public class ItemPedido {
         this.pedido = pedido;
     }
 
-    public String getProdutoId() {
-        return produtoId;
+    public Brinquedo getBrinquedo() {
+        return brinquedo;
     }
 
-    public void setProdutoId(String produtoId) {
-        this.produtoId = produtoId;
-    }
-
-    public String getNomeProduto() {
-        return nomeProduto;
-    }
-
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
-    }
-
-    public BigDecimal getPreco() {
-        return preco;
-    }
-
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
+    public void setBrinquedo(Brinquedo brinquedo) {
+        this.brinquedo = brinquedo;
     }
 
     public Integer getQuantidade() {
@@ -81,5 +63,21 @@ public class ItemPedido {
 
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public BigDecimal getPrecoUnitario() {
+        return precoUnitario;
+    }
+
+    public void setPrecoUnitario(BigDecimal precoUnitario) {
+        this.precoUnitario = precoUnitario;
+    }
+
+    public BigDecimal getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(BigDecimal subtotal) {
+        this.subtotal = subtotal;
     }
 }

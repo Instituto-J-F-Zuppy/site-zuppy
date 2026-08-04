@@ -202,7 +202,6 @@ if (!tokenUsuario) {
         checkoutErro.textContent = "";
 
         const corpoPedido = {
-            nomeCompleto: document.getElementById("nomeCompleto").value.trim(),
             cep: document.getElementById("cep").value.trim(),
             numero: document.getElementById("numero").value.trim(),
             endereco: document.getElementById("endereco").value.trim(),
@@ -212,10 +211,12 @@ if (!tokenUsuario) {
             uf: document.getElementById("uf").value.trim(),
             formaPagamento: formaSelecionada,
             itens: itensCheckout.map(function (item) {
+                const produto = PRODUTOS.find(function (produto) {
+                    return produto.id === item.id;
+                });
+
                 return {
-                    produtoId: item.id,
-                    nomeProduto: item.nome,
-                    preco: item.preco,
+                    brinquedoId: produto ? produto.brinquedoId : null,
                     quantidade: item.quantidade
                 };
             })

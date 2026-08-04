@@ -9,7 +9,6 @@ import jakarta.validation.constraints.Size;
 import java.util.List;
 
 public record CriarPedidoRequest(
-        @NotBlank String nomeCompleto,
         @NotBlank @Pattern(regexp = "\\d{5}-?\\d{3}", message = "CEP invalido") String cep,
         @NotBlank String numero,
         @NotBlank String endereco,

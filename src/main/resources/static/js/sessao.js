@@ -20,6 +20,15 @@ function exibirUsuarioLogado() {
     areaUsuarioLogado.style.display = "flex";
     saudacaoUsuario.textContent = `Olá, ${primeiroNome}`;
 
+    if (!document.getElementById("linkMeusPedidos")) {
+        const linkMeusPedidos = document.createElement("a");
+        linkMeusPedidos.id = "linkMeusPedidos";
+        linkMeusPedidos.href = "meus-pedidos.html";
+        linkMeusPedidos.textContent = "Meus pedidos";
+        linkMeusPedidos.style.fontSize = "13px";
+        areaUsuarioLogado.insertBefore(linkMeusPedidos, saudacaoUsuario);
+    }
+
     botaoSair.addEventListener("click", function () {
         localStorage.removeItem("zuppyToken");
         localStorage.removeItem("zuppyNome");

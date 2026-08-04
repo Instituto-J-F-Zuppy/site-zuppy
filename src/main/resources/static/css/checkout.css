@@ -220,6 +220,15 @@
     margin: 0 auto;
 }
 
+.link-ver-pedidos {
+    display: block;
+    margin-top: 14px;
+    color: var(--cor-roxo-destaque1);
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
 @media (max-width: 900px) {
     .conteudo-checkout {
         grid-template-columns: 1fr;

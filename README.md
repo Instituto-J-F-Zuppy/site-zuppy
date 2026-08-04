@@ -7,7 +7,7 @@ Loja virtual acadêmica de brinquedos personalizados (Action Figures), desenvolv
 - **Front-end**: HTML5 semântico, CSS3 puro e JavaScript vanilla (sem frameworks), com DOM manipulado dinamicamente — catálogo, carrinho, favoritos e carrosséis da home são renderizados via JS a partir de `js/produtos-data.js`, sem nenhum bundler.
 - **Back-end**: Java 19 + Spring Boot 3.3.7 (Spring Web, Spring Data JPA, Spring Security), autenticação via JWT (`jjwt`).
 - **Banco de dados**: PostgreSQL.
-- **Persistência no cliente**: carrinho e favoritos usam `localStorage` (`CarrinhoStore` e `FavoritosStore`, em `js/carrinho-store.js` e `js/favoritos-store.js`), já que produtos/carrinho/pedidos ainda não têm entidade própria no back-end — hoje só autenticação (`Usuario`) tem persistência real no banco.
+- **Persistência no cliente**: carrinho e favoritos usam `localStorage` (`CarrinhoStore` e `FavoritosStore`, em `js/carrinho-store.js` e `js/favoritos-store.js`) — o catálogo de produtos ainda é só front-end (`js/produtos-data.js`). Usuário e Pedido têm persistência real no Postgres.
 
 ## Integrantes e responsabilidades
 
@@ -39,7 +39,7 @@ Loja virtual acadêmica de brinquedos personalizados (Action Figures), desenvolv
    JWT_EXPIRATION_MS=86400000
    ```
 
-   `DB_URL`/`DB_USERNAME`/`DB_PASSWORD` têm valores padrão (banco `zuppy` local); `JWT_SECRET` é obrigatório e não tem valor padrão. O schema do banco precisa existir previamente (`ddl-auto: validate`).
+   `DB_URL`/`DB_USERNAME`/`DB_PASSWORD` têm valores padrão (banco `zuppy` local); `JWT_SECRET` é obrigatório e não tem valor padrão. O schema do banco precisa existir previamente (`ddl-auto: validate`) — rode `db/pedidos.sql` contra o banco antes de subir a aplicação, caso as tabelas `pedidos`/`itens_pedido` ainda não existam.
 2. Execute o projeto com Maven e Java 19 (ex.: `mvn spring-boot:run`, ou `./mvnw spring-boot:run` se o wrapper estiver presente).
 3. Acesse `http://localhost:8081` (porta configurável via `SERVER_PORT`).
 

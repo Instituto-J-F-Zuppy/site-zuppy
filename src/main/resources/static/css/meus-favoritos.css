@@ -1,0 +1,122 @@
+.pagina-favoritos {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 35px 36px 80px;
+}
+
+.breadcrumb-favoritos {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--cor-preto-2);
+}
+
+.breadcrumb-favoritos a {
+    color: var(--cor-preto-2);
+    text-decoration: none;
+}
+
+.breadcrumb-favoritos a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-favoritos strong {
+    font-weight: 700;
+}
+
+.titulo-favoritos {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.titulo-favoritos h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 27px;
+    font-weight: 600;
+    color: var(--cor-preto-2);
+}
+
+.titulo-favoritos span {
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 13px;
+    color: #666666;
+}
+
+.grade-favoritos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(210px, 1fr));
+    gap: 40px 20px;
+}
+
+.favoritos-vazio {
+    display: none;
+    padding: 50px 25px;
+    background-color: var(--cor-branco);
+    border: 1px solid #e0e0e0;
+    border-radius: 13px;
+    text-align: center;
+}
+
+.favoritos-vazio.visivel {
+    display: block;
+}
+
+.favoritos-vazio h2 {
+    margin-bottom: 8px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 25px;
+    color: var(--cor-preto-2);
+}
+
+.favoritos-vazio p {
+    margin-bottom: 20px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 14px;
+    color: #666666;
+}
+
+.favoritos-vazio a {
+    padding: 11px 25px;
+    border-radius: 8px;
+    background-color: var(--cor-roxo-destaque1);
+    color: var(--cor-branco);
+    text-decoration: none;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.favoritos-vazio a:hover {
+    transform: translateY(-1px);
+    filter: brightness(0.95);
+}
+
+@media (max-width: 1180px) {
+    .grade-favoritos {
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .grade-favoritos {
+        grid-template-columns: repeat(2, minmax(160px, 1fr));
+        gap: 24px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagina-favoritos {
+        padding: 20px 16px 50px;
+    }
+
+    .grade-favoritos {
+        grid-template-columns: 1fr;
+    }
+}

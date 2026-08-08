@@ -29,6 +29,15 @@ function exibirUsuarioLogado() {
         areaUsuarioLogado.insertBefore(linkMeusPedidos, saudacaoUsuario);
     }
 
+    if (!document.getElementById("linkFavoritos")) {
+        const linkFavoritos = document.createElement("a");
+        linkFavoritos.id = "linkFavoritos";
+        linkFavoritos.href = "meus-favoritos.html";
+        linkFavoritos.textContent = "Favoritos";
+        linkFavoritos.style.fontSize = "13px";
+        areaUsuarioLogado.insertBefore(linkFavoritos, saudacaoUsuario);
+    }
+
     botaoSair.addEventListener("click", function () {
         localStorage.removeItem("zuppyToken");
         localStorage.removeItem("zuppyNome");

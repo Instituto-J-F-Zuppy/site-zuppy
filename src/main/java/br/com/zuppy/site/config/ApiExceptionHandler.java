@@ -55,6 +55,7 @@ public class ApiExceptionHandler {
         return erro(HttpStatus.BAD_REQUEST, mensagem);
     }
 
+    //ajuda a montar uma resposta padronizada
     private ResponseEntity<Map<String, Object>> erro(HttpStatus status, String mensagem) {
         return ResponseEntity.status(status).body(Map.of(
                 "timestamp", Instant.now(),

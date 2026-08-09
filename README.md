@@ -7,7 +7,8 @@ Loja virtual acadêmica de brinquedos personalizados (Action Figures), desenvolv
 - **Front-end**: HTML5 semântico, CSS3 puro e JavaScript vanilla (sem frameworks), com DOM manipulado dinamicamente — catálogo, carrinho, favoritos e carrosséis da home são renderizados via JS a partir de `js/produtos-data.js`, sem nenhum bundler.
 - **Back-end**: Java 19 + Spring Boot 3.3.7 (Spring Web, Spring Data JPA, Spring Security), autenticação via JWT (`jjwt`).
 - **Banco de dados**: PostgreSQL.
-- **Persistência no cliente**: carrinho e favoritos usam `localStorage` (`CarrinhoStore` e `FavoritosStore`, em `js/carrinho-store.js` e `js/favoritos-store.js`) — o catálogo de produtos ainda é só front-end (`js/produtos-data.js`). Usuário e Pedido têm persistência real no Postgres.
+- **Persistência no cliente**: carrinho e favoritos usam `localStorage` (`CarrinhoStore` e `FavoritosStore`, em `js/carrinho-store.js` e `js/favoritos-store.js`) — o catálogo exibido no front (`js/produtos-data.js`) ainda é um array próprio, sincronizado manualmente com a tabela `brinquedos`. **Usuário, Endereço e Pedido (com itens, pagamento e histórico de status) têm persistência real no Postgres.**
+- **Autenticação**: JWT stateless (`Authorization: Bearer <token>`), senha com hash BCrypt, filtro (`JwtAuthenticationFilter`) valida o token em toda requisição autenticada antes de chegar no controller.
 
 ## Integrantes e responsabilidades
 
@@ -39,7 +40,7 @@ Loja virtual acadêmica de brinquedos personalizados (Action Figures), desenvolv
    JWT_EXPIRATION_MS=86400000
    ```
 
-   `DB_URL`/`DB_USERNAME`/`DB_PASSWORD` têm valores padrão (banco `zuppy` local); `JWT_SECRET` é obrigatório e não tem valor padrão. O schema do banco precisa existir previamente (`ddl-auto: validate`) — rode `db/pedidos.sql` contra o banco antes de subir a aplicação, caso as tabelas `pedidos`/`itens_pedido` ainda não existam.
+   `DB_URL`/`DB_USERNAME`/`DB_PASSWORD` têm valores padrão (banco `zuppy` local); `JWT_SECRET` é obrigatório e não tem valor padrão. O schema do banco precisa existir previamente (`ddl-auto: validate` — a aplicação nunca cria ou altera tabela sozinha, só confere se bate com o que as entidades esperam). As tabelas usadas (`usuarios`, `pedidos`, `pedido_itens`, `enderecos`, `pagamentos`, `pagamento_metodos`, `pedido_status_tipo`, `pedido_historico_status`, `brinquedos`, `cidades`, `estados`, entre outras) já existem no banco compartilhado do grupo.
 2. Execute o projeto com Maven e Java 19 (ex.: `mvn spring-boot:run`, ou `./mvnw spring-boot:run` se o wrapper estiver presente).
 3. Acesse `http://localhost:8081` (porta configurável via `SERVER_PORT`).
 
@@ -58,4 +59,14 @@ O projeto possui um menu de recursos assistivos disponível em todas as páginas
 
 ## Declaração de uso de IA
 
-Em conformidade com o item 10.1 do documento da atividade: partes deste projeto foram desenvolvidas com apoio de IA (Claude, Anthropic), incluindo trechos de front-end , análise de backend e esta documentação. Todo o código gerado foi revisado e testado manualmente antes de ser commitado, e qualquer integrante do grupo deve ser capaz de explicar essas partes na arguição técnica, independentemente de quem as commitou.
+Em conformidade com o item 10.1 do documento da atividade, este projeto teve apoio de IA (Claude, Anthropic) em partes específicas do desenvolvimento. Listamos abaixo o que foi apoiado por IA nas sessões de trabalho que geraram esses commits, para transparência:
+
+- **Correção de bugs de front-end**: exibição de sessão logada em todas as páginas, badge do carrinho, conexão do carrinho entre páginas (`js/sessao.js`, `js/carrinho-store.js`).
+- **Catálogo e home dinâmicos**: reescrita de `js/produtos-data.js`, `js/todos-produtos.js`, `js/produto.js` e `js/index-produtos.js` para renderização via JavaScript em vez de HTML fixo.
+- **Checkout e histórico de pedidos** (`checkout.html`/`js/checkout.js`, `meus-pedidos.html`/`js/meus-pedidos.js`): funcionalidade que não existia antes.
+- **Backend de pedidos** (`model/Pedido.java`, `ItemPedido.java`, `Endereco.java`, `Cidade.java`, `Estado.java`, `Pagamento.java`, `PagamentoMetodo.java`, `PedidoStatusTipo.java`, `PedidoHistoricoStatus.java`, `Brinquedo.java`, e os repositories/service/controller correspondentes): entidades, endpoints (`POST/GET /pedidos`) e a lógica de recalcular preço no servidor a partir do banco.
+- **Correção de contraste e nomes acessíveis** apontados pelo Lighthouse (`css/style.css`, `css/login.css`, setas de carrossel em `index.html`).
+- **Sincronização de dados**: correção de preços do catálogo divergentes da tabela `brinquedos` no banco.
+- **Esta documentação** (README).
+
+Esta lista cobre o que foi apoiado por IA nas sessões registradas nos commits acima — **cada integrante deve complementar esta seção** com qualquer parte anterior do projeto (ex.: login/cadastro, menu de acessibilidade, prototipação) que também tenha tido apoio de IA, para a declaração ficar completa. Todo o código gerado com apoio de IA foi revisado e testado manualmente antes de ser commitado (incluindo verificação em navegador dos fluxos de carrinho, favoritos, checkout e histórico de pedidos), e qualquer integrante do grupo deve ser capaz de explicar essas partes na arguição técnica, independentemente de quem as commitou.

@@ -222,11 +222,14 @@ if (!tokenUsuario) {
             })
         };
 
+        //conexão front e back 
+
         fetch("/pedidos", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${tokenUsuario}`
+                //esse header é lido pelo JWTAuthenticationFilter
             },
             body: JSON.stringify(corpoPedido)
         })

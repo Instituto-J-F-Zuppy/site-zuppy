@@ -97,6 +97,7 @@ const tokenPedidos = localStorage.getItem("zuppyToken");
 if (!tokenPedidos) {
     pedidosRequerLogin.style.display = "block";
 } else {
+    //conexão front e back 
     fetch("/pedidos", {
         headers: {
             "Authorization": `Bearer ${tokenPedidos}`

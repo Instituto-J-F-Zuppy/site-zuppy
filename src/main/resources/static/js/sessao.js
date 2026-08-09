@@ -1,4 +1,6 @@
 function exibirUsuarioLogado() {
+
+    //le o token salvo pelo login
     const token = localStorage.getItem("zuppyToken");
     const nome = localStorage.getItem("zuppyNome");
 

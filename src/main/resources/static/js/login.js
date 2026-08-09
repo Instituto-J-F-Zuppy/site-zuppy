@@ -79,12 +79,13 @@ formLogin.addEventListener("submit", function (evento) {
         botaoSubmit.textContent = "Entrando...";
     }
 
+    //cria conexão front e back 
     fetch("/auth/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ email: email, senha: senha })
+        body: JSON.stringify({ email: email, senha: senha }) //converte o objeto JS em String JSON, o spring transforma em loginRequest
     })
         .then(async function (resposta) {
             const dados = await resposta.json().catch(function () {

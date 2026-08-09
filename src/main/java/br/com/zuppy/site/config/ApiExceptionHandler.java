@@ -13,9 +13,11 @@ import java.time.Instant;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+//pega as exceções
 @RestControllerAdvice
 public class ApiExceptionHandler {
 
+    //captura os erros da regra de negocio e retorna um http
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String, Object>> regraNegocio(IllegalArgumentException exception) {
         return erro(HttpStatus.BAD_REQUEST, exception.getMessage());
@@ -38,6 +40,7 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> validacao(MethodArgumentNotValidException exception) {
+        //extrai erros dos campos e formata
         String mensagem = exception.getBindingResult().getFieldErrors().stream()
                 .collect(Collectors.toMap(
                         FieldError::getField,

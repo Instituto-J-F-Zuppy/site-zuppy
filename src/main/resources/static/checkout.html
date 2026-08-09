@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Finalizar compra | Zuppy!</title>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/login.css" rel="stylesheet"/>
+<link href="css/checkout.css" rel="stylesheet"/>
+<link href="css/acessibilidade.css" rel="stylesheet"/></head>
+<body>
+<header>
+<div class="header">
+<a class="logo-area" href="index.html">
+<img alt="Logo Zuppy" id="logo" src="img/logo_zuppy.png"/>
+</a>
+<div class="search-box">
+<img alt="" id="lupa_icon" src="img/lupa_icon.png"/>
+<input id="searchInput" placeholder="Encontre seu próximo brinquedo favorito..." type="text"/>
+</div>
+<div class="login" id="areaLogin">
+<a href="cadastro.html" id="linkCadastrar">
+                    Cadastrar-se
+                </a>
+<a href="login.html" id="linkEntrar">
+<button id="botao-entrar">
+                        Entrar
+                    </button>
+</a>
+<div id="areaUsuarioLogado" style="display: none; align-items: center; gap: 14px;">
+<span id="saudacaoUsuario"></span>
+<button id="botaoSair" type="button">Sair</button>
+</div>
+</div>
+</div>
+<div class="header2" id="headerBottom">
+<div class="cep">
+<img alt="" id="loc_icon" src="img/loc_icon.png"/>
+<span>
+                    Entregar em:
+                    <strong>00000-000</strong>
+</span>
+</div>
+<nav class="nav-menu">
+<a href="todos-produtos.html">Todos os produtos</a>
+<a href="todos-produtos.html?personagem=Anna">Anna</a>
+<a href="todos-produtos.html?personagem=Emanuelly">Emanuelly</a>
+<a href="todos-produtos.html?personagem=Julio">Julio</a>
+<a href="todos-produtos.html?personagem=Sena">Sena</a>
+<a href="todos-produtos.html?personagem=Shiniti">Shiniti</a>
+</nav>
+<div class="botao-icones">
+<a aria-label="Página de acessibilidade" class="botao-icone-cabecalho" href="acessibilidade.html"><img alt="" src="img/acessibilidade_icon.png"/></a>
+<img alt="Fale com a gente pelo WhatsApp" src="img/whatsapp_icon.png"/>
+<a class="link-carrinho-header" href="carrinho.html">
+<img alt="Meu Carrinho" src="img/lilcar.png"/>
+<span class="carrinho-badge"></span>
+</a>
+</div>
+</div>
+</header>
+<main class="pagina-checkout">
+<nav aria-label="Navegação estrutural" class="breadcrumb-checkout">
+<a href="index.html">Início</a>
+<span aria-hidden="true">&lt;</span>
+<a href="carrinho.html">Carrinho</a>
+<span aria-hidden="true">&lt;</span>
+<strong>Checkout</strong>
+</nav>
+
+<h1 class="titulo-checkout">Finalizar compra</h1>
+
+<p aria-live="polite" class="mensagem-carrinho" id="checkoutCarrinhoVazio" role="status" style="display: none;">
+                Seu carrinho está vazio. <a href="todos-produtos.html">Ver produtos</a>.
+            </p>
+
+<p aria-live="polite" class="mensagem-carrinho" id="checkoutRequerLogin" role="status" style="display: none;">
+                Você precisa estar logado para finalizar a compra. <a href="login.html">Entrar</a> ou
+                <a href="cadastro.html">criar uma conta</a>.
+            </p>
+
+<p aria-live="assertive" class="mensagem-carrinho" id="checkoutErro" role="alert" style="display: none;"></p>
+
+<div class="conteudo-checkout" id="conteudoCheckout">
+<form class="form-checkout" id="formCheckout" novalidate="">
+<section class="secao-checkout">
+<h2>Dados de entrega</h2>
+
+<div class="campo-grupo">
+<label for="nomeCompleto">
+<span class="campo-obrigatorio">*</span>Nome completo
+                        </label>
+<div class="campo-input">
+<input id="nomeCompleto" name="nomeCompleto" placeholder="Seu nome completo" required=""/>
+</div>
+<small class="mensagem-erro" id="erroNomeCompleto" role="alert"></small>
+</div>
+
+<div class="linha-campos">
+<div class="campo-grupo campo-cep">
+<label for="cep">
+<span class="campo-obrigatorio">*</span>CEP
+                            </label>
+<div class="campo-input">
+<img alt="" class="campo-icone" src="img/loc_icon.png"/>
+<input id="cep" inputmode="numeric" name="cep" placeholder="00000-000" required=""/>
+</div>
+<small class="mensagem-erro" id="erroCep" role="alert"></small>
+</div>
+
+<div class="campo-grupo campo-numero">
+<label for="numero">
+<span class="campo-obrigatorio">*</span>Número
+                            </label>
+<div class="campo-input">
+<input id="numero" inputmode="numeric" name="numero" placeholder="Nº" required=""/>
+</div>
+<small class="mensagem-erro" id="erroNumero" role="alert"></small>
+</div>
+</div>
+
+<div class="campo-grupo">
+<label for="endereco">
+<span class="campo-obrigatorio">*</span>Endereço
+                        </label>
+<div class="campo-input">
+<input id="endereco" name="endereco" placeholder="Rua, avenida..." required=""/>
+</div>
+<small class="mensagem-erro" id="erroEndereco" role="alert"></small>
+</div>
+
+<div class="campo-grupo">
+<label for="complemento">
+                            Complemento (opcional)
+                        </label>
+<div class="campo-input">
+<input id="complemento" name="complemento" placeholder="Apto, bloco..."/>
+</div>
+</div>
+
+<div class="linha-campos">
+<div class="campo-grupo">
+<label for="bairro">
+<span class="campo-obrigatorio">*</span>Bairro
+                            </label>
+<div class="campo-input">
+<input id="bairro" name="bairro" placeholder="Bairro" required=""/>
+</div>
+<small class="mensagem-erro" id="erroBairro" role="alert"></small>
+</div>
+
+<div class="campo-grupo">
+<label for="cidade">
+<span class="campo-obrigatorio">*</span>Cidade
+                            </label>
+<div class="campo-input">
+<input id="cidade" name="cidade" placeholder="Cidade" required=""/>
+</div>
+<small class="mensagem-erro" id="erroCidade" role="alert"></small>
+</div>
+
+<div class="campo-grupo campo-uf">
+<label for="uf">
+<span class="campo-obrigatorio">*</span>UF
+                            </label>
+<div class="campo-input">
+<input id="uf" maxlength="2" name="uf" placeholder="UF" required=""/>
+</div>
+<small class="mensagem-erro" id="erroUf" role="alert"></small>
+</div>
+</div>
+</section>
+
+<section class="secao-checkout">
+<h2>Forma de pagamento</h2>
+
+<div class="opcoes-pagamento" role="radiogroup" aria-label="Forma de pagamento">
+<label class="opcao-pagamento">
+<input checked="" id="pagamentoCartao" name="formaPagamento" type="radio" value="cartao"/>
+<span>Cartão de crédito</span>
+</label>
+
+<label class="opcao-pagamento">
+<input id="pagamentoPix" name="formaPagamento" type="radio" value="pix"/>
+<span>Pix</span>
+</label>
+
+<label class="opcao-pagamento">
+<input id="pagamentoBoleto" name="formaPagamento" type="radio" value="boleto"/>
+<span>Boleto</span>
+</label>
+</div>
+
+<div id="camposCartao">
+<div class="campo-grupo">
+<label for="nomeCartao">
+<span class="campo-obrigatorio">*</span>Nome impresso no cartão
+                        </label>
+<div class="campo-input">
+<input id="nomeCartao" name="nomeCartao" placeholder="Como está no cartão"/>
+</div>
+<small class="mensagem-erro" id="erroNomeCartao" role="alert"></small>
+</div>
+
+<div class="campo-grupo">
+<label for="numeroCartao">
+<span class="campo-obrigatorio">*</span>Número do cartão
+                        </label>
+<div class="campo-input">
+<input id="numeroCartao" inputmode="numeric" name="numeroCartao" placeholder="0000 0000 0000 0000"/>
+</div>
+<small class="mensagem-erro" id="erroNumeroCartao" role="alert"></small>
+</div>
+
+<div class="linha-campos">
+<div class="campo-grupo">
+<label for="validadeCartao">
+<span class="campo-obrigatorio">*</span>Validade
+                            </label>
+<div class="campo-input">
+<input id="validadeCartao" name="validadeCartao" placeholder="MM/AA"/>
+</div>
+<small class="mensagem-erro" id="erroValidadeCartao" role="alert"></small>
+</div>
+
+<div class="campo-grupo">
+<label for="cvvCartao">
+<span class="campo-obrigatorio">*</span>CVV
+                            </label>
+<div class="campo-input">
+<input id="cvvCartao" inputmode="numeric" name="cvvCartao" placeholder="123"/>
+</div>
+<small class="mensagem-erro" id="erroCvvCartao" role="alert"></small>
+</div>
+</div>
+</div>
+
+<p class="aviso-pagamento" id="avisoPix" style="display: none;">
+                        O código Pix será exibido depois de confirmar o pedido.
+                    </p>
+
+<p class="aviso-pagamento" id="avisoBoleto" style="display: none;">
+                        O boleto será exibido depois de confirmar o pedido.
+                    </p>
+</section>
+
+<button class="botao-confirmar-pedido" id="botaoConfirmarPedido" type="submit">
+                    Confirmar pedido
+                </button>
+</form>
+
+<aside class="resumo-checkout">
+<h2>Resumo do pedido</h2>
+
+<div class="itens-resumo-checkout" id="itensResumoCheckout"></div>
+
+<div class="linha-resumo">
+<span>Subtotal</span>
+<strong id="subtotalCheckout"></strong>
+</div>
+
+<div class="linha-resumo">
+<span>Envio</span>
+<strong>Grátis</strong>
+</div>
+
+<div class="linha-resumo total-resumo">
+<span>Total</span>
+<strong id="totalCheckout"></strong>
+</div>
+</aside>
+</div>
+
+<section aria-live="polite" class="confirmacao-pedido" id="confirmacaoPedido" role="status" style="display: none;">
+<h2>Pedido confirmado!</h2>
+<p>
+                    Recebemos seu pedido <strong id="numeroPedido"></strong>. Você vai receber
+                    atualizações por e-mail assim que ele for enviado.
+                </p>
+<a class="botao-confirmar-pedido" href="todos-produtos.html">
+                    Continuar comprando
+                </a>
+<a class="link-ver-pedidos" href="meus-pedidos.html">
+                    Ver meus pedidos
+                </a>
+</section>
+</main>
+<script src="js/produtos-data.js"></script>
+<script src="js/carrinho-store.js"></script>
+<script src="js/sessao.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/acessibilidade.js"></script></body>
+</html>

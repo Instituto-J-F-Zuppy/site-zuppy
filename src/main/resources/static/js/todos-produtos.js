@@ -1,4 +1,21 @@
 const gradeProdutos = document.getElementById("gradeProdutos");
+
+function criarCardProduto(produto) {
+    return criarEsqueletoCardListagem(produto).artigo;
+}
+
+function renderizarProdutos() {
+    const fragmento = document.createDocumentFragment();
+
+    PRODUTOS.forEach(function (produto) {
+        fragmento.appendChild(criarCardProduto(produto));
+    });
+
+    gradeProdutos.appendChild(fragmento);
+}
+
+renderizarProdutos();
+
 const produtos = Array.from(
     document.querySelectorAll(".card-listagem")
 );
@@ -39,17 +56,24 @@ const ordenarMaisVendidos = document.getElementById(
     "ordenarMaisVendidos"
 );
 
-const botoesFavorito = document.querySelectorAll(
-    ".favorito-listagem"
-);
-
 let ordenacaoAtual = "";
+
+function debounce(funcao, atrasoMs) {
+    let temporizador = null;
+
+    return function (...argumentos) {
+        window.clearTimeout(temporizador);
+        temporizador = window.setTimeout(function () {
+            funcao.apply(null, argumentos);
+        }, atrasoMs);
+    };
+}
 
 function normalizarTexto(texto) {
     return texto
         .toLowerCase()
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+        .replace(/[̀-ͯ]/g, "");
 }
 
 
@@ -187,14 +211,16 @@ function atualizarPrecoSelecionado() {
         `calc(${percentual}% - 35px)`;
 }
 
+const atualizarProdutosComAtraso = debounce(atualizarProdutos, 200);
+
 buscaPrincipal.addEventListener(
     "input",
-    atualizarProdutos
+    atualizarProdutosComAtraso
 );
 
 buscaFiltro.addEventListener(
     "input",
-    atualizarProdutos
+    atualizarProdutosComAtraso
 );
 
 filtroPreco.addEventListener("input", function () {
@@ -233,44 +259,56 @@ ordenarMaisVendidos.addEventListener(
     }
 );
 
-botoesFavorito.forEach(function (botao) {
+function atualizarBotaoFavorito(botao, favoritado) {
+    botao.classList.toggle("favoritado", favoritado);
+    botao.textContent = favoritado ? "♥" : "♡";
+    botao.setAttribute("aria-pressed", String(favoritado));
+    botao.setAttribute(
+        "aria-label",
+        favoritado
+            ? "Remover produto dos favoritos"
+            : "Adicionar produto aos favoritos"
+    );
+}
+
+produtos.forEach(function (produtoCard) {
+    const botao = produtoCard.querySelector(".favorito-listagem");
+    const id = produtoCard.dataset.id;
+
+    atualizarBotaoFavorito(botao, FavoritosStore.estaFavoritado(id));
+
     botao.addEventListener("click", function () {
-        const favoritado =
-            botao.classList.toggle("favoritado");
-
-        botao.textContent = favoritado ? "♥" : "♡";
-
-        botao.setAttribute(
-            "aria-pressed",
-            String(favoritado)
-        );
-
-        botao.setAttribute(
-            "aria-label",
-            favoritado
-                ? "Remover produto dos favoritos"
-                : "Adicionar produto aos favoritos"
-        );
+        const favoritado = FavoritosStore.alternar(id);
+        atualizarBotaoFavorito(botao, favoritado);
     });
 });
 
-document
-    .querySelectorAll(".adicionar-listagem")
-    .forEach(function (botao) {
-        botao.addEventListener("click", function () {
-            const textoOriginal = botao.innerHTML;
-
-            botao.textContent =
-                "Produto adicionado!";
-
-            botao.disabled = true;
-
-            window.setTimeout(function () {
-                botao.innerHTML = textoOriginal;
-                botao.disabled = false;
-            }, 1800);
-        });
+produtos.forEach(function (produtoCard) {
+    const botao = produtoCard.querySelector(".adicionar-listagem");
+    const id = produtoCard.dataset.id;
+    const produto = PRODUTOS.find(function (item) {
+        return item.id === id;
     });
+
+    botao.addEventListener("click", function () {
+        CarrinhoStore.adicionar({
+            id: produto.id,
+            nome: produto.nome,
+            preco: produto.preco,
+            imagem: produto.imagem
+        });
+
+        const textoOriginal = botao.innerHTML;
+
+        botao.textContent = "Produto adicionado!";
+        botao.disabled = true;
+
+        window.setTimeout(function () {
+            botao.innerHTML = textoOriginal;
+            botao.disabled = false;
+        }, 1800);
+    });
+});
 
 aplicarFiltroPersonagemDaUrl();
 atualizarPrecoSelecionado();

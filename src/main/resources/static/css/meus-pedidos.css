@@ -1,0 +1,115 @@
+.pagina-pedidos {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 36px 60px;
+}
+
+.breadcrumb-checkout {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--cor-cinza);
+    margin-bottom: 18px;
+}
+
+.breadcrumb-checkout a {
+    color: var(--cor-cinza);
+    text-decoration: none;
+}
+
+.titulo-checkout {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+
+.mensagem-carrinho {
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 15px;
+}
+
+.mensagem-carrinho a {
+    color: var(--cor-roxo-destaque1);
+}
+
+#listaPedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card-pedido {
+    background-color: var(--cor-branco);
+    border: 2px solid #bdbdbd;
+    border-radius: 12px;
+    padding: 20px 22px;
+}
+
+.card-pedido-cabecalho {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.card-pedido-numero {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 17px;
+}
+
+.card-pedido-status {
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--cor-branco);
+    background-color: var(--cor-verde-sucesso);
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.card-pedido-data {
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--cor-cinza);
+}
+
+.card-pedido-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 14px;
+}
+
+.card-pedido-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-pedido-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 14px;
+}
+
+.card-pedido-total {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+}
+
+@media (max-width: 560px) {
+    .pagina-pedidos {
+        padding: 20px 16px 40px;
+    }
+}

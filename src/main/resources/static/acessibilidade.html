@@ -65,8 +65,8 @@
             >
         </div>
 
-        <div class="login">
-            <a href="cadastro.html">
+        <div class="login" id="areaLogin">
+            <a href="cadastro.html" id="linkCadastrar">
                 Cadastrar-se
             </a>
 
@@ -78,6 +78,17 @@
                     Entrar
                 </span>
             </a>
+
+            <div
+                id="areaUsuarioLogado"
+                style="display: none; align-items: center; gap: 14px;"
+            >
+                <span id="saudacaoUsuario"></span>
+
+                <button id="botaoSair" type="button">
+                    Sair
+                </button>
+            </div>
         </div>
     </div>
 
@@ -148,7 +159,7 @@
             </a>
 
             <a
-                class="botao-icone-cabecalho"
+                class="botao-icone-cabecalho link-carrinho-header"
                 href="carrinho.html"
                 aria-label="Abrir carrinho"
             >
@@ -156,6 +167,7 @@
                     src="img/lilcar.png"
                     alt=""
                 >
+                <span class="carrinho-badge"></span>
             </a>
         </div>
     </div>
@@ -967,6 +979,8 @@
     </div>
 </section>
 
+<script src="js/carrinho-store.js"></script>
+<script src="js/sessao.js"></script>
 <script src="js/acessibilidade.js"></script>
 
 </body>

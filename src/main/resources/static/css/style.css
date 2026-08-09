@@ -7,9 +7,9 @@
     --cor-textos: #000000;
     --cor-fundo: #FFFDF3;
     --cor-fundo2: #FCFAEE;
-    --cor-cinza: #b8b8b8;
+    --cor-cinza: #6b6b6b;
     --cor-preto-2: #1F1F1F;
-    --cor-verde-sucesso: #00BFA5;
+    --cor-verde-sucesso: #00806E;
     --cor-roxo-destaque1: #7C4DFF;
     --cor-azul-informativo1: #40C4FF;
     --cor-vermelho-erro1: #FF5252;
@@ -193,6 +193,32 @@ header {
 .botao-icones img {
     height: 35px;
     width: 35px;
+}
+
+.link-carrinho-header,
+.botao-icone-cabecalho {
+    position: relative;
+}
+
+.carrinho-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 999px;
+    background-color: var(--cor-vermelho-erro1);
+    color: var(--cor-branco);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrinho-badge:empty {
+    display: none;
 }
 main {
     padding: 34px 36px;

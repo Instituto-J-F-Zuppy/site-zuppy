@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meus favoritos | Zuppy!</title>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/todos-produtos.css" rel="stylesheet"/>
+<link href="css/meus-favoritos.css" rel="stylesheet"/>
+<link href="css/acessibilidade.css" rel="stylesheet"/></head>
+<body>
+<header>
+<div class="header">
+<a class="logo-area" href="index.html">
+<img alt="Logo Zuppy" id="logo" src="img/logo_zuppy.png"/>
+</a>
+<div class="search-box">
+<img alt="" id="lupa_icon" src="img/lupa_icon.png"/>
+<input aria-label="Pesquisar produtos" id="searchInput" placeholder="Encontre seu próximo brinquedo favorito..." type="text"/>
+</div>
+<div class="login" id="areaLogin">
+<a href="cadastro.html" id="linkCadastrar">
+                    Cadastrar-se
+                </a>
+<a href="login.html" id="linkEntrar">
+<button id="botao-entrar">
+                        Entrar
+                    </button>
+</a>
+<div id="areaUsuarioLogado" style="display: none; align-items: center; gap: 14px;">
+<span id="saudacaoUsuario"></span>
+<button id="botaoSair" type="button">Sair</button>
+</div>
+</div>
+</div>
+<div class="header2" id="headerBottom">
+<div class="cep">
+<img alt="" id="loc_icon" src="img/loc_icon.png"/>
+<span>
+                    Entregar em:
+                    <strong>00000-000</strong>
+</span>
+</div>
+<nav class="nav-menu">
+<a href="todos-produtos.html">Todos os produtos</a>
+<a href="todos-produtos.html?personagem=Anna">Anna</a>
+<a href="todos-produtos.html?personagem=Emanuelly">Emanuelly</a>
+<a href="todos-produtos.html?personagem=Julio">Julio</a>
+<a href="todos-produtos.html?personagem=Sena">Sena</a>
+<a href="todos-produtos.html?personagem=Shiniti">Shiniti</a>
+</nav>
+<div class="botao-icones">
+<a aria-label="Página de acessibilidade" class="botao-icone-cabecalho" href="acessibilidade.html"><img alt="" src="img/acessibilidade_icon.png"/></a>
+<img alt="Fale com a gente pelo WhatsApp" src="img/whatsapp_icon.png"/>
+<a class="link-carrinho-header" href="carrinho.html"><img alt="Meu Carrinho" src="img/lilcar.png"/><span class="carrinho-badge"></span></a>
+</div>
+</div>
+</header>
+<main class="pagina-favoritos">
+<nav aria-label="Navegação estrutural" class="breadcrumb-favoritos">
+<a href="index.html">
+                Início
+            </a>
+<span aria-hidden="true">&lt;</span>
+<strong>
+                Meus favoritos
+            </strong>
+</nav>
+<div class="titulo-favoritos">
+<h1>Meus favoritos</h1>
+<span id="quantidadeFavoritosTitulo">0 itens</span>
+</div>
+<div class="grade-favoritos" id="gradeFavoritos">
+</div>
+<div class="favoritos-vazio" id="favoritosVazio">
+<h2>Você ainda não favoritou nenhum produto</h2>
+<p>
+                Toque no coração dos produtos para salvá-los aqui.
+            </p>
+<a href="todos-produtos.html">
+                Ver produtos
+            </a>
+</div>
+</main>
+<script src="js/produtos-data.js"></script>
+<script src="js/favoritos-store.js"></script>
+<script src="js/carrinho-store.js"></script>
+<script src="js/sessao.js"></script>
+<script src="js/produto-card.js"></script>
+<script src="js/meus-favoritos.js"></script>
+<script src="js/acessibilidade.js"></script></body>
+</html>

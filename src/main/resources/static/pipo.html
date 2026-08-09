@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pipo | Zuppy</title>
+
+    <title>Pipo | Zuppy!</title>
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/pipo.css">
+    <link rel="stylesheet" href="css/acessibilidade.css">
+    <link rel="stylesheet" href="css/rodape-acessivel.css">
 </head>
 
 <body>
@@ -13,51 +17,146 @@
 <header>
 
     <div class="header">
-        <a href="index.jsp" class="logo-area"><img src="img/logo_zuppy.png" alt="Logo Zuppy" id="logo"></a>
+
+        <a href="index.html" class="logo-area">
+            <img
+                src="img/logo_zuppy.png"
+                alt="Página inicial do Zuppy!"
+                id="logo"
+            >
+        </a>
 
         <div class="search-box">
-            <img src="img/lupa_icon.png" alt="" id="lupa_icon">
 
-            <input type="text" id="searchInput" placeholder="Encontre seu próximo brinquedo favorito...">
+            <img
+                src="img/lupa_icon.png"
+                alt=""
+                id="lupa_icon"
+            >
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Encontre seu próximo brinquedo favorito..."
+                aria-label="Pesquisar brinquedos"
+            >
+
         </div>
 
         <div class="login" id="areaLogin">
-            <a href="cadastro.html" id="linkCadastrar">Cadastrar-se</a>
 
-            <a href="login.html" id="linkEntrar"><button id="botao-entrar">Entrar</button></a>
+            <a href="cadastro.html" id="linkCadastrar">
+                Cadastrar-se
+            </a>
 
-            <div id="areaUsuarioLogado" style="display: none; align-items: center; gap: 14px;">
+            <a href="login.html" id="linkEntrar">
+                <button id="botao-entrar" type="button">
+                    Entrar
+                </button>
+            </a>
+
+            <div
+                id="areaUsuarioLogado"
+                style="display: none; align-items: center; gap: 14px;"
+            >
                 <span id="saudacaoUsuario"></span>
-                <button id="botaoSair" type="button">Sair</button>
+
+                <button id="botaoSair" type="button">
+                    Sair
+                </button>
             </div>
+
         </div>
+
     </div>
 
     <div class="header2" id="headerBottom">
 
         <div class="cep">
-            <img src="img/loc_icon.png" alt="" id="loc_icon">
-            <span>Entregar em: <strong>00000-000</strong></span>
+
+            <img
+                src="img/loc_icon.png"
+                alt=""
+                id="loc_icon"
+            >
+
+            <span>
+                Entregar em:
+                <strong>00000-000</strong>
+            </span>
+
         </div>
 
-        <nav class="nav-menu">
-            <a href="todos-produtos.html">Todos os produtos</a>
-            <a href="#">Anna</a>
-            <a href="#">Emanuelly</a>
-            <a href="#">Julio</a>
-            <a href="#">Sena</a>
-            <a href="#">Shiniti</a>
+        <nav class="nav-menu" aria-label="Navegação principal">
+
+            <a href="todos-produtos.html">
+                Todos os produtos
+            </a>
+
+            <a href="todos-produtos.html?personagem=Adriel">
+                Adriel
+            </a>
+
+            <a href="todos-produtos.html?personagem=Anna">
+                Anna
+            </a>
+
+            <a href="todos-produtos.html?personagem=Emanuelly">
+                Emanuelly
+            </a>
+
+            <a href="todos-produtos.html?personagem=Julio">
+                Júlio
+            </a>
+
+            <a href="todos-produtos.html?personagem=Sena">
+                Sena
+            </a>
+
+            <a href="todos-produtos.html?personagem=Shiniti">
+                Shiniti
+            </a>
+
         </nav>
 
         <div class="botao-icones">
 
-            <img src="img/acessibilidade_icon.png" alt="Sobre Acessibilidade">
+            <a
+                href="acessibilidade.html"
+                class="botao-icone-cabecalho"
+                aria-label="Conheça os recursos de acessibilidade do Zuppy!"
+            >
+                <img
+                    src="img/acessibilidade_icon.png"
+                    alt=""
+                >
+            </a>
 
-            <img src="img/whatsapp_icon.png" alt="Fale com a gente pelo WhatsApp">
+            <a
+                href="#"
+                class="botao-icone-cabecalho"
+                aria-label="Fale com o Zuppy! pelo WhatsApp"
+            >
+                <img
+                    src="img/whatsapp_icon.png"
+                    alt=""
+                >
+            </a>
 
-            <a href="carrinho.html" class="link-carrinho-header">
-                <img src="img/lilcar.png" alt="Carrinho de compras">
-                <span class="carrinho-badge"></span>
+            <a
+                href="carrinho.html"
+                class="link-carrinho-header"
+                aria-label="Abrir carrinho de compras"
+            >
+                <img
+                    src="img/lilcar.png"
+                    alt=""
+                >
+
+                <span
+                    class="carrinho-badge"
+                    aria-hidden="true"
+                ></span>
             </a>
 
         </div>
@@ -68,11 +167,21 @@
 
 <main class="pipo-main">
 
-    <div class="breadcrumb-pipo">
-        <a href="index.html">Início</a>
-        <span>&lt;</span>
-        <strong>Pipo</strong>
-    </div>
+    <nav class="breadcrumb-pipo" aria-label="Caminho da página">
+
+        <a href="index.html">
+            Início
+        </a>
+
+        <span aria-hidden="true">
+            &lt;
+        </span>
+
+        <strong aria-current="page">
+            Pipo
+        </strong>
+
+    </nav>
 
     <div class="titulo-pipo">
         <h1>Pipo</h1>
@@ -81,117 +190,496 @@
     <div class="pipo-conteudo">
 
         <div class="pipo-imagem">
-            <img src="img/pelucia_pipo.png" alt="pipo, o ursinho azul e amarelo mascote do Zuppy!, segurando blocos de montar coloridos">
+
+            <img
+                src="img/pelucia_pipo.png"
+                alt="Pipo, o ursinho azul e amarelo mascote do Zuppy!, segurando blocos de montar coloridos"
+            >
+
         </div>
 
         <div class="pipo-texto">
 
-            <div class="pipo-secao">
-                <h2>O ursinho mais animado do Zuppy!</h2>
-                <p>Olha quem chegou para brincar: esse é o pipo, o ursinho azul e amarelo que representa tudo o que o Zuppy! acredita.</p>
-                <p>pipo é daqueles amigos que ninguém esquece: cor de céu de manhã, cor de sol o dia inteiro. Alegre, curioso e sempre de braços abertos, esperando a próxima brincadeira começar.</p>
-            </div>
+            <section class="pipo-secao">
 
-            <div class="pipo-secao">
-                <h2>Um abraço para cada criança</h2>
-                <p>O pipo não escolhe quem pode brincar com ele. Pelo contrário: ele foi criado para que toda criança se sinta representada, incluída e bem-vinda, do jeitinho que é.</p>
-                <p>Não importa se a brincadeira é em silêncio ou aos gritos de alegria, se é sentado no chão ou em pé pulando, se precisa de um tempinho a mais para começar ou já quer sair correndo. Para o pipo, todo mundo cabe na roda.</p>
-            </div>
+                <h2>
+                    O ursinho mais animado do Zuppy!
+                </h2>
 
-            <div class="pipo-secao">
-                <h2>Por que um ursinho?</h2>
-                <p>Ursos sempre foram sinônimo de conforto. Aquele bichinho de pelúcia que a gente aperta forte quando precisa de coragem, ou de colo. O pipo carrega esse mesmo carinho, só que em forma de mascote: ele é o abraço que dá as boas vindas a cada criança que chega ao Zuppy!.</p>
-            </div>
+                <p>
+                    Olha quem chegou para brincar: esse é o Pipo, o ursinho
+                    azul e amarelo que representa tudo o que o Zuppy! acredita.
+                </p>
 
-            <div class="pipo-secao">
-                <h2>Azul e amarelo, um propósito só</h2>
-                <p>As cores do pipo não foram escolhidas por acaso. Azul e amarelo lado a lado formam uma combinação vibrante, alegre e acolhedora, fácil de identificar e gostosa de olhar. E tem mais: é a mesma combinação usada em campanhas de conscientização sobre autismo, um lembrete carinhoso de que o Zuppy! é, antes de tudo, um espaço pensado para incluir.</p>
-            </div>
+                <p>
+                    Pipo é daqueles amigos que ninguém esquece: cor de céu de
+                    manhã, cor de sol o dia inteiro. Alegre, curioso e sempre
+                    de braços abertos, esperando a próxima brincadeira começar.
+                </p>
 
-            <div class="pipo-secao">
-                <h2>O que o pipo representa</h2>
+            </section>
+
+            <section class="pipo-secao">
+
+                <h2>
+                    Um abraço para cada criança
+                </h2>
+
+                <p>
+                    O Pipo não escolhe quem pode brincar com ele. Pelo
+                    contrário: ele foi criado para que toda criança se sinta
+                    representada, incluída e bem-vinda, do jeitinho que é.
+                </p>
+
+                <p>
+                    Não importa se a brincadeira é em silêncio ou aos gritos
+                    de alegria, se é sentado no chão ou em pé pulando, se
+                    precisa de um tempinho a mais para começar ou já quer sair
+                    correndo. Para o Pipo, todo mundo cabe na roda.
+                </p>
+
+            </section>
+
+            <section class="pipo-secao">
+
+                <h2>
+                    Por que um ursinho?
+                </h2>
+
+                <p>
+                    Ursos sempre foram sinônimo de conforto. Aquele bichinho
+                    de pelúcia que a gente aperta forte quando precisa de
+                    coragem ou de colo. O Pipo carrega esse mesmo carinho, só
+                    que em forma de mascote: ele é o abraço que dá as boas-vindas
+                    a cada criança que chega ao Zuppy!.
+                </p>
+
+            </section>
+
+            <section class="pipo-secao">
+
+                <h2>
+                    Azul e amarelo, um propósito só
+                </h2>
+
+                <p>
+                    As cores do Pipo não foram escolhidas por acaso. Azul e
+                    amarelo lado a lado formam uma combinação vibrante, alegre
+                    e acolhedora, fácil de identificar e gostosa de olhar.
+                </p>
+
+                <p>
+                    E tem mais: é a mesma combinação usada em campanhas de
+                    conscientização sobre o autismo, um lembrete carinhoso de
+                    que o Zuppy! é, antes de tudo, um espaço pensado para incluir.
+                </p>
+
+            </section>
+
+            <section class="pipo-secao">
+
+                <h2>
+                    O que o Pipo representa
+                </h2>
+
                 <ul class="pipo-lista">
-                    <li><strong>Alegria genuína.</strong> Porque brincar deveria ser sempre sinônimo de sorriso.</li>
-                    <li><strong>Acolhimento.</strong> Toda criança que chega encontra um amigo, não uma barreira.</li>
-                    <li><strong>Diversidade.</strong> Cada jeito de brincar é bem-vindo aqui.</li>
-                    <li><strong>Confiança.</strong> Assim como um ursinho de pelúcia, o pipo é presença segura em cada cantinho do Zuppy!.</li>
-                </ul>
-            </div>
 
-            <div class="pipo-secao">
-                <h2>Onde encontrar o pipo</h2>
-                <p>Ele vai estar em todo lugar: guiando a navegação, comemorando junto quando o pedido chega, e dando aquela força quando a criança está escolhendo o brinquedo perfeito. O pipo é a cara do Zuppy!, e o abraço que toda família merece encontrar.</p>
-            </div>
+                    <li>
+                        <strong>Alegria genuína.</strong>
+                        Porque brincar deveria ser sempre sinônimo de sorriso.
+                    </li>
+
+                    <li>
+                        <strong>Acolhimento.</strong>
+                        Toda criança que chega encontra um amigo, não uma barreira.
+                    </li>
+
+                    <li>
+                        <strong>Diversidade.</strong>
+                        Cada jeito de brincar é bem-vindo aqui.
+                    </li>
+
+                    <li>
+                        <strong>Confiança.</strong>
+                        Assim como um ursinho de pelúcia, o Pipo é uma presença
+                        segura em cada cantinho do Zuppy!.
+                    </li>
+
+                </ul>
+
+            </section>
+
+            <section class="pipo-secao">
+
+                <h2>
+                    Onde encontrar o Pipo
+                </h2>
+
+                <p>
+                    Ele vai estar em todo lugar: guiando a navegação,
+                    comemorando junto quando o pedido chega e dando aquela
+                    força quando a criança está escolhendo o brinquedo perfeito.
+                    O Pipo é a cara do Zuppy! e o abraço que toda família merece
+                    encontrar.
+                </p>
+
+            </section>
 
         </div>
 
     </div>
 
-</main>
+    <section
+        class="produtos-relacionados"
+        aria-labelledby="tituloProdutosRelacionados"
+    >
 
-<button class="mascote-flutuante" type="button" aria-label="Falar com o pipo">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="12" cy="12.5" r="6.6" fill="#ffffff"/>
-        <circle cx="6.3" cy="7.4" r="2.4" fill="#ffffff"/>
-        <circle cx="17.7" cy="7.4" r="2.4" fill="#ffffff"/>
-        <circle cx="9.4" cy="11.6" r="1" fill="var(--cor-roxo-destaque1)"/>
-        <circle cx="14.6" cy="11.6" r="1" fill="var(--cor-roxo-destaque1)"/>
-        <path d="M9.6 14.6c.7.7 1.5 1 2.4 1s1.7-.3 2.4-1" stroke="var(--cor-roxo-destaque1)" stroke-width="1.1" stroke-linecap="round"/>
-    </svg>
-</button>
+        <div class="cabecalho-produtos-relacionados">
+
+            <h2 id="tituloProdutosRelacionados">
+                Produtos Relacionados
+            </h2>
+
+            <a href="todos-produtos.html">
+                Ver todos os produtos
+            </a>
+
+        </div>
+
+        <div class="grade-produtos-relacionados">
+
+            <article class="card-produto-relacionado">
+
+                <button
+                    class="favorito-produto-relacionado"
+                    type="button"
+                    aria-label="Adicionar Boneco de Pelúcia Pipo aos favoritos"
+                    aria-pressed="false"
+                >
+                    ♡
+                </button>
+
+                <a
+                    class="link-produto-relacionado"
+                    href="produto.html"
+                >
+
+                    <div class="imagem-produto-relacionado">
+
+                        <img
+                            src="img/produto_pelucia_pip.png"
+                            alt="Boneco de pelúcia do Pipo, mascote azul e amarelo do Zuppy!"
+                        >
+
+                    </div>
+
+                    <span class="tag-produto-relacionado">
+                        Só no Zuppy!
+                    </span>
+
+                    <h3>
+                        Boneco de Pelúcia Pipo
+                    </h3>
+
+                    <div class="area-preco-produto">
+
+                        <p class="preco-produto-relacionado">
+                            R$ 70,00
+                        </p>
+
+                    </div>
+
+                </a>
+
+                <button
+                    class="adicionar-produto-relacionado"
+                    type="button"
+                    data-produto="Boneco de Pelúcia Pipo"
+                >
+
+                    <img
+                        src="img/carrinho-icon.png"
+                        alt=""
+                    >
+
+                    <span>
+                        Adicionar ao carrinho
+                    </span>
+
+                </button>
+
+            </article>
+
+            <article class="card-produto-relacionado">
+
+                <button
+                    class="favorito-produto-relacionado"
+                    type="button"
+                    aria-label="Adicionar Boneco Funko Pop Pipo aos favoritos"
+                    aria-pressed="false"
+                >
+                    ♡
+                </button>
+
+                <a
+                    class="link-produto-relacionado"
+                    href="produto.html"
+                >
+
+                    <div class="imagem-produto-relacionado">
+
+                        <img
+                            src="img/produto_funko_pipo.png"
+                            alt="Boneco Funko Pop do Pipo, mascote azul e amarelo do Zuppy!"
+                        >
+
+                    </div>
+
+                    <span class="tag-produto-relacionado">
+                        Só no Zuppy!
+                    </span>
+
+                    <h3>
+                        Boneco Funko Pop Pipo
+                    </h3>
+
+                    <div class="area-preco-produto">
+
+                        <div class="preco-anterior-produto">
+
+                            <span>
+                                R$ 420,00
+                            </span>
+
+                            <strong>
+                                50% OFF
+                            </strong>
+
+                        </div>
+
+                        <p class="preco-produto-relacionado">
+                            R$ 210,00
+                        </p>
+
+                    </div>
+
+                </a>
+
+                <button
+                    class="adicionar-produto-relacionado"
+                    type="button"
+                    data-produto="Boneco Funko Pop Pipo"
+                >
+
+                    <img
+                        src="img/carrinho-icon.png"
+                        alt=""
+                    >
+
+                    <span>
+                        Adicionar ao carrinho
+                    </span>
+
+                </button>
+
+            </article>
+
+            <article class="card-produto-relacionado">
+
+                <button
+                    class="favorito-produto-relacionado"
+                    type="button"
+                    aria-label="Adicionar Fronha Capa Travesseiro Pipo aos favoritos"
+                    aria-pressed="false"
+                >
+                    ♡
+                </button>
+
+                <a
+                    class="link-produto-relacionado"
+                    href="produto.html"
+                >
+
+                    <div class="imagem-produto-relacionado">
+
+                        <img
+                            src="img/produto_fronha_pipo.png"
+                            alt="Fronha para travesseiro estampada com o Pipo, mascote do Zuppy!"
+                        >
+
+                    </div>
+
+                    <span class="tag-produto-relacionado">
+                        Só no Zuppy!
+                    </span>
+
+                    <h3>
+                        Fronha Capa Travesseiro Pipo
+                    </h3>
+
+                    <div class="area-preco-produto">
+
+                        <p class="preco-produto-relacionado">
+                            R$ 15,00
+                        </p>
+
+                    </div>
+
+                </a>
+
+                <button
+                    class="adicionar-produto-relacionado"
+                    type="button"
+                    data-produto="Fronha Capa Travesseiro Pipo"
+                >
+
+                    <img
+                        src="img/carrinho-icon.png"
+                        alt=""
+                    >
+
+                    <span>
+                        Adicionar ao carrinho
+                    </span>
+
+                </button>
+
+            </article>
+
+        </div>
+
+        <p
+            class="mensagem-produto-adicionado"
+            id="mensagemProdutoAdicionado"
+            role="status"
+            aria-live="polite"
+        ></p>
+
+    </section>
+
+</main>
 
 <footer class="footer">
 
     <div class="footer-content">
 
         <div class="footer-mascote">
-            <img src="img/img_footer.png" alt="Mascote Zuppy" class="mascote-footer">
+
+            <img
+                src="img/img_footer.png"
+                alt="Pipo, mascote do Zuppy!"
+                class="mascote-footer"
+            >
+
         </div>
 
         <div class="footer-links">
 
             <div class="footer-coluna">
-                <h3>Institucional</h3>
-                <a href="sobre.html">Sobre o Zuppy!</a>
-                <a href="pipo.html">pipo</a>
-                <a href="#">Acessibilidade</a>
+
+                <h3>
+                    Institucional
+                </h3>
+
+                <a href="sobre.html">
+                    Sobre o Zuppy!
+                </a>
+
+                <a href="pipo.html" aria-current="page">
+                    Pipo
+                </a>
+
+                <a href="acessibilidade.html">
+                    Acessibilidade
+                </a>
+
             </div>
 
             <div class="footer-coluna">
-                <h3>Produtos</h3>
-                <a href="#">Adriel</a>
-                <a href="#">Anna</a>
-                <a href="#">Emanuelly</a>
-                <a href="#">Júlio</a>
-                <a href="#">Sena</a>
-                <a href="#">Shiniti</a>
+
+                <h3>
+                    Produtos
+                </h3>
+
+                <a href="todos-produtos.html?personagem=Adriel">
+                    Adriel
+                </a>
+
+                <a href="todos-produtos.html?personagem=Anna">
+                    Anna
+                </a>
+
+                <a href="todos-produtos.html?personagem=Emanuelly">
+                    Emanuelly
+                </a>
+
+                <a href="todos-produtos.html?personagem=Julio">
+                    Júlio
+                </a>
+
+                <a href="todos-produtos.html?personagem=Sena">
+                    Sena
+                </a>
+
+                <a href="todos-produtos.html?personagem=Shiniti">
+                    Shiniti
+                </a>
+
             </div>
 
             <div class="footer-coluna">
-                <h3>Atendimento</h3>
-                <a href="#">Central de atendimento</a>
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Política de Frete</a>
-                <a href="#">Política de Trocas e Devoluções</a>
+
+                <h3>
+                    Atendimento
+                </h3>
+
+                <a href="#">
+                    Central de atendimento
+                </a>
+
+                <a href="#">
+                    Política de Privacidade
+                </a>
+
+                <a href="#">
+                    Política de Frete
+                </a>
+
+                <a href="#">
+                    Política de Trocas e Devoluções
+                </a>
+
             </div>
 
         </div>
 
         <div class="footer-redes">
-            <a href="#">
-                <img src="img/facebook_icon.png" alt="Facebook">
+
+            <a href="#" aria-label="Facebook do Zuppy!">
+                <img
+                    src="img/facebook_icon.png"
+                    alt=""
+                >
             </a>
 
-            <a href="#">
-                <img src="img/instagram_icon.png" alt="Instagram">
+            <a href="#" aria-label="Instagram do Zuppy!">
+                <img
+                    src="img/instagram_icon.png"
+                    alt=""
+                >
             </a>
 
-            <a href="#">
-                <img src="img/youtube_icon.png" alt="YouTube">
+            <a href="#" aria-label="YouTube do Zuppy!">
+                <img
+                    src="img/youtube_icon.png"
+                    alt=""
+                >
             </a>
+
         </div>
 
     </div>
+
 </footer>
 
 <section class="footer-extra">
@@ -199,24 +687,58 @@
     <div class="footer-extra-container">
 
         <div class="formas-pagamento">
-            <h3>Formas de pagamento</h3>
+
+            <h3>
+                Formas de pagamento
+            </h3>
 
             <div class="pagamento-icones">
-                <img src="img/picpay.png" alt="PicPay">
-                <img src="img/picpay_vermelha.png" alt="PicPay">
-                <img src="img/picpay_azul.png" alt="PicPay">
-                <img src="img/picpay_roxa.png" alt="PicPay">
+
+                <img
+                    src="img/picpay.png"
+                    alt="PicPay"
+                >
+
+                <img
+                    src="img/picpay_vermelha.png"
+                    alt="PicPay vermelho"
+                >
+
+                <img
+                    src="img/picpay_azul.png"
+                    alt="PicPay azul"
+                >
+
+                <img
+                    src="img/picpay_roxa.png"
+                    alt="PicPay roxo"
+                >
+
             </div>
+
         </div>
 
         <div class="linha-divisoria"></div>
 
         <div class="seguranca-site">
-            <h3>Segurança</h3>
+
+            <h3>
+                Segurança
+            </h3>
 
             <div class="seguranca-icones">
-                <a href="reclame-aqui/reclameaqui.html"><img src="img/reclameaqui.avif" alt="Reclame Aqui"></a>
+
+                <a href="reclame-aqui/reclameaqui.html">
+
+                    <img
+                        src="img/reclameaqui.avif"
+                        alt="Acessar página do Zuppy! no Reclame Aqui"
+                    >
+
+                </a>
+
             </div>
+
         </div>
 
     </div>
@@ -225,5 +747,8 @@
 
 <script src="js/carrinho-store.js"></script>
 <script src="js/script.js"></script>
+<script src="js/pipo.js"></script>
+<script src="js/acessibilidade.js"></script>
+
 </body>
 </html>

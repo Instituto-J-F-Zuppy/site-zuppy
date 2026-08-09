@@ -55,6 +55,7 @@ function criarItemCarrinho(item) {
     const imagem = document.createElement("img");
     imagem.src = item.imagem;
     imagem.alt = item.nome;
+    imagem.loading = "lazy";
     linkImagem.appendChild(imagem);
     artigo.appendChild(linkImagem);
 

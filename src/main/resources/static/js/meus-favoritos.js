@@ -2,77 +2,17 @@ const gradeFavoritos = document.getElementById("gradeFavoritos");
 const favoritosVazio = document.getElementById("favoritosVazio");
 const quantidadeFavoritosTitulo = document.getElementById("quantidadeFavoritosTitulo");
 
-function formatarPreco(valor) {
-    return valor.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    });
-}
-
 function formatarTextoQuantidade(quantidade) {
     return quantidade === 1 ? "1 item" : `${quantidade} itens`;
 }
 
 function criarCardFavorito(produto) {
-    const artigo = document.createElement("article");
-    artigo.className = "card-listagem";
-    artigo.dataset.id = produto.id;
+    const { artigo, botaoFavorito, botaoAdicionar } = criarEsqueletoCardListagem(produto);
 
-    const botaoFavorito = document.createElement("button");
-    botaoFavorito.type = "button";
     botaoFavorito.className = "favorito-listagem favoritado";
     botaoFavorito.setAttribute("aria-pressed", "true");
     botaoFavorito.setAttribute("aria-label", `Remover ${produto.nome} dos favoritos`);
     botaoFavorito.textContent = "♥";
-    artigo.appendChild(botaoFavorito);
-
-    const link = document.createElement("a");
-    link.className = "link-card-listagem";
-    link.href = `produto.html?id=${encodeURIComponent(produto.id)}`;
-
-    const areaImagem = document.createElement("div");
-    areaImagem.className = "imagem-card-listagem";
-    const imagem = document.createElement("img");
-    imagem.src = produto.imagem;
-    imagem.alt = produto.alt || "";
-    areaImagem.appendChild(imagem);
-    link.appendChild(areaImagem);
-
-    const tag = document.createElement("span");
-    tag.className = "tag-listagem";
-    tag.textContent = "Só no Zuppy!";
-    link.appendChild(tag);
-
-    const titulo = document.createElement("h2");
-    titulo.textContent = produto.nome;
-    link.appendChild(titulo);
-
-    const precoAntigoArea = document.createElement("div");
-    precoAntigoArea.className = "preco-antigo-listagem";
-    const precoAntigoSpan = document.createElement("span");
-    precoAntigoSpan.textContent = produto.precoAntigoTexto;
-    const descontoStrong = document.createElement("strong");
-    descontoStrong.textContent = produto.descontoTexto;
-    precoAntigoArea.appendChild(precoAntigoSpan);
-    precoAntigoArea.appendChild(descontoStrong);
-    link.appendChild(precoAntigoArea);
-
-    const precoAtual = document.createElement("p");
-    precoAtual.className = "preco-atual-listagem";
-    precoAtual.textContent = formatarPreco(produto.preco);
-    link.appendChild(precoAtual);
-
-    artigo.appendChild(link);
-
-    const botaoAdicionar = document.createElement("button");
-    botaoAdicionar.type = "button";
-    botaoAdicionar.className = "adicionar-listagem";
-    const iconeCarrinho = document.createElement("img");
-    iconeCarrinho.src = "img/carrinho-icon.png";
-    iconeCarrinho.alt = "";
-    botaoAdicionar.appendChild(iconeCarrinho);
-    botaoAdicionar.appendChild(document.createTextNode("Adicionar ao carrinho"));
-    artigo.appendChild(botaoAdicionar);
 
     botaoFavorito.addEventListener("click", function () {
         FavoritosStore.alternar(produto.id);

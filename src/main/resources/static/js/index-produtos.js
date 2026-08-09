@@ -32,6 +32,7 @@ function criarCardProdutoIndex(produto) {
     const imagem = document.createElement("img");
     imagem.src = produto.imagem;
     imagem.alt = produto.alt || produto.nome;
+    imagem.loading = "lazy";
     areaImagem.appendChild(imagem);
     link.appendChild(areaImagem);
 

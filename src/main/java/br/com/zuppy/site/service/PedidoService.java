@@ -102,7 +102,7 @@ public class PedidoService {
         endereco.setNumero(request.numero().trim());
         endereco.setComplemento(vazioParaNulo(request.complemento()));
         endereco.setBairro(request.bairro().trim());
-        endereco.setCep(request.cep().trim());
+        endereco.setCep(apenasNumeros(request.cep()));
         endereco.setTipoEndereco("ENTREGA");
         endereco.setPrincipal(false);
         Endereco enderecoSalvo = enderecoRepository.save(endereco);
@@ -188,6 +188,10 @@ public class PedidoService {
 
     private String vazioParaNulo(String valor) {
         return (valor == null || valor.isBlank()) ? null : valor.trim();
+    }
+
+    private String apenasNumeros(String valor) {
+        return valor == null ? "" : valor.replaceAll("\\D", "");
     }
 
     private PedidoResponse montarResponseComConsulta(Pedido pedido) {

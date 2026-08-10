@@ -102,6 +102,10 @@
     background-color: rgba(124, 77, 255, 0.08);
 }
 
+#nomeCartao {
+    text-transform: uppercase;
+}
+
 .aviso-pagamento {
     font-family: 'Nunito', Arial, sans-serif;
     font-size: 13px;
@@ -130,6 +134,11 @@
 
 .botao-confirmar-pedido:hover {
     filter: brightness(0.95);
+}
+
+.botao-confirmar-pedido:disabled {
+    cursor: wait;
+    opacity: 0.75;
 }
 
 .resumo-checkout {

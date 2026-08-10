@@ -1,48 +1,139 @@
 function exibirUsuarioLogado() {
-    const token = localStorage.getItem("zuppyToken");
-    const nome = localStorage.getItem("zuppyNome");
+    const linkCadastrar =
+        document.getElementById(
+            "linkCadastrar"
+        );
 
-    const linkCadastrar = document.getElementById("linkCadastrar");
-    const linkEntrar = document.getElementById("linkEntrar");
-    const areaUsuarioLogado = document.getElementById("areaUsuarioLogado");
-    const saudacaoUsuario = document.getElementById("saudacaoUsuario");
-    const botaoSair = document.getElementById("botaoSair");
+    const linkEntrar =
+        document.getElementById(
+            "linkEntrar"
+        );
 
-    if (!token || !nome) {
+    const areaUsuarioLogado =
+        document.getElementById(
+            "areaUsuarioLogado"
+        );
+
+    const saudacaoUsuario =
+        document.getElementById(
+            "saudacaoUsuario"
+        );
+
+    const botaoSair =
+        document.getElementById(
+            "botaoSair"
+        );
+
+    if (
+        !linkCadastrar ||
+        !linkEntrar ||
+        !areaUsuarioLogado ||
+        !saudacaoUsuario ||
+        !botaoSair
+    ) {
         return;
     }
 
-    const primeiroNome = nome.trim().split(" ")[0];
+    const usuario =
+        window.ControleConta
+            ? window.ControleConta
+                .obterUsuario()
+            : null;
 
-    linkCadastrar.style.display = "none";
-    linkEntrar.style.display = "none";
+    if (!usuario) {
+        linkCadastrar.style.display =
+            "";
 
-    areaUsuarioLogado.style.display = "flex";
-    saudacaoUsuario.textContent = `Olá, ${primeiroNome}`;
+        linkEntrar.style.display =
+            "";
 
-    if (!document.getElementById("linkMeusPedidos")) {
-        const linkMeusPedidos = document.createElement("a");
-        linkMeusPedidos.id = "linkMeusPedidos";
-        linkMeusPedidos.href = "meus-pedidos.html";
-        linkMeusPedidos.textContent = "Meus pedidos";
-        linkMeusPedidos.style.fontSize = "13px";
-        areaUsuarioLogado.insertBefore(linkMeusPedidos, saudacaoUsuario);
+        areaUsuarioLogado.style.display =
+            "none";
+
+        return;
     }
 
-    if (!document.getElementById("linkFavoritos")) {
-        const linkFavoritos = document.createElement("a");
-        linkFavoritos.id = "linkFavoritos";
-        linkFavoritos.href = "meus-favoritos.html";
-        linkFavoritos.textContent = "Favoritos";
-        linkFavoritos.style.fontSize = "13px";
-        areaUsuarioLogado.insertBefore(linkFavoritos, saudacaoUsuario);
+    const primeiroNome =
+        usuario.nome
+            .trim()
+            .split(" ")[0];
+
+    linkCadastrar.style.display =
+        "none";
+
+    linkEntrar.style.display =
+        "none";
+
+    areaUsuarioLogado.style.display =
+        "flex";
+
+    saudacaoUsuario.textContent =
+        `Olá, ${primeiroNome}`;
+
+    if (
+        !document.getElementById(
+            "linkMeusPedidos"
+        )
+    ) {
+        const linkMeusPedidos =
+            document.createElement("a");
+
+        linkMeusPedidos.id =
+            "linkMeusPedidos";
+
+        linkMeusPedidos.href =
+            "meus-pedidos.html";
+
+        linkMeusPedidos.textContent =
+            "Meus pedidos";
+
+        linkMeusPedidos.style.fontSize =
+            "13px";
+
+        areaUsuarioLogado.insertBefore(
+            linkMeusPedidos,
+            saudacaoUsuario
+        );
     }
 
-    botaoSair.addEventListener("click", function () {
-        localStorage.removeItem("zuppyToken");
-        localStorage.removeItem("zuppyNome");
-        window.location.reload();
-    });
+    if (
+        !document.getElementById(
+            "linkFavoritos"
+        )
+    ) {
+        const linkFavoritos =
+            document.createElement("a");
+
+        linkFavoritos.id =
+            "linkFavoritos";
+
+        linkFavoritos.href =
+            "meus-favoritos.html";
+
+        linkFavoritos.textContent =
+            "Favoritos";
+
+        linkFavoritos.style.fontSize =
+            "13px";
+
+        areaUsuarioLogado.insertBefore(
+            linkFavoritos,
+            saudacaoUsuario
+        );
+    }
+
+    botaoSair.onclick =
+        function () {
+            localStorage.removeItem(
+                "zuppyToken"
+            );
+
+            localStorage.removeItem(
+                "zuppyNome"
+            );
+
+            window.location.reload();
+        };
 }
 
 exibirUsuarioLogado();

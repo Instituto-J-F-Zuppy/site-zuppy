@@ -9,10 +9,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-bottom: 18px;
+    color: var(--cor-cinza);
     font-family: 'Nunito', Arial, sans-serif;
     font-size: 13px;
-    color: var(--cor-cinza);
-    margin-bottom: 18px;
 }
 
 .breadcrumb-checkout a {
@@ -21,9 +21,9 @@
 }
 
 .titulo-checkout {
+    margin-bottom: 24px;
     font-family: 'Fredoka', sans-serif;
     font-size: 28px;
-    margin-bottom: 24px;
 }
 
 .mensagem-carrinho {
@@ -35,6 +35,42 @@
     color: var(--cor-roxo-destaque1);
 }
 
+.pedidos-carregando {
+    min-height: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.pedidos-carregando p {
+    margin: 0;
+    color: var(--cor-cinza);
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.circulo-carregamento {
+    width: 42px;
+    height: 42px;
+    border: 4px solid #dddddd;
+    border-top-color: var(--cor-roxo-destaque1);
+    border-radius: 50%;
+    animation: girarCarregamento 0.8s linear infinite;
+}
+
+@keyframes girarCarregamento {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 #listaPedidos {
     display: flex;
     flex-direction: column;
@@ -42,10 +78,10 @@
 }
 
 .card-pedido {
-    background-color: var(--cor-branco);
+    padding: 20px 22px;
     border: 2px solid #bdbdbd;
     border-radius: 12px;
-    padding: 20px 22px;
+    background-color: var(--cor-branco);
 }
 
 .card-pedido-cabecalho {
@@ -65,19 +101,19 @@
 }
 
 .card-pedido-status {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: var(--cor-verde-sucesso);
+    color: var(--cor-branco);
     font-family: 'Nunito', Arial, sans-serif;
     font-size: 12px;
     font-weight: 700;
-    color: var(--cor-branco);
-    background-color: var(--cor-verde-sucesso);
-    padding: 4px 12px;
-    border-radius: 999px;
 }
 
 .card-pedido-data {
+    color: var(--cor-cinza);
     font-family: 'Nunito', Arial, sans-serif;
     font-size: 13px;
-    color: var(--cor-cinza);
 }
 
 .card-pedido-itens {
@@ -99,17 +135,30 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
     font-family: 'Nunito', Arial, sans-serif;
     font-size: 14px;
 }
 
 .card-pedido-total {
+    white-space: nowrap;
     font-family: 'Fredoka', sans-serif;
     font-size: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .circulo-carregamento {
+        animation-duration: 1.8s;
+    }
 }
 
 @media (max-width: 560px) {
     .pagina-pedidos {
         padding: 20px 16px 40px;
+    }
+
+    .card-pedido-rodape {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
         letrasDestacadas: false,
         nivelLinhas: 0,
         nivelLetras: 0,
-        modoLeitura: false,
         mascaraLeitura: false,
         guiaLeitura: false,
         destacarLinks: false,
@@ -177,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h3>Navegação e leitura</h3>
                         <div class="zuppy-grade-recursos">
                             ${criarCartao("leitor-sites", "◖))", "Leitor de sites", "Iniciar leitura", false)}
-                            ${criarCartao("modo-leitura", "▤", "Modo leitura", "Desativado", false)}
                             ${criarCartao("mascara-leitura", "▬", "Máscara de leitura", "Desativada", false)}
                             ${criarCartao("guia-leitura", "━", "Guia de leitura", "Desativada", false)}
                             ${criarCartao("destacar-links", "🔗", "Destacar links", "Desativado", false)}
@@ -340,7 +338,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (recurso === "letras-destacadas") documento.dataset.letrasDestacadas = String(configuracoes.letrasDestacadas);
         if (recurso === "espaco-linhas") documento.dataset.espacoLinhas = String(configuracoes.nivelLinhas);
         if (recurso === "espaco-letras") documento.dataset.espacoLetras = String(configuracoes.nivelLetras);
-        if (recurso === "modo-leitura") documento.dataset.modoLeitura = String(configuracoes.modoLeitura);
         if (recurso === "destacar-links") documento.dataset.destacarLinks = String(configuracoes.destacarLinks);
         if (recurso === "lupa-conteudo") documento.dataset.lupaConteudo = String(configuracoes.lupaConteudo);
         if (recurso === "contraste") {
@@ -477,7 +474,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function atualizarBannersTextuais() {
-        const exibir = configuracoes.esconderImagens || configuracoes.modoLeitura;
+        const exibir = configuracoes.esconderImagens;
         if (!exibir) {
             document.querySelectorAll("[data-zuppy-banner-textual]").forEach((elemento) => elemento.remove());
             document.querySelectorAll(".zuppy-conteiner-banner-textual").forEach((elemento) => elemento.classList.remove("zuppy-conteiner-banner-textual"));
@@ -513,7 +510,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function atualizarBeneficiosTextuais() {
-        const exibir = configuracoes.esconderImagens || configuracoes.modoLeitura;
+        const exibir = configuracoes.esconderImagens;
         if (exibir) criarBeneficiosTextuais();
         else document.querySelectorAll("[data-zuppy-beneficios-textuais]").forEach((elemento) => elemento.remove());
     }
@@ -772,10 +769,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (recurso === "espaco-linhas") alternarNivel("nivelLinhas", 3, nomesNivelLinhas, recurso, "Espaçamento entre linhas");
         if (recurso === "espaco-letras") alternarNivel("nivelLetras", 3, nomesNivelLetras, recurso, "Espaçamento entre letras");
         if (recurso === "leitor-sites") alternarLeitorSites();
-        if (recurso === "modo-leitura") {
-            alternarBooleano("modoLeitura", recurso, "Modo leitura ativado.", "Modo leitura desativado.");
-            atualizarConteudosAlternativos();
-        }
         if (recurso === "mascara-leitura") alternarMascara();
         if (recurso === "guia-leitura") alternarGuia();
         if (recurso === "destacar-links") alternarBooleano("destacarLinks", recurso, "Links destacados.", "Destaque de links removido.");
@@ -812,7 +805,6 @@ document.addEventListener("DOMContentLoaded", () => {
         documento.dataset.letrasDestacadas = String(configuracoes.letrasDestacadas);
         documento.dataset.espacoLinhas = String(configuracoes.nivelLinhas);
         documento.dataset.espacoLetras = String(configuracoes.nivelLetras);
-        documento.dataset.modoLeitura = String(configuracoes.modoLeitura);
         documento.dataset.destacarLinks = String(configuracoes.destacarLinks);
         documento.dataset.lupaConteudo = String(configuracoes.lupaConteudo);
         documento.dataset.contrasteAcessivel = String(configuracoes.contraste);
@@ -830,7 +822,6 @@ document.addEventListener("DOMContentLoaded", () => {
         atualizarCartao("estilo-texto", configuracoes.estiloTexto, nomesEstiloTexto[configuracoes.estiloTexto]);
         atualizarCartao("espaco-linhas", configuracoes.nivelLinhas, nomesNivelLinhas[configuracoes.nivelLinhas]);
         atualizarCartao("espaco-letras", configuracoes.nivelLetras, nomesNivelLetras[configuracoes.nivelLetras]);
-        atualizarCartao("modo-leitura", configuracoes.modoLeitura, configuracoes.modoLeitura ? "Ativado" : "Desativado");
         atualizarCartao("destacar-links", configuracoes.destacarLinks, configuracoes.destacarLinks ? "Ativado" : "Desativado");
         atualizarCartao("lupa-conteudo", configuracoes.lupaConteudo, configuracoes.lupaConteudo ? "Ativada" : "Desativada");
         atualizarCartao("contraste", configuracoes.contraste, configuracoes.contraste ? "Ativado" : "Desativado");
@@ -962,7 +953,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!(no instanceof HTMLElement) || no.closest("#zuppyAcessibilidadeRaiz, [vw]")) return;
             if (no.matches(seletorTextos)) aplicarFonteEmElemento(no);
             no.querySelectorAll?.(seletorTextos).forEach(aplicarFonteEmElemento);
-            if (configuracoes.esconderImagens || configuracoes.modoLeitura) {
+            if (configuracoes.esconderImagens) {
                 ocultarImagens();
                 atualizarConteudosAlternativos();
             }

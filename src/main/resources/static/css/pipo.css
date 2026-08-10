@@ -125,11 +125,12 @@
 
 .produtos-relacionados {
     width: 100%;
-    margin-top: 90px;
+    max-width: 1040px;
+    margin: 80px auto 0;
 }
 
 .cabecalho-produtos-relacionados {
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -139,7 +140,7 @@
 .cabecalho-produtos-relacionados h2 {
     margin: 0;
     font-family: 'Fredoka', sans-serif;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 700;
     color: var(--cor-preto-2, #1a1a1a);
 }
@@ -147,7 +148,7 @@
 .cabecalho-produtos-relacionados a {
     color: var(--cor-roxo-destaque1, #7c46ff);
     font-family: 'Nunito', Arial, sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     text-decoration: none;
 }
@@ -164,20 +165,23 @@
 
 .grade-produtos-relacionados {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(3, minmax(0, 300px));
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
 }
 
 .card-produto-relacionado {
+    width: 100%;
     min-width: 0;
-    min-height: 570px;
-    padding: 18px;
+    min-height: 465px;
+    padding: 14px;
     position: relative;
     display: flex;
     flex-direction: column;
     background-color: var(--cor-branco, #ffffff);
     border: 1px solid #dddddd;
-    border-radius: 22px;
+    border-radius: 18px;
     overflow: hidden;
     transition:
         transform 0.25s ease,
@@ -186,9 +190,9 @@
 }
 
 .card-produto-relacionado:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     border-color: #c8c8c8;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.09);
 }
 
 .link-produto-relacionado {
@@ -207,12 +211,12 @@
 }
 
 .favorito-produto-relacionado {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
     padding: 0;
     position: absolute;
-    top: 17px;
-    right: 17px;
+    top: 12px;
+    right: 12px;
     z-index: 3;
     display: flex;
     align-items: center;
@@ -222,7 +226,7 @@
     background-color: transparent;
     color: #aaaaaa;
     font-family: Arial, sans-serif;
-    font-size: 38px;
+    font-size: 32px;
     line-height: 1;
     cursor: pointer;
     transition:
@@ -248,17 +252,17 @@
 
 .imagem-produto-relacionado {
     width: 100%;
-    height: 275px;
-    margin-bottom: 8px;
-    padding: 12px;
+    height: 195px;
+    margin-bottom: 5px;
+    padding: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .imagem-produto-relacionado img {
-    max-width: 92%;
-    max-height: 92%;
+    max-width: 90%;
+    max-height: 90%;
     object-fit: contain;
     display: block;
     transition: transform 0.25s ease;
@@ -271,54 +275,63 @@
 .tag-produto-relacionado {
     width: fit-content;
     max-width: 100%;
-    margin-bottom: 10px;
-    padding: 8px 17px;
-    border-radius: 8px;
+    margin-bottom: 9px;
+    padding: 6px 13px;
+    border-radius: 7px;
     background-color: var(--cor-roxo-destaque1, #7c46ff);
     color: var(--cor-branco, #ffffff);
     font-family: 'Nunito', Arial, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     line-height: 1;
 }
 
 .card-produto-relacionado h3 {
-    margin: 0 0 15px;
+    margin: 0 0 12px;
     font-family: 'Fredoka', sans-serif;
-    font-size: 23px;
+    font-size: 18px;
     font-weight: 600;
+    line-height: 1.25;
     color: var(--cor-preto-2, #1a1a1a);
 }
 
+.area-preco-produto {
+    min-height: 70px;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
 .preco-anterior-produto {
-    margin-bottom: 7px;
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .preco-anterior-produto span {
     color: #aaaaaa;
     font-family: 'Nunito', Arial, sans-serif;
-    font-size: 18px;
+    font-size: 15px;
     text-decoration: line-through;
 }
 
 .preco-anterior-produto strong {
-    padding: 6px 12px;
-    border-radius: 8px;
+    padding: 5px 9px;
+    border-radius: 7px;
     background-color: var(--cor-azul-informativo1, #38bdf8);
     color: var(--cor-preto-2, #1a1a1a);
     font-family: 'Nunito', Arial, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 800;
 }
 
 .preco-produto-relacionado {
-    margin: 0 0 18px;
+    margin: 0 0 14px;
     font-family: 'Fredoka', sans-serif;
-    font-size: 34px;
+    font-size: 28px;
     font-weight: 700;
     line-height: 1.1;
     color: var(--cor-preto-2, #1a1a1a);
@@ -326,21 +339,21 @@
 
 .adicionar-produto-relacionado {
     width: 100%;
-    min-height: 58px;
+    min-height: 50px;
     margin-top: auto;
-    padding: 10px 16px;
+    padding: 8px 12px;
     border: 2px solid transparent;
-    border-radius: 10px;
+    border-radius: 9px;
     background-color: var(--cor-verde-sucesso, #00c7ad);
     color: var(--cor-branco, #ffffff);
     font-family: 'Nunito', Arial, sans-serif;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 700;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
     transition:
         transform 0.2s ease,
         filter 0.2s ease,
@@ -364,8 +377,8 @@
 }
 
 .adicionar-produto-relacionado img {
-    width: 29px;
-    height: 29px;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
 }
 
@@ -375,10 +388,10 @@
 
 .mensagem-produto-adicionado {
     min-height: 24px;
-    margin: 18px 0 0;
+    margin: 16px 0 0;
     color: var(--cor-verde-sucesso, #008f7b);
     font-family: 'Nunito', Arial, sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     text-align: center;
 }
@@ -411,6 +424,12 @@ html[data-contraste-acessivel="true"] .cabecalho-produtos-relacionados a {
     color: #ffff00 !important;
 }
 
+html[data-contraste-acessivel="true"] .preco-anterior-produto strong {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
 @media (max-width: 1100px) {
     .pipo-conteudo {
         grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
@@ -418,27 +437,28 @@ html[data-contraste-acessivel="true"] .cabecalho-produtos-relacionados a {
     }
 
     .grade-produtos-relacionados {
-        gap: 20px;
+        grid-template-columns: repeat(3, minmax(0, 270px));
+        gap: 18px;
     }
 
     .card-produto-relacionado {
-        min-height: 540px;
+        min-height: 440px;
     }
 
     .imagem-produto-relacionado {
-        height: 235px;
+        height: 175px;
     }
 
     .card-produto-relacionado h3 {
-        font-size: 21px;
+        font-size: 17px;
     }
 
     .preco-produto-relacionado {
-        font-size: 30px;
+        font-size: 26px;
     }
 
     .adicionar-produto-relacionado {
-        font-size: 15px;
+        font-size: 13px;
     }
 }
 
@@ -457,7 +477,7 @@ html[data-contraste-acessivel="true"] .cabecalho-produtos-relacionados a {
     }
 
     .grade-produtos-relacionados {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 290px));
     }
 }
 
@@ -510,13 +530,17 @@ html[data-contraste-acessivel="true"] .cabecalho-produtos-relacionados a {
 
     .card-produto-relacionado {
         width: 100%;
-        max-width: 430px;
+        max-width: 300px;
         min-height: 0;
         margin: 0 auto;
     }
 
     .imagem-produto-relacionado {
-        height: 260px;
+        height: 190px;
+    }
+
+    .area-preco-produto {
+        min-height: 65px;
     }
 }
 
@@ -534,18 +558,22 @@ html[data-contraste-acessivel="true"] .cabecalho-produtos-relacionados a {
         font-size: 25px;
     }
 
+    .card-produto-relacionado {
+        max-width: 280px;
+    }
+
     .imagem-produto-relacionado {
-        height: 225px;
+        height: 175px;
     }
 
     .preco-produto-relacionado {
-        font-size: 30px;
+        font-size: 26px;
     }
 
     .adicionar-produto-relacionado {
-        min-height: 54px;
-        padding-right: 10px;
-        padding-left: 10px;
-        font-size: 15px;
+        min-height: 48px;
+        padding-right: 8px;
+        padding-left: 8px;
+        font-size: 13px;
     }
 }

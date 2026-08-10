@@ -29,7 +29,7 @@ public class AuthService {
         this.jwtService = jwtService;
     }
 
-    @Transactional
+    @Transactional //se algo falha faz o fallback 
     public UsuarioResponse cadastrar(RegisterRequest request) {
         String email = request.email().trim().toLowerCase();
         String cpfCnpj = apenasNumeros(request.cpfCnpj());
@@ -73,6 +73,7 @@ public class AuthService {
             throw new BadCredentialsException("Email ou senha invalidos.");
         }
 
+        //bucusca papeis e gera token
         List<String> papeis = usuarioRepository.buscarPapeis(usuario.getId());
         String token = jwtService.gerarToken(usuario.getId(), usuario.getEmail(), papeis);
         return new AuthResponse(token, usuario.getNome());

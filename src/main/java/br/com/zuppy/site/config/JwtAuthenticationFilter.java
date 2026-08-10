@@ -29,24 +29,31 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain filterChain
     ) throws ServletException, IOException {
+        // le o header enviado pelo front
         String header = request.getHeader("Authorization");
 
+        //valida e segue sem autenticar
         if (header == null || !header.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
         try {
+            //remove o prefixo e valida
             Claims claims = jwtService.validar(header.substring(7));
+
+            //extrai papeis e converte
             List<SimpleGrantedAuthority> autorizacoes = papeis(claims).stream()
                     .map(papel -> new SimpleGrantedAuthority("ROLE_" + papel))
                     .toList();
 
+            //cria objeto de autenticação        
             UsernamePasswordAuthenticationToken autenticacao = new UsernamePasswordAuthenticationToken(
                     claims.getSubject(),
                     null,
                     autorizacoes
             );
+            //registra a autenticação
             SecurityContextHolder.getContext().setAuthentication(autenticacao);
         } catch (RuntimeException exception) {
             SecurityContextHolder.clearContext();
@@ -55,6 +62,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    //extrai a lista de papeis 
     @SuppressWarnings("unchecked")
     private List<String> papeis(Claims claims) {
         Object papeis = claims.get("papeis");

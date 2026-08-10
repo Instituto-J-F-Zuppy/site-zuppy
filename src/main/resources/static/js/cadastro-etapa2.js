@@ -204,6 +204,8 @@ formCadastroEtapa2.addEventListener("submit", function (evento) {
         botaoSubmit.textContent = "Enviando...";
     }
 
+    //Conexão front e back 
+    
     fetch("/auth/register", {
         method: "POST",
         headers: {

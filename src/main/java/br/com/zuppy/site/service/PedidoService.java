@@ -37,6 +37,7 @@ import java.util.UUID;
 @Service
 public class PedidoService {
 
+    //traduz o que o front envia     
     private static final Map<String, String> METODOS_PAGAMENTO = Map.of(
             "cartao", "CARTAO_CREDITO",
             "pix", "PIX",
@@ -107,6 +108,7 @@ public class PedidoService {
         endereco.setPrincipal(false);
         Endereco enderecoSalvo = enderecoRepository.save(endereco);
 
+        //traduz a forma de pagamento
         String nomeMetodo = METODOS_PAGAMENTO.get(request.formaPagamento().trim().toLowerCase());
         PagamentoMetodo metodo = pagamentoMetodoRepository.findByNome(nomeMetodo)
                 .orElseThrow(() -> new IllegalStateException("Metodo de pagamento nao cadastrado: " + nomeMetodo));
@@ -119,6 +121,7 @@ public class PedidoService {
 
         BigDecimal total = BigDecimal.ZERO;
 
+        //percorre cada item do carrinho e calcula o subtotal
         for (ItemPedidoRequest itemRequest : request.itens()) {
             Brinquedo brinquedo = brinquedoRepository.findById(itemRequest.brinquedoId())
                     .filter(Brinquedo::getAtivo)

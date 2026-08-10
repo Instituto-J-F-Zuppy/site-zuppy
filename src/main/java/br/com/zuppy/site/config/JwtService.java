@@ -28,6 +28,7 @@ public class JwtService {
         this.expiracaoMs = expiracaoMs;
     }
 
+    //gera o token
     public String gerarToken(Integer usuarioId, String email, List<String> papeis) {
         Instant agora = Instant.now();
 
@@ -41,6 +42,7 @@ public class JwtService {
                 .compact();
     }
 
+    //valida o token
     public Claims validar(String token) {
         return Jwts.parser()
                 .verifyWith(chave)
@@ -49,6 +51,7 @@ public class JwtService {
                 .getPayload();
     }
 
+    //cria a chave 
     private SecretKey criarChave(String segredo) {
         try {
             return Keys.hmacShaKeyFor(Decoders.BASE64.decode(segredo));

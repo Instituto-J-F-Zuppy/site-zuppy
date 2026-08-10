@@ -1,117 +1,297 @@
 const formLogin = document.getElementById("formLogin");
 
 const campoEmail = document.getElementById("email");
+
 const campoSenha = document.getElementById("senha");
 
-const erroEmail = document.getElementById("erroEmail");
-const erroSenha = document.getElementById("erroSenha");
+const erroEmail =
+    document.getElementById(
+        "erroEmail"
+    );
 
-const mostrarSenha = document.getElementById("mostrarSenha");
+const erroSenha =
+    document.getElementById(
+        "erroSenha"
+    );
 
-function mostrarErro(campo, elementoErro, mensagem) {
-    campo.closest(".campo-grupo").classList.add("campo-invalido");
-    elementoErro.textContent = mensagem;
+const mostrarSenha =
+    document.getElementById(
+        "mostrarSenha"
+    );
+
+function mostrarErro(
+    campo,
+    elementoErro,
+    mensagem
+) {
+    campo
+        .closest(".campo-grupo")
+        .classList
+        .add("campo-invalido");
+
+    elementoErro.textContent =
+        mensagem;
 }
 
-function removerErro(campo, elementoErro) {
-    campo.closest(".campo-grupo").classList.remove("campo-invalido");
+function removerErro(
+    campo,
+    elementoErro
+) {
+    campo
+        .closest(".campo-grupo")
+        .classList
+        .remove("campo-invalido");
+
     elementoErro.textContent = "";
 }
 
 function emailValido(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        email
+    );
 }
 
-mostrarSenha.addEventListener("click", function () {
-    const senhaVisivel = campoSenha.type === "text";
+function obterPaginaRetorno() {
+    const parametros =
+        new URLSearchParams(
+            window.location.search
+        );
 
-    campoSenha.type = senhaVisivel ? "password" : "text";
+    const retorno =
+        parametros.get("retorno");
 
-    mostrarSenha.setAttribute(
-        "aria-label",
-        senhaVisivel ? "Mostrar senha" : "Ocultar senha"
-    );
-});
-
-campoEmail.addEventListener("input", function () {
-    removerErro(campoEmail, erroEmail);
-});
-
-campoSenha.addEventListener("input", function () {
-    removerErro(campoSenha, erroSenha);
-});
-
-formLogin.addEventListener("submit", function (evento) {
-    evento.preventDefault();
-
-    const email = campoEmail.value.trim();
-    const senha = campoSenha.value;
-
-    let formularioValido = true;
-
-    removerErro(campoEmail, erroEmail);
-    removerErro(campoSenha, erroSenha);
-
-    if (email === "") {
-        mostrarErro(campoEmail, erroEmail, "Informe seu e-mail.");
-        formularioValido = false;
-    } else if (!emailValido(email)) {
-        mostrarErro(campoEmail, erroEmail, "Digite um e-mail válido.");
-        formularioValido = false;
+    if (!retorno) {
+        return "index.html";
     }
 
-    if (senha === "") {
-        mostrarErro(campoSenha, erroSenha, "Informe sua senha.");
-        formularioValido = false;
+    try {
+        const enderecoRetorno =
+            new URL(
+                retorno,
+                window.location.href
+            );
+
+        if (
+            enderecoRetorno.origin !==
+            window.location.origin
+        ) {
+            return "index.html";
+        }
+
+        const partesCaminho =
+            enderecoRetorno.pathname
+                .split("/")
+                .filter(Boolean);
+
+        const pagina =
+            partesCaminho.pop() ||
+            "index.html";
+
+        return (
+            pagina +
+            enderecoRetorno.search +
+            enderecoRetorno.hash
+        );
+    } catch {
+        return "index.html";
     }
+}
 
-    if (!formularioValido) {
-        const primeiroCampoInvalido = document.querySelector(".campo-invalido input");
-        primeiroCampoInvalido?.focus();
-        return;
+mostrarSenha.addEventListener(
+    "click",
+    function () {
+        const senhaVisivel =
+            campoSenha.type === "text";
+
+        campoSenha.type =
+            senhaVisivel
+                ? "password"
+                : "text";
+
+        mostrarSenha.setAttribute(
+            "aria-label",
+            senhaVisivel
+                ? "Mostrar senha"
+                : "Ocultar senha"
+        );
     }
+);
 
-    const botaoSubmit = formLogin.querySelector("button[type='submit']");
-    const textoOriginalBotao = botaoSubmit ? botaoSubmit.textContent : "";
-
-    if (botaoSubmit) {
-        botaoSubmit.disabled = true;
-        botaoSubmit.textContent = "Entrando...";
+campoEmail.addEventListener(
+    "input",
+    function () {
+        removerErro(
+            campoEmail,
+            erroEmail
+        );
     }
+);
 
-    //cria conexão front e back 
-    fetch("/auth/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email: email, senha: senha }) //converte o objeto JS em String JSON, o spring transforma em loginRequest
-    })
-        .then(async function (resposta) {
-            const dados = await resposta.json().catch(function () {
-                return null;
-            });
+campoSenha.addEventListener(
+    "input",
+    function () {
+        removerErro(
+            campoSenha,
+            erroSenha
+        );
+    }
+);
 
-            if (!resposta.ok) {
-                const mensagem = dados && dados.erro
-                    ? dados.erro
-                    : "Não foi possível entrar. Tente novamente.";
+formLogin.addEventListener(
+    "submit",
+    function (evento) {
+        evento.preventDefault();
 
-                throw new Error(mensagem);
-            }
+        const email =
+            campoEmail.value.trim();
 
-            localStorage.setItem("zuppyToken", dados.token);
-            localStorage.setItem("zuppyNome", dados.nome);
+        const senha =
+            campoSenha.value;
 
-            window.location.href = "index.html";
+        let formularioValido =
+            true;
+
+        removerErro(
+            campoEmail,
+            erroEmail
+        );
+
+        removerErro(
+            campoSenha,
+            erroSenha
+        );
+
+        if (email === "") {
+            mostrarErro(
+                campoEmail,
+                erroEmail,
+                "Informe seu e-mail."
+            );
+
+            formularioValido =
+                false;
+        } else if (
+            !emailValido(email)
+        ) {
+            mostrarErro(
+                campoEmail,
+                erroEmail,
+                "Digite um e-mail válido."
+            );
+
+            formularioValido =
+                false;
+        }
+
+        if (senha === "") {
+            mostrarErro(
+                campoSenha,
+                erroSenha,
+                "Informe sua senha."
+            );
+
+            formularioValido =
+                false;
+        }
+
+        if (!formularioValido) {
+            const primeiroCampoInvalido =
+                document.querySelector(
+                    ".campo-invalido input"
+                );
+
+            primeiroCampoInvalido
+                ?.focus();
+
+            return;
+        }
+
+        const botaoSubmit =
+            formLogin.querySelector(
+                "button[type='submit']"
+            );
+
+        const textoOriginalBotao =
+            botaoSubmit
+                ? botaoSubmit.textContent
+                : "";
+
+        if (botaoSubmit) {
+            botaoSubmit.disabled = true;
+
+            botaoSubmit.textContent =
+                "Entrando...";
+        }
+
+        fetch("/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                senha: senha
+            })
         })
-        .catch(function (erro) {
-            mostrarErro(campoSenha, erroSenha, erro.message);
-        })
-        .finally(function () {
-            if (botaoSubmit) {
-                botaoSubmit.disabled = false;
-                botaoSubmit.textContent = textoOriginalBotao;
-            }
-        });
-});
+            .then(
+                async function (
+                    resposta
+                ) {
+                    const dados =
+                        await resposta
+                            .json()
+                            .catch(
+                                function () {
+                                    return null;
+                                }
+                            );
+
+                    if (!resposta.ok) {
+                        const mensagem =
+                            dados &&
+                            dados.erro
+                                ? dados.erro
+                                : "Não foi possível entrar. Tente novamente.";
+
+                        throw new Error(
+                            mensagem
+                        );
+                    }
+
+                    localStorage.setItem(
+                        "zuppyToken",
+                        dados.token
+                    );
+
+                    localStorage.setItem(
+                        "zuppyNome",
+                        dados.nome
+                    );
+
+                    window.location.href =
+                        obterPaginaRetorno();
+                }
+            )
+            .catch(
+                function (erro) {
+                    mostrarErro(
+                        campoSenha,
+                        erroSenha,
+                        erro.message
+                    );
+                }
+            )
+            .finally(
+                function () {
+                    if (botaoSubmit) {
+                        botaoSubmit.disabled =
+                            false;
+
+                        botaoSubmit.textContent =
+                            textoOriginalBotao;
+                    }
+                }
+            );
+    }
+);

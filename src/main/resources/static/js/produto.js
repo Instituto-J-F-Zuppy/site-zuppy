@@ -1,3 +1,6 @@
+const armazenamentoFavoritosProduto = FavoritosStore;
+const armazenamentoCarrinhoProduto = CarrinhoStore;
+
 function formatarPreco(valor) {
     return valor.toLocaleString("pt-BR", {
         style: "currency",
@@ -5,17 +8,34 @@ function formatarPreco(valor) {
     });
 }
 
-const parametros = new URLSearchParams(window.location.search);
-const idProduto = parametros.get("id");
+const parametros =
+    new URLSearchParams(window.location.search);
 
-const produto = PRODUTOS.find(function (item) {
-    return item.id === idProduto;
-});
+const idProduto =
+    parametros.get("id");
 
-const produtoDetalhes = document.getElementById("produtoDetalhes");
-const produtoDescricaoSecao = document.getElementById("produtoDescricaoSecao");
-const produtoEspecificacoesSecao = document.getElementById("produtoEspecificacoesSecao");
-const produtoNaoEncontrado = document.getElementById("produtoNaoEncontrado");
+const produto =
+    PRODUTOS.find(function (item) {
+        return item.id === idProduto;
+    });
+
+const produtoDetalhes =
+    document.getElementById("produtoDetalhes");
+
+const produtoDescricaoSecao =
+    document.getElementById(
+        "produtoDescricaoSecao"
+    );
+
+const produtoEspecificacoesSecao =
+    document.getElementById(
+        "produtoEspecificacoesSecao"
+    );
+
+const produtoNaoEncontrado =
+    document.getElementById(
+        "produtoNaoEncontrado"
+    );
 
 if (!produto) {
     produtoDetalhes.style.display = "none";
@@ -23,36 +43,132 @@ if (!produto) {
     produtoEspecificacoesSecao.style.display = "none";
     produtoNaoEncontrado.style.display = "block";
 } else {
-    document.title = `${produto.nome} | Zuppy!`;
+    document.title =
+        `${produto.nome} | Zuppy!`;
 
-    document.getElementById("breadcrumbPersonagem").textContent = produto.personagem;
-    document.getElementById("breadcrumbPersonagem").href =
-        `todos-produtos.html?personagem=${encodeURIComponent(produto.personagem)}`;
-    document.getElementById("breadcrumbNome").textContent = produto.nome;
+    const linkPersonagemNavegacao =
+        document.getElementById(
+            "breadcrumbPersonagem"
+        );
 
-    document.getElementById("imagemProdutoMiniatura").src = produto.imagem;
-    document.getElementById("imagemProdutoMiniatura").alt = produto.alt || produto.nome;
+    linkPersonagemNavegacao.textContent =
+        produto.personagem;
 
-    const imagemProdutoPrincipal = document.getElementById("imagemProdutoPrincipal");
-    imagemProdutoPrincipal.src = produto.imagem;
-    imagemProdutoPrincipal.alt = produto.alt || produto.nome;
+    linkPersonagemNavegacao.href =
+        `todos-produtos.html?personagem=${encodeURIComponent(
+            produto.personagem
+        )}`;
 
-    document.getElementById("produtoNome").textContent = produto.nome;
-    document.getElementById("produtoPrecoAntigo").textContent = produto.precoAntigoTexto;
-    document.getElementById("produtoDesconto").textContent = produto.descontoTexto;
-    document.getElementById("produtoPrecoAtual").textContent = formatarPreco(produto.preco);
-    document.getElementById("produtoDescricao").textContent =
+    document.getElementById(
+        "breadcrumbNome"
+    ).textContent = produto.nome;
+
+    const imagemProdutoMiniatura =
+        document.getElementById(
+            "imagemProdutoMiniatura"
+        );
+
+    imagemProdutoMiniatura.src =
+        produto.imagem;
+
+    imagemProdutoMiniatura.alt =
+        produto.alt || produto.nome;
+
+    const imagemProdutoPrincipal =
+        document.getElementById(
+            "imagemProdutoPrincipal"
+        );
+
+    imagemProdutoPrincipal.src =
+        produto.imagem;
+
+    imagemProdutoPrincipal.alt =
+        produto.alt || produto.nome;
+
+    document.getElementById(
+        "produtoNome"
+    ).textContent = produto.nome;
+
+    const areaPrecoAnterior =
+        document.querySelector(
+            ".preco-anterior-area"
+        );
+
+    const produtoPrecoAntigo =
+        document.getElementById(
+            "produtoPrecoAntigo"
+        );
+
+    const produtoDesconto =
+        document.getElementById(
+            "produtoDesconto"
+        );
+
+    if (
+        produto.precoAntigoTexto &&
+        produto.descontoTexto
+    ) {
+        produtoPrecoAntigo.textContent =
+            produto.precoAntigoTexto;
+
+        produtoDesconto.textContent =
+            produto.descontoTexto;
+
+        areaPrecoAnterior.style.display =
+            "flex";
+    } else {
+        produtoPrecoAntigo.textContent =
+            "";
+
+        produtoDesconto.textContent =
+            "";
+
+        areaPrecoAnterior.style.display =
+            "none";
+    }
+
+    document.getElementById(
+        "produtoPrecoAtual"
+    ).textContent =
+        formatarPreco(produto.preco);
+
+    document.getElementById(
+        "produtoDescricao"
+    ).textContent =
         `${produto.nome} é um dos destaques da coleção Zuppy!, pensado para trazer diversão, ` +
         `carinho e muitas aventuras. Ideal para colecionar, decorar ou presentear.`;
-    document.getElementById("produtoEspecPersonagem").textContent = produto.personagem;
-    document.getElementById("produtoEspecVendas").textContent = `${produto.vendas} unidades`;
 
-    const botaoFavorito = document.getElementById("botaoFavorito");
+    document.getElementById(
+        "produtoEspecPersonagem"
+    ).textContent =
+        produto.personagem;
 
-    function atualizarBotaoFavorito(favoritado) {
-        botaoFavorito.classList.toggle("favoritado", favoritado);
-        botaoFavorito.textContent = favoritado ? "♥" : "♡";
-        botaoFavorito.setAttribute("aria-pressed", String(favoritado));
+    document.getElementById(
+        "produtoEspecVendas"
+    ).textContent =
+        `${produto.vendas} unidades`;
+
+    const botaoFavorito =
+        document.getElementById(
+            "botaoFavorito"
+        );
+
+    function atualizarBotaoFavorito(
+        favoritado
+    ) {
+        botaoFavorito.classList.toggle(
+            "favoritado",
+            favoritado
+        );
+
+        botaoFavorito.textContent =
+            favoritado ? "♥" : "♡";
+
+        botaoFavorito.setAttribute(
+            "aria-pressed",
+            String(favoritado)
+        );
+
         botaoFavorito.setAttribute(
             "aria-label",
             favoritado
@@ -61,63 +177,131 @@ if (!produto) {
         );
     }
 
-    atualizarBotaoFavorito(FavoritosStore.estaFavoritado(produto.id));
+    atualizarBotaoFavorito(
+        armazenamentoFavoritosProduto
+            .estaFavoritado(produto.id)
+    );
 
-    botaoFavorito.addEventListener("click", function () {
-        const favoritado = FavoritosStore.alternar(produto.id);
-        atualizarBotaoFavorito(favoritado);
-    });
+    botaoFavorito.addEventListener(
+        "click",
+        function () {
+            const favoritado =
+                armazenamentoFavoritosProduto
+                    .alternar(produto.id);
 
-    const botaoAdicionar = document.getElementById("adicionarCarrinho");
-    const mensagemCarrinho = document.getElementById("mensagemCarrinho");
+            atualizarBotaoFavorito(
+                favoritado
+            );
+        }
+    );
 
-    botaoAdicionar.addEventListener("click", function () {
-        CarrinhoStore.adicionar({
-            id: produto.id,
-            nome: produto.nome,
-            preco: produto.preco,
-            imagem: produto.imagem
-        });
+    const botaoAdicionar =
+        document.getElementById(
+            "adicionarCarrinho"
+        );
 
-        mensagemCarrinho.textContent = `${produto.nome} foi adicionado ao carrinho!`;
+    const mensagemCarrinho =
+        document.getElementById(
+            "mensagemCarrinho"
+        );
 
-        window.setTimeout(function () {
-            mensagemCarrinho.textContent = "";
-        }, 3000);
-    });
+    botaoAdicionar.addEventListener(
+        "click",
+        function () {
+            armazenamentoCarrinhoProduto.adicionar({
+                id: produto.id,
+                nome: produto.nome,
+                preco: produto.preco,
+                imagem: produto.imagem
+            });
 
-    document.getElementById("comprarAgora").addEventListener("click", function () {
-        CarrinhoStore.adicionar({
-            id: produto.id,
-            nome: produto.nome,
-            preco: produto.preco,
-            imagem: produto.imagem
-        });
+            mensagemCarrinho.textContent =
+                `${produto.nome} foi adicionado ao carrinho!`;
 
-        window.location.href = "carrinho.html";
-    });
+            window.setTimeout(
+                function () {
+                    mensagemCarrinho.textContent =
+                        "";
+                },
+                3000
+            );
+        }
+    );
 
-    const areaZoomProduto = document.getElementById("areaZoomProduto");
+    document.getElementById(
+        "comprarAgora"
+    ).addEventListener(
+        "click",
+        function () {
+            armazenamentoCarrinhoProduto.adicionar({
+                id: produto.id,
+                nome: produto.nome,
+                preco: produto.preco,
+                imagem: produto.imagem
+            });
 
-    areaZoomProduto.addEventListener("mouseenter", function () {
-        areaZoomProduto.classList.add("zoom-ativo");
-    });
+            window.location.href =
+                "carrinho.html";
+        }
+    );
 
-    areaZoomProduto.addEventListener("mousemove", function (evento) {
-        const limites = areaZoomProduto.getBoundingClientRect();
+    const areaZoomProduto =
+        document.getElementById(
+            "areaZoomProduto"
+        );
 
-        const posicaoX = evento.clientX - limites.left;
-        const posicaoY = evento.clientY - limites.top;
+    areaZoomProduto.addEventListener(
+        "mouseenter",
+        function () {
+            areaZoomProduto.classList.add(
+                "zoom-ativo"
+            );
+        }
+    );
 
-        const percentualX = (posicaoX / limites.width) * 100;
-        const percentualY = (posicaoY / limites.height) * 100;
+    areaZoomProduto.addEventListener(
+        "mousemove",
+        function (evento) {
+            const limites =
+                areaZoomProduto
+                    .getBoundingClientRect();
 
-        imagemProdutoPrincipal.style.transformOrigin =
-            `${percentualX}% ${percentualY}%`;
-    });
+            const posicaoX =
+                evento.clientX -
+                limites.left;
 
-    areaZoomProduto.addEventListener("mouseleave", function () {
-        areaZoomProduto.classList.remove("zoom-ativo");
-        imagemProdutoPrincipal.style.transformOrigin = "center";
-    });
+            const posicaoY =
+                evento.clientY -
+                limites.top;
+
+            const percentualX =
+                (posicaoX /
+                    limites.width) *
+                100;
+
+            const percentualY =
+                (posicaoY /
+                    limites.height) *
+                100;
+
+            imagemProdutoPrincipal
+                .style
+                .transformOrigin =
+                `${percentualX}% ${percentualY}%`;
+        }
+    );
+
+    areaZoomProduto.addEventListener(
+        "mouseleave",
+        function () {
+            areaZoomProduto.classList.remove(
+                "zoom-ativo"
+            );
+
+            imagemProdutoPrincipal
+                .style
+                .transformOrigin =
+                "center";
+        }
+    );
 }

@@ -6,129 +6,330 @@ function formatarMoedaPedido(valor) {
 }
 
 function formatarDataPedido(valorIso) {
-    if (!valorIso) return "";
+    if (!valorIso) {
+        return "";
+    }
 
-    const data = new Date(valorIso);
-    return data.toLocaleDateString("pt-BR", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit"
-    });
+    const data = new Date(
+        valorIso
+    );
+
+    return data.toLocaleDateString(
+        "pt-BR",
+        {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        }
+    );
 }
 
 const STATUS_LEGIVEL = {
-    AGUARDANDO_PAGAMENTO: "Aguardando pagamento",
-    PAGO: "Pago",
-    ENVIADO: "Enviado",
-    ENTREGUE: "Entregue",
-    CANCELADO: "Cancelado"
+    AGUARDANDO_PAGAMENTO:
+        "Aguardando pagamento",
+    PAGO:
+        "Pago",
+    ENVIADO:
+        "Enviado",
+    ENTREGUE:
+        "Entregue",
+    CANCELADO:
+        "Cancelado"
 };
 
 function criarCardPedido(pedido) {
-    const card = document.createElement("article");
-    card.className = "card-pedido";
+    const card =
+        document.createElement(
+            "article"
+        );
 
-    const cabecalho = document.createElement("div");
-    cabecalho.className = "card-pedido-cabecalho";
+    card.className =
+        "card-pedido";
 
-    const numero = document.createElement("span");
-    numero.className = "card-pedido-numero";
-    numero.textContent = pedido.numero;
-    cabecalho.appendChild(numero);
+    const cabecalho =
+        document.createElement(
+            "div"
+        );
 
-    const status = document.createElement("span");
-    status.className = "card-pedido-status";
-    status.textContent = STATUS_LEGIVEL[pedido.status] || pedido.status;
-    cabecalho.appendChild(status);
+    cabecalho.className =
+        "card-pedido-cabecalho";
 
-    const data = document.createElement("span");
-    data.className = "card-pedido-data";
-    data.textContent = formatarDataPedido(pedido.criadoEm);
-    cabecalho.appendChild(data);
+    const numero =
+        document.createElement(
+            "span"
+        );
 
-    card.appendChild(cabecalho);
+    numero.className =
+        "card-pedido-numero";
 
-    const listaItens = document.createElement("div");
-    listaItens.className = "card-pedido-itens";
+    numero.textContent =
+        pedido.numero;
 
-    pedido.itens.forEach(function (item) {
-        const linha = document.createElement("div");
-        linha.className = "card-pedido-item";
+    cabecalho.appendChild(
+        numero
+    );
 
-        const nome = document.createElement("span");
-        nome.textContent = `${item.quantidade}x ${item.nomeBrinquedo}`;
+    const status =
+        document.createElement(
+            "span"
+        );
 
-        const preco = document.createElement("span");
-        preco.textContent = formatarMoedaPedido(item.subtotal);
+    status.className =
+        "card-pedido-status";
 
-        linha.appendChild(nome);
-        linha.appendChild(preco);
-        listaItens.appendChild(linha);
-    });
+    status.textContent =
+        STATUS_LEGIVEL[
+            pedido.status
+        ] ||
+        pedido.status;
 
-    card.appendChild(listaItens);
+    cabecalho.appendChild(
+        status
+    );
 
-    const rodape = document.createElement("div");
-    rodape.className = "card-pedido-rodape";
+    const data =
+        document.createElement(
+            "span"
+        );
 
-    const endereco = document.createElement("span");
-    endereco.textContent = `Entrega: ${pedido.endereco}, ${pedido.numeroEndereco} - ${pedido.cidade}/${pedido.uf}`;
+    data.className =
+        "card-pedido-data";
 
-    const total = document.createElement("span");
-    total.className = "card-pedido-total";
-    total.textContent = formatarMoedaPedido(pedido.valorTotal);
+    data.textContent =
+        formatarDataPedido(
+            pedido.criadoEm
+        );
 
-    rodape.appendChild(endereco);
-    rodape.appendChild(total);
-    card.appendChild(rodape);
+    cabecalho.appendChild(
+        data
+    );
+
+    card.appendChild(
+        cabecalho
+    );
+
+    const listaItens =
+        document.createElement(
+            "div"
+        );
+
+    listaItens.className =
+        "card-pedido-itens";
+
+    pedido.itens.forEach(
+        function (item) {
+            const linha =
+                document.createElement(
+                    "div"
+                );
+
+            linha.className =
+                "card-pedido-item";
+
+            const nome =
+                document.createElement(
+                    "span"
+                );
+
+            nome.textContent =
+                `${item.quantidade}x ${item.nomeBrinquedo}`;
+
+            const preco =
+                document.createElement(
+                    "span"
+                );
+
+            preco.textContent =
+                formatarMoedaPedido(
+                    item.subtotal
+                );
+
+            linha.appendChild(
+                nome
+            );
+
+            linha.appendChild(
+                preco
+            );
+
+            listaItens.appendChild(
+                linha
+            );
+        }
+    );
+
+    card.appendChild(
+        listaItens
+    );
+
+    const rodape =
+        document.createElement(
+            "div"
+        );
+
+    rodape.className =
+        "card-pedido-rodape";
+
+    const endereco =
+        document.createElement(
+            "span"
+        );
+
+    endereco.textContent =
+        `Entrega: ${pedido.endereco}, ${pedido.numeroEndereco} - ${pedido.cidade}/${pedido.uf}`;
+
+    const total =
+        document.createElement(
+            "span"
+        );
+
+    total.className =
+        "card-pedido-total";
+
+    total.textContent =
+        formatarMoedaPedido(
+            pedido.valorTotal
+        );
+
+    rodape.appendChild(
+        endereco
+    );
+
+    rodape.appendChild(
+        total
+    );
+
+    card.appendChild(
+        rodape
+    );
 
     return card;
 }
 
-const pedidosRequerLogin = document.getElementById("pedidosRequerLogin");
-const pedidosVazio = document.getElementById("pedidosVazio");
-const pedidosErro = document.getElementById("pedidosErro");
-const listaPedidos = document.getElementById("listaPedidos");
+const pedidosRequerLogin =
+    document.getElementById(
+        "pedidosRequerLogin"
+    );
 
-const tokenPedidos = localStorage.getItem("zuppyToken");
+const pedidosCarregando =
+    document.getElementById(
+        "pedidosCarregando"
+    );
+
+const pedidosVazio =
+    document.getElementById(
+        "pedidosVazio"
+    );
+
+const pedidosErro =
+    document.getElementById(
+        "pedidosErro"
+    );
+
+const listaPedidos =
+    document.getElementById(
+        "listaPedidos"
+    );
+
+const tokenPedidos =
+    localStorage.getItem(
+        "zuppyToken"
+    );
 
 if (!tokenPedidos) {
-    pedidosRequerLogin.style.display = "block";
+    pedidosCarregando.style.display =
+        "none";
+
+    pedidosRequerLogin.style.display =
+        "block";
 } else {
-    //conexão front e back 
+    pedidosCarregando.style.display =
+        "flex";
+
+    pedidosVazio.style.display =
+        "none";
+
+    pedidosErro.style.display =
+        "none";
+
     fetch("/pedidos", {
         headers: {
-            "Authorization": `Bearer ${tokenPedidos}`
+            "Authorization":
+                `Bearer ${tokenPedidos}`
         }
     })
-        .then(async function (resposta) {
-            const dados = await resposta.json().catch(function () {
-                return null;
-            });
+        .then(
+            async function (
+                resposta
+            ) {
+                const dados =
+                    await resposta
+                        .json()
+                        .catch(
+                            function () {
+                                return null;
+                            }
+                        );
 
-            if (!resposta.ok) {
-                const mensagem = dados && dados.erro
-                    ? dados.erro
-                    : "Não foi possível carregar seus pedidos. Tente novamente.";
+                if (!resposta.ok) {
+                    const mensagem =
+                        dados &&
+                        dados.erro
+                            ? dados.erro
+                            : "Não foi possível carregar seus pedidos. Tente novamente.";
 
-                throw new Error(mensagem);
+                    throw new Error(
+                        mensagem
+                    );
+                }
+
+                if (
+                    !Array.isArray(
+                        dados
+                    ) ||
+                    dados.length === 0
+                ) {
+                    pedidosVazio.style.display =
+                        "block";
+
+                    return;
+                }
+
+                const fragmento =
+                    document.createDocumentFragment();
+
+                dados.forEach(
+                    function (
+                        pedido
+                    ) {
+                        fragmento.appendChild(
+                            criarCardPedido(
+                                pedido
+                            )
+                        );
+                    }
+                );
+
+                listaPedidos.appendChild(
+                    fragmento
+                );
             }
+        )
+        .catch(
+            function (erro) {
+                pedidosErro.textContent =
+                    erro.message;
 
-            if (!Array.isArray(dados) || dados.length === 0) {
-                pedidosVazio.style.display = "block";
-                return;
+                pedidosErro.style.display =
+                    "block";
             }
-
-            const fragmento = document.createDocumentFragment();
-            dados.forEach(function (pedido) {
-                fragmento.appendChild(criarCardPedido(pedido));
-            });
-            listaPedidos.appendChild(fragmento);
-        })
-        .catch(function (erro) {
-            pedidosErro.textContent = erro.message;
-            pedidosErro.style.display = "block";
-        });
+        )
+        .finally(
+            function () {
+                pedidosCarregando.style.display =
+                    "none";
+            }
+        );
 }

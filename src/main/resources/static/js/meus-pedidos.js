@@ -1,3 +1,4 @@
+// formata valores para real (R$)
 function formatarMoedaPedido(valor) {
     return Number(valor).toLocaleString("pt-BR", {
         style: "currency",
@@ -5,331 +6,167 @@ function formatarMoedaPedido(valor) {
     });
 }
 
+// converte a data iso em data e hora pt-BR
 function formatarDataPedido(valorIso) {
-    if (!valorIso) {
-        return "";
-    }
+    if (!valorIso) return "";
 
-    const data = new Date(
-        valorIso
-    );
+    const data = new Date(valorIso);
 
-    return data.toLocaleDateString(
-        "pt-BR",
-        {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-            hour: "2-digit",
-            minute: "2-digit"
-        }
-    );
+    return data.toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+    });
 }
 
+// traduz os status do backend para o usuario
 const STATUS_LEGIVEL = {
-    AGUARDANDO_PAGAMENTO:
-        "Aguardando pagamento",
-    PAGO:
-        "Pago",
-    ENVIADO:
-        "Enviado",
-    ENTREGUE:
-        "Entregue",
-    CANCELADO:
-        "Cancelado"
+    AGUARDANDO_PAGAMENTO: "Aguardando pagamento",
+    PAGO: "Pago",
+    ENVIADO: "Enviado",
+    ENTREGUE: "Entregue",
+    CANCELADO: "Cancelado"
 };
 
+// monta o card de um pedido
 function criarCardPedido(pedido) {
-    const card =
-        document.createElement(
-            "article"
-        );
+    // cria o elemento do card
+    const card = document.createElement("article");
+    card.className = "card-pedido";
 
-    card.className =
-        "card-pedido";
+    // monta o cabecalho
+    const cabecalho = document.createElement("div");
+    cabecalho.className = "card-pedido-cabecalho";
 
-    const cabecalho =
-        document.createElement(
-            "div"
-        );
+    // numero do pedido
+    const numero = document.createElement("span");
+    numero.className = "card-pedido-numero";
+    numero.textContent = pedido.numero;
+    cabecalho.appendChild(numero);
 
-    cabecalho.className =
-        "card-pedido-cabecalho";
+    // status traduzido
+    const status = document.createElement("span");
+    status.className = "card-pedido-status";
+    status.textContent = STATUS_LEGIVEL[pedido.status] || pedido.status;
+    cabecalho.appendChild(status);
 
-    const numero =
-        document.createElement(
-            "span"
-        );
+    // data do pedido
+    const data = document.createElement("span");
+    data.className = "card-pedido-data";
+    data.textContent = formatarDataPedido(pedido.criadoEm);
+    cabecalho.appendChild(data);
 
-    numero.className =
-        "card-pedido-numero";
+    card.appendChild(cabecalho);
 
-    numero.textContent =
-        pedido.numero;
+    // monta a lista de itens
+    const listaItens = document.createElement("div");
+    listaItens.className = "card-pedido-itens";
 
-    cabecalho.appendChild(
-        numero
-    );
+    // cria cada linha de item
+    pedido.itens.forEach(function (item) {
+        const linha = document.createElement("div");
+        linha.className = "card-pedido-item";
 
-    const status =
-        document.createElement(
-            "span"
-        );
+        // quantidade e nome do item
+        const nome = document.createElement("span");
+        nome.textContent = `${item.quantidade}x ${item.nomeBrinquedo}`;
 
-    status.className =
-        "card-pedido-status";
+        // subtotal
+        const preco = document.createElement("span");
+        preco.textContent = formatarMoedaPedido(item.subtotal);
 
-    status.textContent =
-        STATUS_LEGIVEL[
-            pedido.status
-        ] ||
-        pedido.status;
+        linha.appendChild(nome);
+        linha.appendChild(preco);
+        listaItens.appendChild(linha);
+    });
 
-    cabecalho.appendChild(
-        status
-    );
+    card.appendChild(listaItens);
 
-    const data =
-        document.createElement(
-            "span"
-        );
+    // monta o rodape
+    const rodape = document.createElement("div");
+    rodape.className = "card-pedido-rodape";
 
-    data.className =
-        "card-pedido-data";
+    // endereco de entrega
+    const endereco = document.createElement("span");
+    endereco.textContent = `Entrega: ${pedido.endereco}, ${pedido.numeroEndereco} - ${pedido.cidade}/${pedido.uf}`;
 
-    data.textContent =
-        formatarDataPedido(
-            pedido.criadoEm
-        );
+    // valor total
+    const total = document.createElement("span");
+    total.className = "card-pedido-total";
+    total.textContent = formatarMoedaPedido(pedido.valorTotal);
 
-    cabecalho.appendChild(
-        data
-    );
+    rodape.appendChild(endereco);
+    rodape.appendChild(total);
 
-    card.appendChild(
-        cabecalho
-    );
-
-    const listaItens =
-        document.createElement(
-            "div"
-        );
-
-    listaItens.className =
-        "card-pedido-itens";
-
-    pedido.itens.forEach(
-        function (item) {
-            const linha =
-                document.createElement(
-                    "div"
-                );
-
-            linha.className =
-                "card-pedido-item";
-
-            const nome =
-                document.createElement(
-                    "span"
-                );
-
-            nome.textContent =
-                `${item.quantidade}x ${item.nomeBrinquedo}`;
-
-            const preco =
-                document.createElement(
-                    "span"
-                );
-
-            preco.textContent =
-                formatarMoedaPedido(
-                    item.subtotal
-                );
-
-            linha.appendChild(
-                nome
-            );
-
-            linha.appendChild(
-                preco
-            );
-
-            listaItens.appendChild(
-                linha
-            );
-        }
-    );
-
-    card.appendChild(
-        listaItens
-    );
-
-    const rodape =
-        document.createElement(
-            "div"
-        );
-
-    rodape.className =
-        "card-pedido-rodape";
-
-    const endereco =
-        document.createElement(
-            "span"
-        );
-
-    endereco.textContent =
-        `Entrega: ${pedido.endereco}, ${pedido.numeroEndereco} - ${pedido.cidade}/${pedido.uf}`;
-
-    const total =
-        document.createElement(
-            "span"
-        );
-
-    total.className =
-        "card-pedido-total";
-
-    total.textContent =
-        formatarMoedaPedido(
-            pedido.valorTotal
-        );
-
-    rodape.appendChild(
-        endereco
-    );
-
-    rodape.appendChild(
-        total
-    );
-
-    card.appendChild(
-        rodape
-    );
+    card.appendChild(rodape);
 
     return card;
 }
 
-const pedidosRequerLogin =
-    document.getElementById(
-        "pedidosRequerLogin"
-    );
+// elementos da tela
+const pedidosRequerLogin = document.getElementById("pedidosRequerLogin");
+const pedidosCarregando = document.getElementById("pedidosCarregando");
+const pedidosVazio = document.getElementById("pedidosVazio");
+const pedidosErro = document.getElementById("pedidosErro");
+const listaPedidos = document.getElementById("listaPedidos");
 
-const pedidosCarregando =
-    document.getElementById(
-        "pedidosCarregando"
-    );
+// pega o token do usuario
+const tokenPedidos = localStorage.getItem("zuppyToken");
 
-const pedidosVazio =
-    document.getElementById(
-        "pedidosVazio"
-    );
-
-const pedidosErro =
-    document.getElementById(
-        "pedidosErro"
-    );
-
-const listaPedidos =
-    document.getElementById(
-        "listaPedidos"
-    );
-
-const tokenPedidos =
-    localStorage.getItem(
-        "zuppyToken"
-    );
-
+// pede login se nao tiver token
 if (!tokenPedidos) {
-    pedidosCarregando.style.display =
-        "none";
-
-    pedidosRequerLogin.style.display =
-        "block";
+    pedidosCarregando.style.display = "none";
+    pedidosRequerLogin.style.display = "block";
 } else {
-    pedidosCarregando.style.display =
-        "flex";
+    // mostra o carregando e esconde o resto
+    pedidosCarregando.style.display = "flex";
+    pedidosVazio.style.display = "none";
+    pedidosErro.style.display = "none";
 
-    pedidosVazio.style.display =
-        "none";
-
-    pedidosErro.style.display =
-        "none";
-
+    // busca os pedidos no servidor
     fetch("/pedidos", {
         headers: {
-            "Authorization":
-                `Bearer ${tokenPedidos}`
+            "Authorization": `Bearer ${tokenPedidos}`
         }
     })
-        .then(
-            async function (
-                resposta
-            ) {
-                const dados =
-                    await resposta
-                        .json()
-                        .catch(
-                            function () {
-                                return null;
-                            }
-                        );
+        .then(async function (resposta) {
+            // tenta converter para json
+            const dados = await resposta.json().catch(function () {
+                return null;
+            });
 
-                if (!resposta.ok) {
-                    const mensagem =
-                        dados &&
-                        dados.erro
-                            ? dados.erro
-                            : "Não foi possível carregar seus pedidos. Tente novamente.";
-
-                    throw new Error(
-                        mensagem
-                    );
-                }
-
-                if (
-                    !Array.isArray(
-                        dados
-                    ) ||
-                    dados.length === 0
-                ) {
-                    pedidosVazio.style.display =
-                        "block";
-
-                    return;
-                }
-
-                const fragmento =
-                    document.createDocumentFragment();
-
-                dados.forEach(
-                    function (
-                        pedido
-                    ) {
-                        fragmento.appendChild(
-                            criarCardPedido(
-                                pedido
-                            )
-                        );
-                    }
-                );
-
-                listaPedidos.appendChild(
-                    fragmento
-                );
+            // trata erro do servidor
+            if (!resposta.ok) {
+                const mensagem = dados && dados.erro
+                    ? dados.erro
+                    : "Não foi possível carregar seus pedidos. Tente novamente.";
+                throw new Error(mensagem);
             }
-        )
-        .catch(
-            function (erro) {
-                pedidosErro.textContent =
-                    erro.message;
 
-                pedidosErro.style.display =
-                    "block";
+            // avisa se a lista vier vazia
+            if (!Array.isArray(dados) || dados.length === 0) {
+                pedidosVazio.style.display = "block";
+                return;
             }
-        )
-        .finally(
-            function () {
-                pedidosCarregando.style.display =
-                    "none";
-            }
-        );
+
+            // agrupa os cards antes de jogar na tela
+            const fragmento = document.createDocumentFragment();
+
+            dados.forEach(function (pedido) {
+                fragmento.appendChild(criarCardPedido(pedido));
+            });
+
+            listaPedidos.appendChild(fragmento);
+        })
+        .catch(function (erro) {
+            // mostra a mensagem de erro se der falha
+            pedidosErro.textContent = erro.message;
+            pedidosErro.style.display = "block";
+        })
+        .finally(function () {
+            // esconde o carregando no final
+            pedidosCarregando.style.display = "none";
+        });
 }

@@ -1,34 +1,406 @@
+// este arquivo funciona como uma "tabela de banco de dados" no front-end.
+// contém a lista de todos os brinquedos/produtos disponíveis no site Zuppy.
+
 const PRODUTOS = [
-    { id: "labu-sena-feminino", brinquedoId: 22, nome: "Boneco LabuSena Feminino", personagem: "Sena", preco: 7300, precoAntigoTexto: "R$14.600,00", descontoTexto: "50% OFF", vendas: 90, imagem: "img/labu_sena_feminino.png", alt: "LabuSena Feminino" },
-    { id: "mini-craque-julio-cesar", brinquedoId: 4, nome: "Mini Craque Julio Cesar", personagem: "Júlio", preco: 15, precoAntigoTexto: "R$30,00", descontoTexto: "50% OFF", vendas: 100, imagem: "img/julio_craque_brinquedo.png", alt: "" },
-    { id: "boneca-bebe-reborn-heitor-shiniti", brinquedoId: 20, nome: "Boneca Bebê Reborn Heitor Shiniti", personagem: "Shiniti", preco: 5000, precoAntigoTexto: "R$10.000,00", descontoTexto: "50% OFF", vendas: 65, imagem: "img/boneca_rosa.png", alt: "" },
-    { id: "boneco-adriel-jessie-toy-story", brinquedoId: 13, nome: "Boneco Adriel Jessie Toy Story", personagem: "Adriel", preco: 1000, precoAntigoTexto: "R$2.000,00", descontoTexto: "50% OFF", vendas: 55, imagem: "img/boneca_adriel.png", alt: "" },
-    { id: "ursinho-de-pelucia-enzo-herrera", brinquedoId: 1, nome: "Ursinho de Pelúcia Enzo Herrera", personagem: "Especiais", preco: 50, precoAntigoTexto: "R$125,00", descontoTexto: "60% OFF", vendas: 19, imagem: "img/ursinho_de_pelucia_enzo_herrera.png", alt: "Ursinho de Pelúcia Enzo Herrera" },
-    { id: "boneco-funko-pop-pedro-sena", brinquedoId: 2, nome: "Boneco Funko Pop Pedro Sena", personagem: "Sena", preco: 150, precoAntigoTexto: "R$189,87", descontoTexto: "21% OFF", vendas: 99, imagem: "img/boneco_funko_pop_pedro_sena.png", alt: "Boneco Funko Pop Pedro Sena" },
-    { id: "boneco-colecionavel-articulado-adriel", brinquedoId: 3, nome: "Boneco Colecionável Articulado Adriel", personagem: "Adriel", preco: 300, precoAntigoTexto: "R$476,19", descontoTexto: "37% OFF", vendas: 36, imagem: "img/boneco_colecionavel_articulado_adriel.png", alt: "Boneco Colecionável Articulado Adriel" },
-    { id: "lego-busto-adriel", brinquedoId: 5, nome: "Lego Busto Adriel", personagem: "Adriel", preco: 600, precoAntigoTexto: "R$810,81", descontoTexto: "26% OFF", vendas: 91, imagem: "img/adriel_lego.png", alt: "Lego Busto Adriel" },
-    { id: "boneco-funko-pop-pedro-sena-edicao-especial", brinquedoId: 6, nome: "Boneco Funko Pop Pedro Sena (Edição Especial)", personagem: "Sena", preco: 175, precoAntigoTexto: "R$380,43", descontoTexto: "54% OFF", vendas: 16, imagem: "img/boneco_funko_pop_pedro_sena_edicao_especial.png", alt: "Boneco Funko Pop Pedro Sena (Edição Especial)" },
-    { id: "quebra-cabeca-julio-copa-do-mundo", brinquedoId: 7, nome: "Quebra-Cabeça Julio Copa do Mundo", personagem: "Júlio", preco: 200, precoAntigoTexto: "R$465,12", descontoTexto: "57% OFF", vendas: 59, imagem: "img/quebra_cabeca_julio_copa_do_mundo.png", alt: "Quebra-Cabeça Julio Copa do Mundo" },
-    { id: "bola-da-copa-do-mundo-2026-heitor-shiniti-edition", brinquedoId: 8, nome: "Bola da Copa do Mundo 2026 Heitor Shiniti Edition", personagem: "Shiniti", preco: 315, precoAntigoTexto: "R$403,85", descontoTexto: "22% OFF", vendas: 8, imagem: "img/bola_da_copa_do_mundo_2026_heitor_shiniti_edition.png", alt: "Bola da Copa do Mundo 2026 Heitor Shiniti Edition" },
-    { id: "figurinha-rara-pedro-sena-copa-do-mundo-2026", brinquedoId: 9, nome: "Figurinha Rara Pedro Sena Copa do Mundo 2026", personagem: "Sena", preco: 10, precoAntigoTexto: "R$13,33", descontoTexto: "25% OFF", vendas: 32, imagem: "img/figurinha_rara_pedro_sena_copa_do_mundo_2026.png", alt: "Figurinha Rara Pedro Sena Copa do Mundo 2026" },
-    { id: "boneco-soccer-star-emanuelly-brasil", brinquedoId: 10, nome: "Boneco Soccer Star Emanuelly Brasil", personagem: "Emanuelly", preco: 100, precoAntigoTexto: "R$151,52", descontoTexto: "34% OFF", vendas: 69, imagem: "img/boneco_soccer_star_emanuelly_brasil.png", alt: "Boneco Soccer Star Emanuelly Brasil" },
-    { id: "lego-professores-germinare-nisflei", brinquedoId: 11, nome: "Lego Professores Germinare Nisflei", personagem: "Especiais", preco: 120, precoAntigoTexto: "R$285,71", descontoTexto: "58% OFF", vendas: 8, imagem: "img/lego_professores_germinare_nisflei.png", alt: "Lego Professores Germinare Nisflei" },
-    { id: "lego-instituto-jef-muitas-pecas", brinquedoId: 12, nome: "Lego Instituto J&F Muitas Peças", personagem: "Especiais", preco: 3000, precoAntigoTexto: "R$6.666,67", descontoTexto: "55% OFF", vendas: 30, imagem: "img/lego_instituto_jef_muitas_pecas.png", alt: "Lego Instituto J&F Muitas Peças" },
-    { id: "boneco-adriel-jessie-toy-story-2", brinquedoId: 13, nome: "Boneco Adriel Jessie Toy Story", personagem: "Adriel", preco: 1000, precoAntigoTexto: "R$2.173,91", descontoTexto: "54% OFF", vendas: 58, imagem: "img/boneco_adriel_jessie_toy_story.png", alt: "Boneco Adriel Jessie Toy Story" },
-    { id: "boneco-pedro-sena-buzz-lightyear-toy-story", brinquedoId: 14, nome: "Boneco Pedro Sena Buzz Lightyear Toy Story", personagem: "Sena", preco: 1000, precoAntigoTexto: "R$1.515,15", descontoTexto: "34% OFF", vendas: 62, imagem: "img/boneco_pedro_sena_buzz_lightyear_toy_story.png", alt: "Boneco Pedro Sena Buzz Lightyear Toy Story" },
-    { id: "boneco-julio-woody-toy-story", brinquedoId: 15, nome: "Boneco Julio Woody Toy Story", personagem: "Júlio", preco: 1000, precoAntigoTexto: "R$2.325,58", descontoTexto: "57% OFF", vendas: 40, imagem: "img/boneco_julio_woody_toy_story.png", alt: "Boneco Julio Woody Toy Story" },
-    { id: "pula-pirata-adriel-edition", brinquedoId: 16, nome: "Pula Pirata Adriel Edition", personagem: "Adriel", preco: 20, precoAntigoTexto: "R$25,00", descontoTexto: "20% OFF", vendas: 102, imagem: "img/pula_pirata_adriel_edition.png", alt: "Pula Pirata Adriel Edition" },
-    { id: "crocodilo-morde-dedo-anna-luisa-edition", brinquedoId: 17, nome: "Crocodilo Morde Dedo Anna Luisa Edition", personagem: "Anna", preco: 20, precoAntigoTexto: "R$28,57", descontoTexto: "30% OFF", vendas: 94, imagem: "img/crocodilo_morde_dedo_anna_luisa_edition.png", alt: "Crocodilo Morde Dedo Anna Luisa Edition" },
-    { id: "boneca-princesa-disney-emanuelly-2", brinquedoId: 18, nome: "Boneca Princesa Disney Emanuelly", personagem: "Emanuelly", preco: 200, precoAntigoTexto: "R$377,36", descontoTexto: "47% OFF", vendas: 48, imagem: "img/emanuelly_vestido.png", alt: "Boneca Princesa Disney Emanuelly" },
-    { id: "boneca-princesa-disney-anna-luisa-2", brinquedoId: 19, nome: "Boneca Princesa Disney Anna Luisa", personagem: "Anna", preco: 200, precoAntigoTexto: "R$317,46", descontoTexto: "37% OFF", vendas: 24, imagem: "img/boneca_anna_vestido.png", alt: "Boneca Princesa Disney Anna Luisa" },
-    { id: "boneca-bebe-reborn-heitor-shiniti-2", brinquedoId: 20, nome: "Boneca Bebê Reborn Heitor Shiniti", personagem: "Shiniti", preco: 5000, precoAntigoTexto: "R$7.462,69", descontoTexto: "33% OFF", vendas: 102, imagem: "img/boneca_rosa.png", alt: "Boneca Bebê Reborn Heitor Shiniti" },
-    { id: "boneco-funko-professor-rodolfo", brinquedoId: 21, nome: "Boneco Funko Professor Rodolfo", personagem: "Especiais", preco: 200, precoAntigoTexto: "R$338,98", descontoTexto: "41% OFF", vendas: 18, imagem: "img/boneco_funko_professor_rodolfo.png", alt: "Boneco Funko Professor Rodolfo" },
-    { id: "boneco-lajuju", brinquedoId: 23, nome: "Boneco LaJuJu", personagem: "Especiais", preco: 7000, precoAntigoTexto: "R$9.459,46", descontoTexto: "26% OFF", vendas: 50, imagem: "img/boneco_lajuju.png", alt: "Boneco LaJuJu" },
-    { id: "boneco-de-pelucia-pipo", brinquedoId: 24, nome: "Boneco de Pelúcia Pipo", personagem: "Especiais", preco: 70, precoAntigoTexto: "", descontoTexto: "", vendas: 82, imagem: "img/produto_pelucia_pip.png", alt: "Boneco de Pelúcia Pipo" },
-    { id: "brinquedo-bebe-controle-divertido-e-inteligente-emanuelly", brinquedoId: 25, nome: "Brinquedo Bebê Controle Divertido e Inteligente Emanuelly", personagem: "Emanuelly", preco: 50, precoAntigoTexto: "R$78,12", descontoTexto: "36% OFF", vendas: 108, imagem: "img/brinquedo_bebe_controle_divertido_e_inteligente_emanuelly.png", alt: "Brinquedo Bebê Controle Divertido e Inteligente Emanuelly" },
-    { id: "fronha-capa-travesseiro-pipo", brinquedoId: 26, nome: "Fronha Capa Travesseiro Pipo", personagem: "Especiais", preco: 15, precoAntigoTexto: "", descontoTexto: "", vendas: 98, imagem: "img/produto_fronha_pipo.png", alt: "Fronha Capa Travesseiro Pipo" },
-    { id: "chute-ao-gol-adriel", brinquedoId: 27, nome: "Chute ao Gol Adriel", personagem: "Adriel", preco: 130, precoAntigoTexto: "R$254,90", descontoTexto: "49% OFF", vendas: 73, imagem: "img/chute_ao_gol_adriel.png", alt: "Chute ao Gol Adriel" },
-    { id: "boneco-joao-bobo-heitor-shiniti", brinquedoId: 28, nome: "Boneco João Bobo Heitor Shiniti", personagem: "Shiniti", preco: 30, precoAntigoTexto: "R$41,10", descontoTexto: "27% OFF", vendas: 53, imagem: "img/boneco_joao_bobo_heitor_shiniti.png", alt: "Boneco João Bobo Heitor Shiniti" },
-    { id: "boneco-funko-pop-pipo", brinquedoId: 29, nome: "Boneco Funko Pop Pipo", personagem: "Especiais", preco: 210, precoAntigoTexto: "R$420,00", descontoTexto: "50% OFF", vendas: 75, imagem: "img/produto_funko_pipo.png", alt: "Boneco Funko Pop Pipo" },
-    { id: "boneco-lego-emanuelly-armada", brinquedoId: 30, nome: "Boneco Lego Emanuelly Armada", personagem: "Emanuelly", preco: 12, precoAntigoTexto: "R$19,35", descontoTexto: "38% OFF", vendas: 111, imagem: "img/boneco_lego_emanuelly_armada.png", alt: "Boneco Lego Emanuelly Armada" }
+    // --- CATEGORIA: SENA & DIVERSOS ---
+    { 
+        id: "labu-sena-feminino",                  // Identificador único de URL (Slug)
+        brinquedoId: 22,                           // ID numérico para integração com backend/banco de dados
+        nome: "Boneco LabuSena Feminino",          // Nome comercial do produto exibido nas páginas
+        personagem: "Sena",                        // Categoria/Filtro por personagem
+        preco: 7300,                               // Preço numérico atual em reais (R$) para cálculos
+        precoAntigoTexto: "R$14.600,00",           // Preço original formatado para exibir desconto ("de R$ X")
+        descontoTexto: "50% OFF",                   // Porcentagem/Badge de desconto para vitrines
+        vendas: 90,                                // Quantidade vendida (usado em ordenações por popularidade)
+        imagem: "img/labu_sena_feminino.png",      // Caminho relativo da imagem principal
+        alt: "LabuSena Feminino"                   // Texto alternativo da imagem para acessibilidade e SEO
+    },
+    { 
+        id: "mini-craque-julio-cesar", 
+        brinquedoId: 4, 
+        nome: "Mini Craque Julio Cesar", 
+        personagem: "Júlio", 
+        preco: 15, 
+        precoAntigoTexto: "R$30,00", 
+        descontoTexto: "50% OFF", 
+        vendas: 100, 
+        imagem: "img/julio_craque_brinquedo.png", 
+        alt: "" 
+    },
+    { 
+        id: "boneca-bebe-reborn-heitor-shiniti", 
+        brinquedoId: 20, 
+        nome: "Boneca Bebê Reborn Heitor Shiniti", 
+        personagem: "Shiniti", 
+        preco: 5000, 
+        precoAntigoTexto: "R$10.000,00", 
+        descontoTexto: "50% OFF", 
+        vendas: 65, 
+        imagem: "img/boneca_rosa.png", 
+        alt: "" 
+    },
+    { 
+        id: "boneco-adriel-jessie-toy-story", 
+        brinquedoId: 13, 
+        nome: "Boneco Adriel Jessie Toy Story", 
+        personagem: "Adriel", 
+        preco: 1000, 
+        precoAntigoTexto: "R$2.000,00", 
+        descontoTexto: "50% OFF", 
+        vendas: 55, 
+        imagem: "img/boneca_adriel.png", 
+        alt: "" 
+    },
+    { 
+        id: "ursinho-de-pelucia-enzo-herrera", 
+        brinquedoId: 1, 
+        nome: "Ursinho de Pelúcia Enzo Herrera", 
+        personagem: "Especiais", 
+        preco: 50, 
+        precoAntigoTexto: "R$125,00", 
+        descontoTexto: "60% OFF", 
+        vendas: 19, 
+        imagem: "img/ursinho_de_pelucia_enzo_herrera.png", 
+        alt: "Ursinho de Pelúcia Enzo Herrera" 
+    },
+
+    // --- CATEGORIA: FUNKO POP & BUSTOS ---
+    { 
+        id: "boneco-funko-pop-pedro-sena", 
+        brinquedoId: 2, 
+        nome: "Boneco Funko Pop Pedro Sena", 
+        personagem: "Sena", 
+        preco: 150, 
+        precoAntigoTexto: "R$189,87", 
+        descontoTexto: "21% OFF", 
+        vendas: 99, 
+        imagem: "img/boneco_funko_pop_pedro_sena.png", 
+        alt: "Boneco Funko Pop Pedro Sena" 
+    },
+    { 
+        id: "boneco-colecionavel-articulado-adriel", 
+        brinquedoId: 3, 
+        nome: "Boneco Colecionável Articulado Adriel", 
+        personagem: "Adriel", 
+        preco: 300, 
+        precoAntigoTexto: "R$476,19", 
+        descontoTexto: "37% OFF", 
+        vendas: 36, 
+        imagem: "img/boneco_colecionavel_articulado_adriel.png", 
+        alt: "Boneco Colecionável Articulado Adriel" 
+    },
+    { 
+        id: "lego-busto-adriel", 
+        brinquedoId: 5, 
+        nome: "Lego Busto Adriel", 
+        personagem: "Adriel", 
+        preco: 600, 
+        precoAntigoTexto: "R$810,81", 
+        descontoTexto: "26% OFF", 
+        vendas: 91, 
+        imagem: "img/adriel_lego.png", 
+        alt: "Lego Busto Adriel" 
+    },
+    { 
+        id: "boneco-funko-pop-pedro-sena-edicao-especial", 
+        brinquedoId: 6, 
+        nome: "Boneco Funko Pop Pedro Sena (Edição Especial)", 
+        personagem: "Sena", 
+        preco: 175, 
+        precoAntigoTexto: "R$380,43", 
+        descontoTexto: "54% OFF", 
+        vendas: 16, 
+        imagem: "img/boneco_funko_pop_pedro_sena_edicao_especial.png", 
+        alt: "Boneco Funko Pop Pedro Sena (Edição Especial)" 
+    },
+
+    // --- CATEGORIA: COPA DO MUNDO & ESPORTES ---
+    { 
+        id: "quebra-cabeca-julio-copa-do-mundo", 
+        brinquedoId: 7, 
+        nome: "Quebra-Cabeça Julio Copa do Mundo", 
+        personagem: "Júlio", 
+        preco: 200, 
+        precoAntigoTexto: "R$465,12", 
+        descontoTexto: "57% OFF", 
+        vendas: 59, 
+        imagem: "img/quebra_cabeca_julio_copa_do_mundo.png", 
+        alt: "Quebra-Cabeça Julio Copa do Mundo" 
+    },
+    { 
+        id: "bola-da-copa-do-mundo-2026-heitor-shiniti-edition", 
+        brinquedoId: 8, 
+        nome: "Bola da Copa do Mundo 2026 Heitor Shiniti Edition", 
+        personagem: "Shiniti", 
+        preco: 315, 
+        precoAntigoTexto: "R$403,85", 
+        descontoTexto: "22% OFF", 
+        vendas: 8, 
+        imagem: "img/bola_da_copa_do_mundo_2026_heitor_shiniti_edition.png", 
+        alt: "Bola da Copa do Mundo 2026 Heitor Shiniti Edition" 
+    },
+    { 
+        id: "figurinha-rara-pedro-sena-copa-do-mundo-2026", 
+        brinquedoId: 9, 
+        nome: "Figurinha Rara Pedro Sena Copa do Mundo 2026", 
+        personagem: "Sena", 
+        preco: 10, 
+        precoAntigoTexto: "R$13,33", 
+        descontoTexto: "25% OFF", 
+        vendas: 32, 
+        imagem: "img/figurinha_rara_pedro_sena_copa_do_mundo_2026.png", 
+        alt: "Figurinha Rara Pedro Sena Copa do Mundo 2026" 
+    },
+    { 
+        id: "boneco-soccer-star-emanuelly-brasil", 
+        brinquedoId: 10, 
+        nome: "Boneco Soccer Star Emanuelly Brasil", 
+        personagem: "Emanuelly", 
+        preco: 100, 
+        precoAntigoTexto: "R$151,52", 
+        descontoTexto: "34% OFF", 
+        vendas: 69, 
+        imagem: "img/boneco_soccer_star_emanuelly_brasil.png", 
+        alt: "Boneco Soccer Star Emanuelly Brasil" 
+    },
+
+    // --- CATEGORIA: COLEÇÃO LEGO & ESPECIAIS ---
+    { 
+        id: "lego-professores-germinare-nisflei", 
+        brinquedoId: 11, 
+        nome: "Lego Professores Germinare Nisflei", 
+        personagem: "Especiais", 
+        preco: 120, 
+        precoAntigoTexto: "R$285,71", 
+        descontoTexto: "58% OFF", 
+        vendas: 8, 
+        imagem: "img/lego_professores_germinare_nisflei.png", 
+        alt: "Lego Professores Germinare Nisflei" 
+    },
+    { 
+        id: "lego-instituto-jef-muitas-pecas", 
+        brinquedoId: 12, 
+        nome: "Lego Instituto J&F Muitas Peças", 
+        personagem: "Especiais", 
+        preco: 3000, 
+        precoAntigoTexto: "R$6.666,67", 
+        descontoTexto: "55% OFF", 
+        vendas: 30, 
+        imagem: "img/lego_instituto_jef_muitas_pecas.png", 
+        alt: "Lego Instituto J&F Muitas Peças" 
+    },
+
+    // --- CATEGORIA: COLEÇÃO TOY STORY ---
+    { 
+        id: "boneco-adriel-jessie-toy-story-2", 
+        brinquedoId: 13, 
+        nome: "Boneco Adriel Jessie Toy Story", 
+        personagem: "Adriel", 
+        preco: 1000, 
+        precoAntigoTexto: "R$2.173,91", 
+        descontoTexto: "54% OFF", 
+        vendas: 58, 
+        imagem: "img/boneco_adriel_jessie_toy_story.png", 
+        alt: "Boneco Adriel Jessie Toy Story" 
+    },
+    { 
+        id: "boneco-pedro-sena-buzz-lightyear-toy-story", 
+        brinquedoId: 14, 
+        nome: "Boneco Pedro Sena Buzz Lightyear Toy Story", 
+        personagem: "Sena", 
+        preco: 1000, 
+        precoAntigoTexto: "R$1.515,15", 
+        descontoTexto: "34% OFF", 
+        vendas: 62, 
+        imagem: "img/boneco_pedro_sena_buzz_lightyear_toy_story.png", 
+        alt: "Boneco Pedro Sena Buzz Lightyear Toy Story" 
+    },
+    { 
+        id: "boneco-julio-woody-toy-story", 
+        brinquedoId: 15, 
+        nome: "Boneco Julio Woody Toy Story", 
+        personagem: "Júlio", 
+        preco: 1000, 
+        precoAntigoTexto: "R$2.325,58", 
+        descontoTexto: "57% OFF", 
+        vendas: 40, 
+        imagem: "img/boneco_julio_woody_toy_story.png", 
+        alt: "Boneco Julio Woody Toy Story" 
+    },
+
+    // --- CATEGORIA: JOGOS DE TABULEIRO & AÇÃO ---
+    { 
+        id: "pula-pirata-adriel-edition", 
+        brinquedoId: 16, 
+        nome: "Pula Pirata Adriel Edition", 
+        personagem: "Adriel", 
+        preco: 20, 
+        precoAntigoTexto: "R$25,00", 
+        descontoTexto: "20% OFF", 
+        vendas: 102, 
+        imagem: "img/pula_pirata_adriel_edition.png", 
+        alt: "Pula Pirata Adriel Edition" 
+    },
+    { 
+        id: "crocodilo-morde-dedo-anna-luisa-edition", 
+        brinquedoId: 17, 
+        nome: "Crocodilo Morde Dedo Anna Luisa Edition", 
+        personagem: "Anna", 
+        preco: 20, 
+        precoAntigoTexto: "R$28,57", 
+        descontoTexto: "30% OFF", 
+        vendas: 94, 
+        imagem: "img/crocodilo_morde_dedo_anna_luisa_edition.png", 
+        alt: "Crocodilo Morde Dedo Anna Luisa Edition" 
+    },
+
+    // --- CATEGORIA: BONECA PRINCESAS & BEBÊ REBORN ---
+    { 
+        id: "boneca-princesa-disney-emanuelly-2", 
+        brinquedoId: 18, 
+        nome: "Boneca Princesa Disney Emanuelly", 
+        personagem: "Emanuelly", 
+        preco: 200, 
+        precoAntigoTexto: "R$377,36", 
+        descontoTexto: "47% OFF", 
+        vendas: 48, 
+        imagem: "img/emanuelly_vestido.png", 
+        alt: "Boneca Princesa Disney Emanuelly" 
+    },
+    { 
+        id: "boneca-princesa-disney-anna-luisa-2", 
+        brinquedoId: 19, 
+        nome: "Boneca Princesa Disney Anna Luisa", 
+        personagem: "Anna", 
+        preco: 200, 
+        precoAntigoTexto: "R$317,46", 
+        descontoTexto: "37% OFF", 
+        vendas: 24, 
+        imagem: "img/boneca_anna_vestido.png", 
+        alt: "Boneca Princesa Disney Anna Luisa" 
+    },
+    { 
+        id: "boneca-bebe-reborn-heitor-shiniti-2", 
+        brinquedoId: 20, 
+        nome: "Boneca Bebê Reborn Heitor Shiniti", 
+        personagem: "Shiniti", 
+        preco: 5000, 
+        precoAntigoTexto: "R$7.462,69", 
+        descontoTexto: "33% OFF", 
+        vendas: 102, 
+        imagem: "img/boneca_rosa.png", 
+        alt: "Boneca Bebê Reborn Heitor Shiniti" 
+    },
+
+    // --- CATEGORIA: ESPECIAIS & PERSONAGENS ÚNICOS ---
+    { 
+        id: "boneco-funko-professor-rodolfo", 
+        brinquedoId: 21, 
+        nome: "Boneco Funko Professor Rodolfo", 
+        personagem: "Especiais", 
+        preco: 200, 
+        precoAntigoTexto: "R$338,98", 
+        descontoTexto: "41% OFF", 
+        vendas: 18, 
+        imagem: "img/boneco_funko_professor_rodolfo.png", 
+        alt: "Boneco Funko Professor Rodolfo" 
+    },
+    { 
+        id: "boneco-lajuju", 
+        brinquedoId: 23, 
+        nome: "Boneco LaJuJu", 
+        personagem: "Especiais", 
+        preco: 7000, 
+        precoAntigoTexto: "R$9.459,46", 
+        descontoTexto: "26% OFF", 
+        vendas: 50, 
+        imagem: "img/boneco_lajuju.png", 
+        alt: "Boneco LaJuJu" 
+    },
+
+    // --- CATEGORIA: LINHA PIPO ---
+    { 
+        id: "boneco-de-pelucia-pipo", 
+        brinquedoId: 24, 
+        nome: "Boneco de Pelúcia Pipo", 
+        personagem: "Especiais", 
+        preco: 70, 
+        precoAntigoTexto: "",                     // produto sem preço antigo (não exibe promoção)
+        descontoTexto: "",                        // produto sem porcentagem de desconto
+        vendas: 82, 
+        imagem: "img/produto_pelucia_pip.png", 
+        alt: "Boneco de Pelúcia Pipo" 
+    },
+    { 
+        id: "brinquedo-bebe-controle-divertido-e-inteligente-emanuelly", 
+        brinquedoId: 25, 
+        nome: "Brinquedo Bebê Controle Divertido e Inteligente Emanuelly", 
+        personagem: "Emanuelly", 
+        preco: 50, 
+        precoAntigoTexto: "R$78,12", 
+        descontoTexto: "36% OFF", 
+        vendas: 108, 
+        imagem: "img/brinquedo_bebe_controle_divertido_e_inteligente_emanuelly.png", 
+        alt: "Brinquedo Bebê Controle Divertido e Inteligente Emanuelly" 
+    },
+    { 
+        id: "fronha-capa-travesseiro-pipo", 
+        brinquedoId: 26, 
+        nome: "Fronha Capa Travesseiro Pipo", 
+        personagem: "Especiais", 
+        preco: 15, 
+        precoAntigoTexto: "", 
+        descontoTexto: "", 
+        vendas: 98, 
+        imagem: "img/produto_fronha_pipo.png", 
+        alt: "Fronha Capa Travesseiro Pipo" 
+    },
+    { 
+        id: "chute-ao-gol-adriel", 
+        brinquedoId: 27, 
+        nome: "Chute ao Gol Adriel", 
+        personagem: "Adriel", 
+        preco: 130, 
+        precoAntigoTexto: "R$254,90", 
+        descontoTexto: "49% OFF", 
+        vendas: 73, 
+        imagem: "img/chute_ao_gol_adriel.png", 
+        alt: "Chute ao Gol Adriel" 
+    },
+    { 
+        id: "boneco-joao-bobo-heitor-shiniti", 
+        brinquedoId: 28, 
+        nome: "Boneco João Bobo Heitor Shiniti", 
+        personagem: "Shiniti", 
+        preco: 30, 
+        precoAntigoTexto: "R$41,10", 
+        descontoTexto: "27% OFF", 
+        vendas: 53, 
+        imagem: "img/boneco_joao_bobo_heitor_shiniti.png", 
+        alt: "Boneco João Bobo Heitor Shiniti" 
+    },
+    { 
+        id: "boneco-funko-pop-pipo", 
+        brinquedoId: 29, 
+        nome: "Boneco Funko Pop Pipo", 
+        personagem: "Especiais", 
+        preco: 210, 
+        precoAntigoTexto: "R$420,00", 
+        descontoTexto: "50% OFF", 
+        vendas: 75, 
+        imagem: "img/produto_funko_pipo.png", 
+        alt: "Boneco Funko Pop Pipo" 
+    },
+    { 
+        id: "boneco-lego-emanuelly-armada", 
+        brinquedoId: 30, 
+        nome: "Boneco Lego Emanuelly Armada", 
+        personagem: "Emanuelly", 
+        preco: 12, 
+        precoAntigoTexto: "R$19,35", 
+        descontoTexto: "38% OFF", 
+        vendas: 111, 
+        imagem: "img/boneco_lego_emanuelly_armada.png", 
+        alt: "Boneco Lego Emanuelly Armada" 
+    }
 ];
